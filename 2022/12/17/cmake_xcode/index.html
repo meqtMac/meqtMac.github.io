@@ -9,7 +9,7 @@
     
     <title>
         
-            Hello World |
+            Use CMake to Generate Xcode C++ Project |
         
         Meqt&#39;s Blog
     </title>
@@ -333,7 +333,7 @@ mjx-container[display="true"] + br {
     <div class="post-page-container">
         <div class="article-content-container">
             <div class="article-title">
-                <span class="title-hover-animation"><h1 style="font-size:2rem; font-weight: bold; margin: 10px 0;">Hello World</h1></span>
+                <span class="title-hover-animation"><h1 style="font-size:2rem; font-weight: bold; margin: 10px 0;">Use CMake to Generate Xcode C++ Project</h1></span>
             </div>
 
             
@@ -350,21 +350,55 @@ mjx-container[display="true"] + br {
                             <div class="article-meta-info">
     <span class="article-date article-meta-item">
         <i class="fa-regular fa-pen-line"></i>&nbsp;
-        <span class="pc">2022-12-17 00:00:00</span>
-        <span class="mobile">2022-12-17 00:00</span>
+        <span class="pc">2022-12-17 01:42:13</span>
+        <span class="mobile">2022-12-17 01:42</span>
     </span>
     
+        <span class="article-categories article-meta-item">
+            <i class="fa-regular fa-folder-open"></i>&nbsp;
+            <ul>
+                
+                    <li>
+                        <a href="/categories/Tutorial/">Tutorial</a>&nbsp;
+                    </li>
+                
+                    <li>
+                        &gt; <a href="/categories/Tutorial/Mac/">Mac</a>&nbsp;
+                    </li>
+                
+            </ul>
+        </span>
+    
+    
+        <span class="article-tags article-meta-item">
+            <i class="fa-regular fa-tags"></i>&nbsp;
+            <ul>
+                
+                    <li>
+                        <a href="/tags/C/">C++</a>&nbsp;
+                    </li>
+                
+                    <li>
+                        | <a href="/tags/CMake/">CMake</a>&nbsp;
+                    </li>
+                
+                    <li>
+                        | <a href="/tags/Xcode/">Xcode</a>&nbsp;
+                    </li>
+                
+            </ul>
+        </span>
     
 
     
     
         <span class="article-wordcount article-meta-item">
-            <i class="fa-solid fa-file-word"></i>&nbsp;<span>102 Words</span>
+            <i class="fa-solid fa-file-word"></i>&nbsp;<span>351 Words</span>
         </span>
     
     
         <span class="article-min2read article-meta-item">
-            <i class="fa-solid fa-clock"></i>&nbsp;<span>1 Mins</span>
+            <i class="fa-solid fa-clock"></i>&nbsp;<span>2 Mins</span>
         </span>
     
     
@@ -380,19 +414,19 @@ mjx-container[display="true"] + br {
             
 
             <div class="article-content markdown-body">
-                <p>Welcome to <a class="link" target="_blank" rel="noopener" href="https://hexo.io/">Hexo<i class="fa-solid fa-up-right-from-square"></i></a>! This is your very first post. Check <a class="link" target="_blank" rel="noopener" href="https://hexo.io/docs/">documentation<i class="fa-solid fa-up-right-from-square"></i></a> for more info. If you get any problems when using Hexo, you can find the answer in <a class="link" target="_blank" rel="noopener" href="https://hexo.io/docs/troubleshooting.html">troubleshooting<i class="fa-solid fa-up-right-from-square"></i></a> or you can ask me on <a class="link" target="_blank" rel="noopener" href="https://github.com/hexojs/hexo/issues">GitHub<i class="fa-solid fa-up-right-from-square"></i></a>.</p>
-<h2 id="Quick-Start"><a href="#Quick-Start" class="headerlink" title="Quick Start"></a>Quick Start</h2><h3 id="Create-a-new-post"><a href="#Create-a-new-post" class="headerlink" title="Create a new post"></a>Create a new post</h3><div class="highlight-container" data-rel="Bash"><figure class="iseeu highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">hexo new <span class="string">"My New Post"</span></span><br></pre></td></tr></table></figure></div>
+                <h2 id="What’s-CMake"><a href="#What’s-CMake" class="headerlink" title="What’s CMake"></a>What’s <a class="link" target="_blank" rel="noopener" href="https://cmake.org/">CMake<i class="fa-solid fa-up-right-from-square"></i></a></h2><p>CMake is used to control the software compilation process using simple platform and compiler independent configuration files, and generate native makefiles and workspaces that can be used in the compiler environment of your choice.</p>
+<p>If you are a C++ programmer, CMake is what you can’t miss, especially when you write cross platform apps. </p>
+<p>When Learning a Computer Graphics Course this year, teacher upload an project with Makefile which doesn’t work on my M1 Mac. I use Xcode for C++ IDE, and it’s frustrued set up file path, include path, library path. Then I learned CMake, which you write a <code>CMakeLists.txt</code> to set up your project, like targets, libraries, and it can generate build file for varies developing environment from UNIX Makefile(Which is the default build system), Visual Studio, to Xcode. What’s more, this makes you code portable, as you can’t send you Xcode Project to a friend who is a Windows user.</p>
+<p>Besides, some library won’t provide you a compile version of the library, instead, you can download source code, and compile on your own computer. For example:</p>
+<div class="highlight-container" data-rel="Bash"><figure class="iseeu highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line">git <span class="built_in">clone</span> https://github.com/oatpp/oatpp.git</span><br><span class="line"><span class="built_in">cd</span> oatpp/</span><br><span class="line"></span><br><span class="line"><span class="built_in">mkdir</span> build &amp;&amp; <span class="built_in">cd</span> build</span><br><span class="line"></span><br><span class="line">cmake ..</span><br><span class="line">make install</span><br></pre></td></tr></table></figure></div>
 
-<p>More info: <a class="link" target="_blank" rel="noopener" href="https://hexo.io/docs/writing.html">Writing<i class="fa-solid fa-up-right-from-square"></i></a></p>
-<h3 id="Run-server"><a href="#Run-server" class="headerlink" title="Run server"></a>Run server</h3><div class="highlight-container" data-rel="Bash"><figure class="iseeu highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">hexo server</span><br></pre></td></tr></table></figure></div>
+<h2 id="CMake-Learning-Material"><a href="#CMake-Learning-Material" class="headerlink" title="CMake Learning Material"></a>CMake Learning Material</h2><p><a class="link" target="_blank" rel="noopener" href="https://cmake.org/cmake/help/latest/guide/tutorial/index.html">CMake<i class="fa-solid fa-up-right-from-square"></i></a></p>
+<h2 id="an-CMakeList-txt-example"><a href="#an-CMakeList-txt-example" class="headerlink" title="an CMakeList.txt example"></a>an CMakeList.txt example</h2><div class="highlight-container" data-rel="Cmake"><figure class="iseeu highlight cmake"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">cmake_minimum_required</span>(VERSION <span class="number">3.15</span>)</span><br><span class="line"><span class="keyword">project</span>(Tutorial VERSION <span class="number">1.0</span>)</span><br><span class="line"></span><br><span class="line"><span class="keyword">add_library</span>(tutorial_compiler_flags INTERFACE)        </span><br><span class="line"><span class="keyword">target_compile_features</span>(tutorial_compiler_flags INTERFACE cxx_std_11)</span><br><span class="line"><span class="keyword">set</span>(gcc_like_cxx <span class="string">"$&lt;COMPILE_LANG_AND_ID:CXX,ARMClang,AppleClang,Clang,CNU,LCC&gt;"</span>)</span><br><span class="line"><span class="keyword">set</span>(msvc_cxx <span class="string">"$&lt;COMPILE_LANG_AND_ID:CXX,MSVC&gt;"</span>)</span><br><span class="line"><span class="keyword">target_compile_options</span>(tutorial_compiler_flags INTERFACE</span><br><span class="line">  <span class="string">"$&lt;${gcc_like_cxx}:$&lt;BUILD_INTERFACE:-Wall;-Wextra;-Wshadow;-Wformat=2;-Wunused&gt;&gt;"</span></span><br><span class="line">  <span class="string">"$&lt;${msvc_cxx}:$&lt;BUILD_INTERFACE:-W3&gt;&gt;"</span></span><br><span class="line">)</span><br><span class="line"><span class="keyword">option</span>(USE_MYMATH <span class="string">"Use tutorial provided math implementation"</span> <span class="keyword">ON</span>)</span><br><span class="line"><span class="keyword">configure_file</span>(TutorialConfig.h.in TutorialConfig.h)</span><br><span class="line"></span><br><span class="line"><span class="keyword">if</span>(USE_MYMATH)</span><br><span class="line">  <span class="keyword">add_subdirectory</span>(MathFunctions)</span><br><span class="line">  <span class="keyword">list</span>(APPEND EXTRA_LIBS MathFunctions)</span><br><span class="line"><span class="keyword">endif</span>()</span><br><span class="line"><span class="keyword">add_executable</span>(Tutorial tutorial.cxx)</span><br><span class="line"><span class="keyword">target_link_libraries</span>(Tutorial PUBLIC <span class="variable">${EXTRA_LIBS}</span> tutorial_compiler_flags)</span><br><span class="line"></span><br><span class="line"><span class="keyword">target_include_directories</span>(Tutorial PUBLIC</span><br><span class="line">                           <span class="string">"${PROJECT_BINARY_DIR}"</span></span><br><span class="line">                           )</span><br></pre></td></tr></table></figure></div>
+<h2 id="Build-Project"><a href="#Build-Project" class="headerlink" title="Build Project"></a>Build Project</h2><div class="highlight-container" data-rel="Bash"><figure class="iseeu highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="built_in">mkdir</span> Step1_build</span><br><span class="line"><span class="built_in">cd</span> Step1_build</span><br><span class="line">cmake ../Step1</span><br><span class="line">cmake --build .</span><br></pre></td></tr></table></figure></div>
+<h2 id="Simplest-CMakeLists-txt-Example"><a href="#Simplest-CMakeLists-txt-Example" class="headerlink" title="Simplest CMakeLists.txt Example"></a>Simplest CMakeLists.txt Example</h2><div class="highlight-container" data-rel="Cmake"><figure class="iseeu highlight cmake"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">add_library</span>(MathFunctions mysqrt.cxx)</span><br><span class="line"></span><br><span class="line"><span class="keyword">target_include_directories</span>(MathFunctions</span><br><span class="line">          INTERFACE <span class="variable">${CMAKE_CURRENT_SOURCE_DIR}</span></span><br><span class="line">          )</span><br><span class="line"></span><br><span class="line"><span class="keyword">target_link_libraries</span>(MathFunctions tutorial_compiler_flags)</span><br></pre></td></tr></table></figure></div>
+<h2 id="Generate-Xcode-Project"><a href="#Generate-Xcode-Project" class="headerlink" title="Generate Xcode Project"></a>Generate Xcode Project</h2><p>The default generator is UNIX Make, you can change the generator to Xcode Using at newly maked build_xcode directory, </p>
+<div class="highlight-container" data-rel="Bash"><figure class="iseeu highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">cmake <span class="variable">${CMakeLists.txt file path}</span> -G Xcode</span><br></pre></td></tr></table></figure></div>
 
-<p>More info: <a class="link" target="_blank" rel="noopener" href="https://hexo.io/docs/server.html">Server<i class="fa-solid fa-up-right-from-square"></i></a></p>
-<h3 id="Generate-static-files"><a href="#Generate-static-files" class="headerlink" title="Generate static files"></a>Generate static files</h3><div class="highlight-container" data-rel="Bash"><figure class="iseeu highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">hexo generate</span><br></pre></td></tr></table></figure></div>
-
-<p>More info: <a class="link" target="_blank" rel="noopener" href="https://hexo.io/docs/generating.html">Generating<i class="fa-solid fa-up-right-from-square"></i></a></p>
-<h3 id="Deploy-to-remote-sites"><a href="#Deploy-to-remote-sites" class="headerlink" title="Deploy to remote sites"></a>Deploy to remote sites</h3><div class="highlight-container" data-rel="Bash"><figure class="iseeu highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">hexo clean &amp;&amp; hexo d -g</span><br><span class="line"><span class="comment"># if there is an error message: Automatic merge failed; fix conflicts and then commit the result. you can run the following code</span></span><br><span class="line">git pull origin main --allow-unrelated-histories</span><br></pre></td></tr></table></figure></div>
-
-<p>More info: <a class="link" target="_blank" rel="noopener" href="https://hexo.io/docs/one-command-deployment.html">Deployment<i class="fa-solid fa-up-right-from-square"></i></a></p>
 
             </div>
 
@@ -400,11 +434,11 @@ mjx-container[display="true"] + br {
                 <div class="post-copyright-info">
                     <div class="article-copyright-info-container">
     <ul>
-        <li>Post title：Hello World</li>
+        <li>Post title：Use CMake to Generate Xcode C++ Project</li>
         <li>Post author：Meqt</li>
-        <li>Create time：2022-12-17 00:00:00</li>
+        <li>Create time：2022-12-17 01:42:13</li>
         <li>
-            Post link：https://meqtmac.github.io/2022/12/17/hello-world/
+            Post link：https://meqtmac.github.io/2022/12/17/cmake_xcode/
         </li>
         <li>
             Copyright Notice：All articles in this blog are licensed under <a class="license" target="_blank" rel="noopener" href="https://creativecommons.org/licenses/by-nc-sa/4.0/deed.zh">BY-NC-SA</a> unless stating additionally.
@@ -416,6 +450,22 @@ mjx-container[display="true"] + br {
             
 
             
+                <ul class="post-tags-box">
+                    
+                        <li class="tag-item">
+                            <a href="/tags/C/">#C++</a>&nbsp;
+                        </li>
+                    
+                        <li class="tag-item">
+                            <a href="/tags/CMake/">#CMake</a>&nbsp;
+                        </li>
+                    
+                        <li class="tag-item">
+                            <a href="/tags/Xcode/">#Xcode</a>&nbsp;
+                        </li>
+                    
+                </ul>
+            
 
             
                 <div class="article-nav">
@@ -423,18 +473,33 @@ mjx-container[display="true"] + br {
                         <div class="article-prev">
                             <a class="prev"
                             rel="prev"
-                            href="/2022/12/17/cmake_xcode/"
+                            href="/2022/12/17/LaTeX/"
                             >
                                 <span class="left arrow-icon flex-center">
                                     <i class="fa-solid fa-chevron-left"></i>
                                 </span>
                                 <span class="title flex-center">
-                                    <span class="post-nav-title-item">Use CMake to Generate Xcode C++ Project</span>
+                                    <span class="post-nav-title-item">LaTeX</span>
                                     <span class="post-nav-item">Prev posts</span>
                                 </span>
                             </a>
                         </div>
                     
+                    
+                        <div class="article-next">
+                            <a class="next"
+                            rel="next"
+                            href="/2022/12/17/hello-world/"
+                            >
+                                <span class="title flex-center">
+                                    <span class="post-nav-title-item">Hello World</span>
+                                    <span class="post-nav-item">Next posts</span>
+                                </span>
+                                <span class="right arrow-icon flex-center">
+                                    <i class="fa-solid fa-chevron-right"></i>
+                                </span>
+                            </a>
+                        </div>
                     
                 </div>
             
@@ -447,7 +512,7 @@ mjx-container[display="true"] + br {
                 <div class="post-toc-wrap">
     <div class="post-toc">
         <div style="font-size: 1.3rem;margin-top: 0; margin-bottom: 0.8rem; transition-duration: 0.1s;"><i class="fa-solid fa-list"></i> <strong>Contents</strong></div>
-        <ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#Quick-Start"><span class="nav-number">1.</span> <span class="nav-text">Quick Start</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#Create-a-new-post"><span class="nav-number">1.1.</span> <span class="nav-text">Create a new post</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#Run-server"><span class="nav-number">1.2.</span> <span class="nav-text">Run server</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#Generate-static-files"><span class="nav-number">1.3.</span> <span class="nav-text">Generate static files</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#Deploy-to-remote-sites"><span class="nav-number">1.4.</span> <span class="nav-text">Deploy to remote sites</span></a></li></ol></li></ol>
+        <ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#What%E2%80%99s-CMake"><span class="nav-number">1.</span> <span class="nav-text">What’s CMake</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#CMake-Learning-Material"><span class="nav-number">2.</span> <span class="nav-text">CMake Learning Material</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#an-CMakeList-txt-example"><span class="nav-number">3.</span> <span class="nav-text">an CMakeList.txt example</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#Build-Project"><span class="nav-number">4.</span> <span class="nav-text">Build Project</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#Simplest-CMakeLists-txt-Example"><span class="nav-number">5.</span> <span class="nav-text">Simplest CMakeLists.txt Example</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#Generate-Xcode-Project"><span class="nav-number">6.</span> <span class="nav-text">Generate Xcode Project</span></a></li></ol>
     </div>
 </div>
             </div>

@@ -9,7 +9,7 @@
     
     <title>
         
-            LearningMaterial |
+            Category: Tutorial |
         
         Meqt&#39;s Blog
     </title>
@@ -330,141 +330,56 @@ mjx-container[display="true"] + br {
 
                 
                     <div class="fade-in-down-animation">
-    <div class="post-page-container">
-        <div class="article-content-container">
-            <div class="article-title">
-                <span class="title-hover-animation"><h1 style="font-size:2rem; font-weight: bold; margin: 10px 0;">LearningMaterial</h1></span>
-            </div>
-
+    <div class="category-container">
+        <div class="category-name">
+            <i class="fa-solid fa-folder"></i>&nbsp;Tutorial
+        </div>
+        <div class="category-post-list">
             
-                <div class="article-header">
-                    <div class="avatar">
-                        <img src="https://static.wikia.nocookie.net/gensin-impact/images/0/08/Icon_Emoji_Venti_4.png">
-                    </div>
-                    <div class="info">
-                        <div class="author">
-                            <span class="name">Meqt</span>
-                            
-                        </div>
-                        <div class="meta-info">
-                            <div class="article-meta-info">
-    <span class="article-date article-meta-item">
-        <i class="fa-regular fa-pen-line"></i>&nbsp;
-        <span class="pc">2022-12-17 01:42:13</span>
-        <span class="mobile">2022-12-17 01:42</span>
-    </span>
+<div class="archive-list-container">
     
-    
-        <span class="article-tags article-meta-item">
-            <i class="fa-regular fa-tags"></i>&nbsp;
-            <ul>
+        <section class="archive-item">
+            <div class="archive-item-header">
+                <span class="archive-year">2022</span>
+                <span class="archive-year-post-count">[3]</span>
+            </div>
+            <ul class="article-list">
                 
-                    <li>
-                        <a href="/tags/CMake/">CMake</a>&nbsp;
+                    <li class="article-item">
+                        <a class="article-title"
+                           href="/2022/12/17/Build-my-Blog/"
+                        >Build Blog with Hexo and Github Page</a>
+                        <span class="article-date">12-17</span>
+                    </li>
+                
+                    <li class="article-item">
+                        <a class="article-title"
+                           href="/2022/12/17/LaTeX/"
+                        >LaTeX</a>
+                        <span class="article-date">12-17</span>
+                    </li>
+                
+                    <li class="article-item">
+                        <a class="article-title"
+                           href="/2022/12/17/cmake_xcode/"
+                        >Use CMake to Generate Xcode C++ Project</a>
+                        <span class="article-date">12-17</span>
                     </li>
                 
             </ul>
-        </span>
-    
-
-    
-    
-        <span class="article-wordcount article-meta-item">
-            <i class="fa-solid fa-file-word"></i>&nbsp;<span>151 Words</span>
-        </span>
-    
-    
-        <span class="article-min2read article-meta-item">
-            <i class="fa-solid fa-clock"></i>&nbsp;<span>1 Mins</span>
-        </span>
-    
-    
-        <span class="article-pv article-meta-item">
-            <i class="fa-regular fa-eye"></i>&nbsp;<span id="busuanzi_value_page_pv"></span>
-        </span>
+        </section>
     
 </div>
 
-                        </div>
-                    </div>
-                </div>
-            
-
-            <div class="article-content markdown-body">
-                <h1 id="CMake-Learning-Material"><a href="#CMake-Learning-Material" class="headerlink" title="CMake Learning Material"></a>CMake Learning Material</h1><p><a class="link" target="_blank" rel="noopener" href="https://cmake.org/cmake/help/latest/guide/tutorial/index.html">CMake<i class="fa-solid fa-up-right-from-square"></i></a></p>
-<h2 id="an-CMakeList-txt-example"><a href="#an-CMakeList-txt-example" class="headerlink" title="an CMakeList.txt example"></a>an CMakeList.txt example</h2><div class="highlight-container" data-rel="Cmake"><figure class="iseeu highlight cmake"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">cmake_minimum_required</span>(VERSION <span class="number">3.15</span>)</span><br><span class="line"><span class="keyword">project</span>(Tutorial VERSION <span class="number">1.0</span>)</span><br><span class="line"></span><br><span class="line"><span class="keyword">add_library</span>(tutorial_compiler_flags INTERFACE)        </span><br><span class="line"><span class="keyword">target_compile_features</span>(tutorial_compiler_flags INTERFACE cxx_std_11)</span><br><span class="line"><span class="keyword">set</span>(gcc_like_cxx <span class="string">"$&lt;COMPILE_LANG_AND_ID:CXX,ARMClang,AppleClang,Clang,CNU,LCC&gt;"</span>)</span><br><span class="line"><span class="keyword">set</span>(msvc_cxx <span class="string">"$&lt;COMPILE_LANG_AND_ID:CXX,MSVC&gt;"</span>)</span><br><span class="line"><span class="keyword">target_compile_options</span>(tutorial_compiler_flags INTERFACE</span><br><span class="line">  <span class="string">"$&lt;${gcc_like_cxx}:$&lt;BUILD_INTERFACE:-Wall;-Wextra;-Wshadow;-Wformat=2;-Wunused&gt;&gt;"</span></span><br><span class="line">  <span class="string">"$&lt;${msvc_cxx}:$&lt;BUILD_INTERFACE:-W3&gt;&gt;"</span></span><br><span class="line">)</span><br><span class="line"><span class="keyword">option</span>(USE_MYMATH <span class="string">"Use tutorial provided math implementation"</span> <span class="keyword">ON</span>)</span><br><span class="line"><span class="keyword">configure_file</span>(TutorialConfig.h.in TutorialConfig.h)</span><br><span class="line"></span><br><span class="line"><span class="keyword">if</span>(USE_MYMATH)</span><br><span class="line">  <span class="keyword">add_subdirectory</span>(MathFunctions)</span><br><span class="line">  <span class="keyword">list</span>(APPEND EXTRA_LIBS MathFunctions)</span><br><span class="line"><span class="keyword">endif</span>()</span><br><span class="line"><span class="keyword">add_executable</span>(Tutorial tutorial.cxx)</span><br><span class="line"><span class="keyword">target_link_libraries</span>(Tutorial PUBLIC <span class="variable">${EXTRA_LIBS}</span> tutorial_compiler_flags)</span><br><span class="line"></span><br><span class="line"><span class="keyword">target_include_directories</span>(Tutorial PUBLIC</span><br><span class="line">                           <span class="string">"${PROJECT_BINARY_DIR}"</span></span><br><span class="line">                           )</span><br></pre></td></tr></table></figure></div>
-<h2 id="Build-Project"><a href="#Build-Project" class="headerlink" title="Build Project"></a>Build Project</h2><div class="highlight-container" data-rel="Bash"><figure class="iseeu highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">$ <span class="built_in">mkdir</span> Step1_build</span><br><span class="line">$ <span class="built_in">cd</span> Step1_build</span><br><span class="line">$ cmake ../Step1</span><br><span class="line">$ cmake --build .</span><br></pre></td></tr></table></figure></div>
-<h2 id="Simplest-CMakeLists-txt-Example"><a href="#Simplest-CMakeLists-txt-Example" class="headerlink" title="Simplest CMakeLists.txt Example"></a>Simplest CMakeLists.txt Example</h2><div class="highlight-container" data-rel="Cmake"><figure class="iseeu highlight cmake"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">add_library</span>(MathFunctions mysqrt.cxx)</span><br><span class="line"></span><br><span class="line"><span class="keyword">target_include_directories</span>(MathFunctions</span><br><span class="line">          INTERFACE <span class="variable">${CMAKE_CURRENT_SOURCE_DIR}</span></span><br><span class="line">          )</span><br><span class="line"></span><br><span class="line"><span class="keyword">target_link_libraries</span>(MathFunctions tutorial_compiler_flags)</span><br></pre></td></tr></table></figure></div>
-<h2 id="Generate-Xcode-Project"><a href="#Generate-Xcode-Project" class="headerlink" title="Generate Xcode Project"></a>Generate Xcode Project</h2><p>The default generator is UNIX Make, you can change the generator to Xcode Using at newly maked build_xcode directory, </p>
-<div class="highlight-container" data-rel="Bash"><figure class="iseeu highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ cmake <span class="variable">${CMakeLists.txt file path}</span> -G Xcode</span><br></pre></td></tr></table></figure></div>
-
-
-            </div>
-
-            
-                <div class="post-copyright-info">
-                    <div class="article-copyright-info-container">
-    <ul>
-        <li>Post title：LearningMaterial</li>
-        <li>Post author：Meqt</li>
-        <li>Create time：2022-12-17 01:42:13</li>
-        <li>
-            Post link：https://meqtmac.github.io/2022/12/17/LearningMaterial/
-        </li>
-        <li>
-            Copyright Notice：All articles in this blog are licensed under <a class="license" target="_blank" rel="noopener" href="https://creativecommons.org/licenses/by-nc-sa/4.0/deed.zh">BY-NC-SA</a> unless stating additionally.
-        </li>
-    </ul>
-</div>
-
-                </div>
-            
-
-            
-                <ul class="post-tags-box">
-                    
-                        <li class="tag-item">
-                            <a href="/tags/CMake/">#CMake</a>&nbsp;
-                        </li>
-                    
-                </ul>
-            
-
-            
-                <div class="article-nav">
-                    
-                        <div class="article-prev">
-                            <a class="prev"
-                            rel="prev"
-                            href="/2022/12/17/hello-world/"
-                            >
-                                <span class="left arrow-icon flex-center">
-                                    <i class="fa-solid fa-chevron-left"></i>
-                                </span>
-                                <span class="title flex-center">
-                                    <span class="post-nav-title-item">Hello World</span>
-                                    <span class="post-nav-item">Prev posts</span>
-                                </span>
-                            </a>
-                        </div>
-                    
-                    
-                </div>
-            
-
-            
         </div>
-
-        
-            <div class="toc-content-container">
-                <div class="post-toc-wrap">
-    <div class="post-toc">
-        <div style="font-size: 1.3rem;margin-top: 0; margin-bottom: 0.8rem; transition-duration: 0.1s;"><i class="fa-solid fa-list"></i> <strong>Contents</strong></div>
-        <ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#CMake-Learning-Material"><span class="nav-number">1.</span> <span class="nav-text">CMake Learning Material</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#an-CMakeList-txt-example"><span class="nav-number">1.1.</span> <span class="nav-text">an CMakeList.txt example</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#Build-Project"><span class="nav-number">1.2.</span> <span class="nav-text">Build Project</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#Simplest-CMakeLists-txt-Example"><span class="nav-number">1.3.</span> <span class="nav-text">Simplest CMakeLists.txt Example</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#Generate-Xcode-Project"><span class="nav-number">1.4.</span> <span class="nav-text">Generate Xcode Project</span></a></li></ol></li></ol>
     </div>
+    <div class="category-paginator">
+        <div class="paginator">
+    
+
+    
 </div>
-            </div>
-        
+
     </div>
 </div>
 
@@ -539,23 +454,6 @@ mjx-container[display="true"] + br {
         </div>
     </div>
 
-    
-        <div class="post-tools">
-            <div class="post-tools-container">
-    <ul class="tools-list">
-        <!-- TOC aside toggle -->
-        
-            <li class="tools-item page-aside-toggle">
-                <i class="fa-regular fa-outdent"></i>
-            </li>
-        
-
-        <!-- go comment -->
-        
-    </ul>
-</div>
-
-        </div>
     
 
     <div class="right-bottom-side-tools">
@@ -684,14 +582,6 @@ mjx-container[display="true"] + br {
 
 
 <div class="post-scripts pjax">
-    
-        
-<script src="/js/toc-toggle.js"></script>
-
-<script src="/js/libs/anime.min.js"></script>
-
-<script src="/js/toc.js"></script>
-
     
 </div>
 
