@@ -1,6 +1,24 @@
 <?xml version="1.0" encoding="utf-8"?>
 <search>
   <entry>
+    <title>Hello World</title>
+    <url>/2022/12/17/hello-world/</url>
+    <content><![CDATA[<p>Welcome to <a class="link" href="https://hexo.io/">Hexo<i class="fa-solid fa-up-right-from-square"></i></a>! This is your very first post. Check <a class="link" href="https://hexo.io/docs/">documentation<i class="fa-solid fa-up-right-from-square"></i></a> for more info. If you get any problems when using Hexo, you can find the answer in <a class="link" href="https://hexo.io/docs/troubleshooting.html">troubleshooting<i class="fa-solid fa-up-right-from-square"></i></a> or you can ask me on <a class="link" href="https://github.com/hexojs/hexo/issues">GitHub<i class="fa-solid fa-up-right-from-square"></i></a>.</p>
+<h2 id="Quick-Start"><a href="#Quick-Start" class="headerlink" title="Quick Start"></a>Quick Start</h2><h3 id="Create-a-new-post"><a href="#Create-a-new-post" class="headerlink" title="Create a new post"></a>Create a new post</h3><div class="highlight-container" data-rel="Bash"><figure class="iseeu highlight bash"><table><tr><td class="code"><pre><span class="line">hexo new <span class="string">"My New Post"</span></span><br></pre></td></tr></table></figure></div>
+
+<p>More info: <a class="link" href="https://hexo.io/docs/writing.html">Writing<i class="fa-solid fa-up-right-from-square"></i></a></p>
+<h3 id="Run-server"><a href="#Run-server" class="headerlink" title="Run server"></a>Run server</h3><div class="highlight-container" data-rel="Bash"><figure class="iseeu highlight bash"><table><tr><td class="code"><pre><span class="line">hexo server</span><br></pre></td></tr></table></figure></div>
+
+<p>More info: <a class="link" href="https://hexo.io/docs/server.html">Server<i class="fa-solid fa-up-right-from-square"></i></a></p>
+<h3 id="Generate-static-files"><a href="#Generate-static-files" class="headerlink" title="Generate static files"></a>Generate static files</h3><div class="highlight-container" data-rel="Bash"><figure class="iseeu highlight bash"><table><tr><td class="code"><pre><span class="line">hexo generate</span><br></pre></td></tr></table></figure></div>
+
+<p>More info: <a class="link" href="https://hexo.io/docs/generating.html">Generating<i class="fa-solid fa-up-right-from-square"></i></a></p>
+<h3 id="Deploy-to-remote-sites"><a href="#Deploy-to-remote-sites" class="headerlink" title="Deploy to remote sites"></a>Deploy to remote sites</h3><div class="highlight-container" data-rel="Bash"><figure class="iseeu highlight bash"><table><tr><td class="code"><pre><span class="line">hexo clean &amp;&amp; hexo d -g</span><br><span class="line"><span class="comment"># if there is an error message: Automatic merge failed; fix conflicts and then commit the result. you can run the following code</span></span><br><span class="line">git pull origin main --allow-unrelated-histories</span><br></pre></td></tr></table></figure></div>
+
+<p>More info: <a class="link" href="https://hexo.io/docs/one-command-deployment.html">Deployment<i class="fa-solid fa-up-right-from-square"></i></a></p>
+]]></content>
+  </entry>
+  <entry>
     <title>LaTeX</title>
     <url>/2022/12/17/LaTeX/</url>
     <content><![CDATA[<h2 id="Primary-Learning-Material"><a href="#Primary-Learning-Material" class="headerlink" title="Primary Learning Material"></a><a class="link" href="https://www.learnlatex.org/en/">Primary Learning Material<i class="fa-solid fa-up-right-from-square"></i></a></h2><h2 id="Use"><a href="#Use" class="headerlink" title="Use"></a>Use</h2><h3 id="OSX"><a href="#OSX" class="headerlink" title="OSX"></a>OSX</h3><p>Install with <a class="link" href="https://brew.sh/">Homebrew<i class="fa-solid fa-up-right-from-square"></i></a>:</p>
@@ -31,6 +49,72 @@
       </tags>
   </entry>
   <entry>
+    <title>Build Blog with Hexo and Github Page</title>
+    <url>/2022/12/17/Build-my-Blog/</url>
+    <content><![CDATA[<p>Powered by <a class="link" href="https://hexo.io/">Hexo<i class="fa-solid fa-up-right-from-square"></i></a>, deploied with <a class="link" href="https://pages.github.com/">Github Page<i class="fa-solid fa-up-right-from-square"></i></a>. I first build and test on <a class="link" href="https://github.com/features/codespaces">Github Codespace<i class="fa-solid fa-up-right-from-square"></i></a>, but no long after, I run out of my 120 free hour. Thus I shift to my 256G M1 Mac(￣◇￣;). And there are some problems with codespace, which I will explain after.</p>
+<h2 id="Steps"><a href="#Steps" class="headerlink" title="Steps"></a>Steps</h2><ol>
+<li>Prepare <a class="link" href="https://github.com/">Git<i class="fa-solid fa-up-right-from-square"></i></a>, make sure you can pull and push.</li>
+<li>Install <a class="link" href="https://nodejs.org/en/">Node.js<i class="fa-solid fa-up-right-from-square"></i></a>.</li>
+<li>Set up <code>${username}.github.io</code> Repository, make it public.</li>
+<li>Install <a class="link" href="https://hexo.io/">hexo<i class="fa-solid fa-up-right-from-square"></i></a>.</li>
+<li>Find your favourite <a class="link" href="https://hexo.io/themes/">Theme<i class="fa-solid fa-up-right-from-square"></i></a> and follow the document to set up your blog. You can first test your website locally.</li>
+<li>Depoly your Blog to with <a class="link" href="https://pages.github.com/">Github Page<i class="fa-solid fa-up-right-from-square"></i></a></li>
+</ol>
+<h2 id="Git"><a href="#Git" class="headerlink" title="Git"></a>Git</h2><p>As my blog is hosted on github, I believe anyone who have access to this website is familiar with git. Anyway, there are plenty of source address your problems with git. RTFM, STFW, :)</p>
+<h2 id="Install-Node-js"><a href="#Install-Node-js" class="headerlink" title="Install Node.js"></a>Install <a class="link" href="https://nodejs.org/en/">Node.js<i class="fa-solid fa-up-right-from-square"></i></a></h2><p>Refer to <a class="link" href="https://nodejs.org/en/download/package-manager/">the guide<i class="fa-solid fa-up-right-from-square"></i></a> provided by Node.js.</p>
+<p>I first setup my blog on codespace, where <a class="link" href="https://nodejs.org/en/">Node.js<i class="fa-solid fa-up-right-from-square"></i></a> is preinstalled with older version.</p>
+<p>Then I installed <a class="link" href="https://nodejs.org/en/">Node.js<i class="fa-solid fa-up-right-from-square"></i></a> on my M1 Mac with commands below: (try to install nvm with <code>brew install nvm</code> will run into problems so I don’t recommend it)<br>Using <strong>Homebrew</strong>:</p>
+<div class="highlight-container" data-rel="Bash"><figure class="iseeu highlight bash"><table><tr><td class="code"><pre><span class="line">brew install node</span><br><span class="line"><span class="built_in">echo</span> <span class="string">'export PATH="/opt/homebrew/opt/node@18/bin:$PATH"'</span> &gt;&gt; ~/.zshrc</span><br><span class="line"><span class="comment">#</span></span><br></pre></td></tr></table></figure></div>
+<p>Don’t know why, mirror site for node.js returned error: 404, it took some time to downloads from default domain. I first the node version on website is node-19.3.0, but brew kept trying to downloads node-19.2.0, in the end, I down node@18.</p>
+<p>After downloads, test with:</p>
+<div class="highlight-container" data-rel="Bash"><figure class="iseeu highlight bash"><table><tr><td class="code"><pre><span class="line">node -v</span><br><span class="line">npm -v</span><br></pre></td></tr></table></figure></div>
+
+<h2 id="Setup-username-github-io"><a href="#Setup-username-github-io" class="headerlink" title="Setup ${username}.github.io"></a>Setup ${username}.github.io</h2><p>Follow <a class="link" href="https://pages.github.com/">the guide<i class="fa-solid fa-up-right-from-square"></i></a>, but don’t need to make your own index.html</p>
+<h2 id="Install-hexo"><a href="#Install-hexo" class="headerlink" title="Install hexo"></a>Install <a class="link" href="https://hexo.io/">hexo<i class="fa-solid fa-up-right-from-square"></i></a></h2><p>First make a new empty directory. If you want to put it to git repo, first pull the repo, and add a new empty directory.</p>
+<div class="highlight-container" data-rel="Bash"><figure class="iseeu highlight bash"><table><tr><td class="code"><pre><span class="line">npm install -g hexo-cli</span><br><span class="line">hexo init <span class="variable">${new empty hexo-site-dir}</span></span><br></pre></td></tr></table></figure></div>
+<p>then test your website locally</p>
+<div class="highlight-container" data-rel="Bash"><figure class="iseeu highlight bash"><table><tr><td class="code"><pre><span class="line">hexo s</span><br></pre></td></tr></table></figure></div>
+<p>It’s now with the default theme and content, we will edit it in next step.</p>
+<p>Before, we went next step, let’s first deploy it with <a class="link" href="https://pages.github.com/">Github Page<i class="fa-solid fa-up-right-from-square"></i></a>.<br>In <code>_config.yml</code>, set up:</p>
+<div class="highlight-container" data-rel="Yaml"><figure class="iseeu highlight yaml"><table><tr><td class="code"><pre><span class="line"><span class="attr">timezone:</span> <span class="string">'Aisa/Shanghai'</span></span><br><span class="line"><span class="attr">deploy:</span></span><br><span class="line">  <span class="attr">type:</span> <span class="string">git</span> </span><br><span class="line">  <span class="attr">repo:</span> <span class="string">git@github.com/&lt;username&gt;/${username.github.io}</span></span><br><span class="line">  <span class="attr">branch:</span> <span class="string">main</span> </span><br><span class="line">  <span class="attr">message:</span> <span class="comment"># maybe commit message, I don't know</span></span><br></pre></td></tr></table></figure></div>
+<p>After save, install package for deploy</p>
+<div class="highlight-container" data-rel="Bash"><figure class="iseeu highlight bash"><table><tr><td class="code"><pre><span class="line">npm install hexo-deployer-git --save</span><br><span class="line">npm install hexo-server --save</span><br></pre></td></tr></table></figure></div>
+<p>Before deploy, make sure your <a class="link" href="https://pages.github.com/">Github Page<i class="fa-solid fa-up-right-from-square"></i></a>, and git push using <a class="link" href="https://docs.github.com/en/authentication/connecting-to-github-with-ssh">ssh<i class="fa-solid fa-up-right-from-square"></i></a> are both setup. Went to your hexo site repository and deploy with:</p>
+<div class="highlight-container" data-rel="Bash"><figure class="iseeu highlight bash"><table><tr><td class="code"><pre><span class="line">hexo clean &amp;&amp; hexo d -g</span><br></pre></td></tr></table></figure></div>
+<p>Then access your website from ${username}.github.io, you can first access your github repository to see if it has been build successfully.</p>
+<h2 id="Problems-of-build-your-blog-with-codespace"><a href="#Problems-of-build-your-blog-with-codespace" class="headerlink" title="Problems of build your blog with codespace"></a>Problems of build your blog with codespace</h2><p>The point is that it seems your can’t pull and push to another repository from codespace opened for one repository. Which means you can’t put your <code>hexo-site</code> at codespace to deploy it to <a class="link" href="https://pages.github.com/">Github Page<i class="fa-solid fa-up-right-from-square"></i></a>. To fix this problem, I first tried to put it under the ${username}.github.io, but then <a class="link" href="https://pages.github.com/">Github Page<i class="fa-solid fa-up-right-from-square"></i></a> build failed when it read <code>_config.yml</code> for hexo. Then I have to add the hexo-site directory to <code>.gitignore</code>. And no long after, I nearly reach the end of my 120 free hour. In the end, I switch to my M1 Mac.</p>
+<h2 id="Make-Blog-the-Way-You-Like"><a href="#Make-Blog-the-Way-You-Like" class="headerlink" title="Make Blog the Way You Like"></a>Make Blog the Way You Like</h2><p>I picked the <a class="link" href="https://hexo.io/themes/">Theme<i class="fa-solid fa-up-right-from-square"></i></a> <a class="link" href="https://redefine-docs.evanluo.top/">redefine<i class="fa-solid fa-up-right-from-square"></i></a>, choice your own theme and config it.<br>Install theme</p>
+<div class="highlight-container" data-rel="Bash"><figure class="iseeu highlight bash"><table><tr><td class="code"><pre><span class="line">npm install hexo-theme-redefine@latest</span><br></pre></td></tr></table></figure></div>
+<p>change theme in <code>_config.yml</code></p>
+<div class="highlight-container" data-rel="Yaml"><figure class="iseeu highlight yaml"><table><tr><td class="code"><pre><span class="line"><span class="attr">theme:</span> <span class="string">redefine</span></span><br></pre></td></tr></table></figure></div>
+<p>setup <a class="link" href="https://github.com/EvanNotFound/hexo-theme-redefine/blob/main/_config.yml">theme config file<i class="fa-solid fa-up-right-from-square"></i></a></p>
+<div class="highlight-container" data-rel="Bash"><figure class="iseeu highlight bash"><table><tr><td class="code"><pre><span class="line"><span class="built_in">touch</span> _config.redefine.yml</span><br></pre></td></tr></table></figure></div>
+<p>please remember that social_contact is only available for brand.</p>
+<h3 id="word-count"><a href="#word-count" class="headerlink" title="word_count"></a>word_count</h3><div class="highlight-container" data-rel="Bash"><figure class="iseeu highlight bash"><table><tr><td class="code"><pre><span class="line">npm install hexo-wordcount</span><br></pre></td></tr></table></figure></div>
+
+<h3 id="local-search"><a href="#local-search" class="headerlink" title="local_search"></a>local_search</h3><div class="highlight-container" data-rel="Bash"><figure class="iseeu highlight bash"><table><tr><td class="code"><pre><span class="line">npm install hexo-generator-searchdb</span><br></pre></td></tr></table></figure></div>
+<p>in <code>_config.redefine.yml</code> add:</p>
+<div class="highlight-container" data-rel="Yaml"><figure class="iseeu highlight yaml"><table><tr><td class="code"><pre><span class="line"><span class="comment"># Search</span></span><br><span class="line"><span class="comment">## See: https://github.com/theme-next/hexo-generator-searchdb</span></span><br><span class="line"><span class="attr">search:</span></span><br><span class="line">  <span class="attr">path:</span> <span class="string">search.json</span></span><br><span class="line">  <span class="attr">field:</span> <span class="string">post</span></span><br><span class="line">  <span class="attr">content:</span> <span class="literal">true</span></span><br><span class="line">  <span class="attr">format:</span> <span class="string">striptags</span></span><br><span class="line"><span class="attr">local_search:</span></span><br><span class="line">  <span class="attr">enable:</span> <span class="literal">true</span></span><br></pre></td></tr></table></figure></div>
+
+<h3 id="comment"><a href="#comment" class="headerlink" title="comment"></a>comment</h3><p>Not yet set.</p>
+<h3 id="Math"><a href="#Math" class="headerlink" title="Math"></a>Math</h3><div class="highlight-container" data-rel="Bash"><figure class="iseeu highlight bash"><table><tr><td class="code"><pre><span class="line">npm install hexo-filter-mathjax</span><br></pre></td></tr></table></figure></div>
+<p>in <code>_config.yml</code> add:</p>
+<div class="highlight-container" data-rel="Yaml"><figure class="iseeu highlight yaml"><table><tr><td class="code"><pre><span class="line"><span class="attr">mathjax:</span></span><br><span class="line">  <span class="attr">tags:</span> <span class="string">none</span>               <span class="comment"># or 'ams' or 'all'</span></span><br><span class="line">  <span class="attr">single_dollars:</span> <span class="literal">true</span>     <span class="comment"># enable single dollar signs as in-line math delimiters</span></span><br><span class="line">  <span class="attr">cjk_width:</span> <span class="number">0.9</span>           <span class="comment"># relative CJK char width</span></span><br><span class="line">  <span class="attr">normal_width:</span> <span class="number">0.6</span>        <span class="comment"># relative normal (monospace) width</span></span><br><span class="line">  <span class="attr">append_css:</span> <span class="literal">true</span>         <span class="comment"># add CSS to every page</span></span><br><span class="line">  <span class="attr">every_page:</span> <span class="literal">true</span> <span class="comment"># if true, every page will be rendered by mathjax regardless the `mathjax` setting in Front-matter of each article</span></span><br></pre></td></tr></table></figure></div>
+
+<h3 id="Compress"><a href="#Compress" class="headerlink" title="Compress"></a>Compress</h3><div class="highlight-container" data-rel="Bash"><figure class="iseeu highlight bash"><table><tr><td class="code"><pre><span class="line">npm install hexo-all-minifier</span><br></pre></td></tr></table></figure></div>
+<p>I met unfixable venerablity after install this. Don’t recommend install.</p>
+<h2 id="Bug"><a href="#Bug" class="headerlink" title="Bug"></a>Bug</h2><p>Some error Happen<br>It’s fun when I test locally:<br><img lazyload="" src="/images/loading.svg" data-src="/fig/hexo_error_20221218_01.png" alt="error_01"><br>But error happened after I deployed it on <a class="link" href="https://pages.github.com/">Github Page<i class="fa-solid fa-up-right-from-square"></i></a><br><img lazyload="" src="/images/loading.svg" data-src="/fig/hexo_error_20221218_02.png" alt="error_02"></p>
+<h2 id="Further-Learing"><a href="#Further-Learing" class="headerlink" title="Further Learing"></a>Further Learing</h2><p>Please refer to <a class="link" href="https://hexo.io/">Hexo<i class="fa-solid fa-up-right-from-square"></i></a></p>
+]]></content>
+      <categories>
+        <category>Tutorial</category>
+      </categories>
+      <tags>
+        <tag>Hexo</tag>
+        <tag>Github Page</tag>
+      </tags>
+  </entry>
+  <entry>
     <title>Use CMake to Generate Xcode C++ Project</title>
     <url>/2022/12/17/cmake_xcode/</url>
     <content><![CDATA[<h2 id="What’s-CMake"><a href="#What’s-CMake" class="headerlink" title="What’s CMake"></a>What’s <a class="link" href="https://cmake.org/">CMake<i class="fa-solid fa-up-right-from-square"></i></a></h2><p>CMake is used to control the software compilation process using simple platform and compiler independent configuration files, and generate native makefiles and workspaces that can be used in the compiler environment of your choice.</p>
@@ -57,24 +141,6 @@
         <tag>CMake</tag>
         <tag>Xcode</tag>
       </tags>
-  </entry>
-  <entry>
-    <title>Hello World</title>
-    <url>/2022/12/17/hello-world/</url>
-    <content><![CDATA[<p>Welcome to <a class="link" href="https://hexo.io/">Hexo<i class="fa-solid fa-up-right-from-square"></i></a>! This is your very first post. Check <a class="link" href="https://hexo.io/docs/">documentation<i class="fa-solid fa-up-right-from-square"></i></a> for more info. If you get any problems when using Hexo, you can find the answer in <a class="link" href="https://hexo.io/docs/troubleshooting.html">troubleshooting<i class="fa-solid fa-up-right-from-square"></i></a> or you can ask me on <a class="link" href="https://github.com/hexojs/hexo/issues">GitHub<i class="fa-solid fa-up-right-from-square"></i></a>.</p>
-<h2 id="Quick-Start"><a href="#Quick-Start" class="headerlink" title="Quick Start"></a>Quick Start</h2><h3 id="Create-a-new-post"><a href="#Create-a-new-post" class="headerlink" title="Create a new post"></a>Create a new post</h3><div class="highlight-container" data-rel="Bash"><figure class="iseeu highlight bash"><table><tr><td class="code"><pre><span class="line">hexo new <span class="string">"My New Post"</span></span><br></pre></td></tr></table></figure></div>
-
-<p>More info: <a class="link" href="https://hexo.io/docs/writing.html">Writing<i class="fa-solid fa-up-right-from-square"></i></a></p>
-<h3 id="Run-server"><a href="#Run-server" class="headerlink" title="Run server"></a>Run server</h3><div class="highlight-container" data-rel="Bash"><figure class="iseeu highlight bash"><table><tr><td class="code"><pre><span class="line">hexo server</span><br></pre></td></tr></table></figure></div>
-
-<p>More info: <a class="link" href="https://hexo.io/docs/server.html">Server<i class="fa-solid fa-up-right-from-square"></i></a></p>
-<h3 id="Generate-static-files"><a href="#Generate-static-files" class="headerlink" title="Generate static files"></a>Generate static files</h3><div class="highlight-container" data-rel="Bash"><figure class="iseeu highlight bash"><table><tr><td class="code"><pre><span class="line">hexo generate</span><br></pre></td></tr></table></figure></div>
-
-<p>More info: <a class="link" href="https://hexo.io/docs/generating.html">Generating<i class="fa-solid fa-up-right-from-square"></i></a></p>
-<h3 id="Deploy-to-remote-sites"><a href="#Deploy-to-remote-sites" class="headerlink" title="Deploy to remote sites"></a>Deploy to remote sites</h3><div class="highlight-container" data-rel="Bash"><figure class="iseeu highlight bash"><table><tr><td class="code"><pre><span class="line">hexo clean &amp;&amp; hexo d -g</span><br><span class="line"><span class="comment"># if there is an error message: Automatic merge failed; fix conflicts and then commit the result. you can run the following code</span></span><br><span class="line">git pull origin main --allow-unrelated-histories</span><br></pre></td></tr></table></figure></div>
-
-<p>More info: <a class="link" href="https://hexo.io/docs/one-command-deployment.html">Deployment<i class="fa-solid fa-up-right-from-square"></i></a></p>
-]]></content>
   </entry>
   <entry>
     <title>C/C++ WebServer 1 Linux系统编程入门</title>
@@ -272,71 +338,6 @@
       </tags>
   </entry>
   <entry>
-    <title>Build Blog with Hexo and Github Page</title>
-    <url>/2022/12/17/Build-my-Blog/</url>
-    <content><![CDATA[<p>Powered by <a class="link" href="https://hexo.io/">Hexo<i class="fa-solid fa-up-right-from-square"></i></a>, deploied with <a class="link" href="https://pages.github.com/">Github Page<i class="fa-solid fa-up-right-from-square"></i></a>. I first build and test on <a class="link" href="https://github.com/features/codespaces">Github Codespace<i class="fa-solid fa-up-right-from-square"></i></a>, but no long after, I run out of my 120 free hour. Thus I shift to my 256G M1 Mac(￣◇￣;). And there are some problems with codespace, which I will explain after.</p>
-<h2 id="Steps"><a href="#Steps" class="headerlink" title="Steps"></a>Steps</h2><ol>
-<li>Prepare <a class="link" href="https://github.com/">Git<i class="fa-solid fa-up-right-from-square"></i></a>, make sure you can pull and push.</li>
-<li>Install <a class="link" href="https://nodejs.org/en/">Node.js<i class="fa-solid fa-up-right-from-square"></i></a>.</li>
-<li>Set up <code>${username}.github.io</code> Repository, make it public.</li>
-<li>Install <a class="link" href="https://hexo.io/">hexo<i class="fa-solid fa-up-right-from-square"></i></a>.</li>
-<li>Find your favourite <a class="link" href="https://hexo.io/themes/">Theme<i class="fa-solid fa-up-right-from-square"></i></a> and follow the document to set up your blog. You can first test your website locally.</li>
-<li>Depoly your Blog to with <a class="link" href="https://pages.github.com/">Github Page<i class="fa-solid fa-up-right-from-square"></i></a></li>
-</ol>
-<h2 id="Git"><a href="#Git" class="headerlink" title="Git"></a>Git</h2><p>As my blog is hosted on github, I believe anyone who have access to this website is familiar with git. Anyway, there are plenty of source address your problems with git. RTFM, STFW, :)</p>
-<h2 id="Install-Node-js"><a href="#Install-Node-js" class="headerlink" title="Install Node.js"></a>Install <a class="link" href="https://nodejs.org/en/">Node.js<i class="fa-solid fa-up-right-from-square"></i></a></h2><p>Refer to <a class="link" href="https://nodejs.org/en/download/package-manager/">the guide<i class="fa-solid fa-up-right-from-square"></i></a> provided by Node.js.</p>
-<p>I first setup my blog on codespace, where <a class="link" href="https://nodejs.org/en/">Node.js<i class="fa-solid fa-up-right-from-square"></i></a> is preinstalled with older version.</p>
-<p>Then I installed <a class="link" href="https://nodejs.org/en/">Node.js<i class="fa-solid fa-up-right-from-square"></i></a> on my M1 Mac with commands below: (try to install nvm with <code>brew install nvm</code> will run into problems so I don’t recommend it)<br>Using <strong>Homebrew</strong>:</p>
-<div class="highlight-container" data-rel="Bash"><figure class="iseeu highlight bash"><table><tr><td class="code"><pre><span class="line">brew install node</span><br><span class="line"><span class="built_in">echo</span> <span class="string">'export PATH="/opt/homebrew/opt/node@18/bin:$PATH"'</span> &gt;&gt; ~/.zshrc</span><br><span class="line"><span class="comment">#</span></span><br></pre></td></tr></table></figure></div>
-<p>Don’t know why, mirror site for node.js returned error: 404, it took some time to downloads from default domain. I first the node version on website is node-19.3.0, but brew kept trying to downloads node-19.2.0, in the end, I down node@18.</p>
-<p>After downloads, test with:</p>
-<div class="highlight-container" data-rel="Bash"><figure class="iseeu highlight bash"><table><tr><td class="code"><pre><span class="line">node -v</span><br><span class="line">npm -v</span><br></pre></td></tr></table></figure></div>
-
-<h2 id="Setup-username-github-io"><a href="#Setup-username-github-io" class="headerlink" title="Setup ${username}.github.io"></a>Setup ${username}.github.io</h2><p>Follow <a class="link" href="https://pages.github.com/">the guide<i class="fa-solid fa-up-right-from-square"></i></a>, but don’t need to make your own index.html</p>
-<h2 id="Install-hexo"><a href="#Install-hexo" class="headerlink" title="Install hexo"></a>Install <a class="link" href="https://hexo.io/">hexo<i class="fa-solid fa-up-right-from-square"></i></a></h2><p>First make a new empty directory. If you want to put it to git repo, first pull the repo, and add a new empty directory.</p>
-<div class="highlight-container" data-rel="Bash"><figure class="iseeu highlight bash"><table><tr><td class="code"><pre><span class="line">npm install -g hexo-cli</span><br><span class="line">hexo init <span class="variable">${new empty hexo-site-dir}</span></span><br></pre></td></tr></table></figure></div>
-<p>then test your website locally</p>
-<div class="highlight-container" data-rel="Bash"><figure class="iseeu highlight bash"><table><tr><td class="code"><pre><span class="line">hexo s</span><br></pre></td></tr></table></figure></div>
-<p>It’s now with the default theme and content, we will edit it in next step.</p>
-<p>Before, we went next step, let’s first deploy it with <a class="link" href="https://pages.github.com/">Github Page<i class="fa-solid fa-up-right-from-square"></i></a>.<br>In <code>_config.yml</code>, set up:</p>
-<div class="highlight-container" data-rel="Yaml"><figure class="iseeu highlight yaml"><table><tr><td class="code"><pre><span class="line"><span class="attr">timezone:</span> <span class="string">'Aisa/Shanghai'</span></span><br><span class="line"><span class="attr">deploy:</span></span><br><span class="line">  <span class="attr">type:</span> <span class="string">git</span> </span><br><span class="line">  <span class="attr">repo:</span> <span class="string">git@github.com/&lt;username&gt;/${username.github.io}</span></span><br><span class="line">  <span class="attr">branch:</span> <span class="string">main</span> </span><br><span class="line">  <span class="attr">message:</span> <span class="comment"># maybe commit message, I don't know</span></span><br></pre></td></tr></table></figure></div>
-<p>After save, install package for deploy</p>
-<div class="highlight-container" data-rel="Bash"><figure class="iseeu highlight bash"><table><tr><td class="code"><pre><span class="line">npm install hexo-deployer-git --save</span><br><span class="line">npm install hexo-server --save</span><br></pre></td></tr></table></figure></div>
-<p>Before deploy, make sure your <a class="link" href="https://pages.github.com/">Github Page<i class="fa-solid fa-up-right-from-square"></i></a>, and git push using <a class="link" href="https://docs.github.com/en/authentication/connecting-to-github-with-ssh">ssh<i class="fa-solid fa-up-right-from-square"></i></a> are both setup. Went to your hexo site repository and deploy with:</p>
-<div class="highlight-container" data-rel="Bash"><figure class="iseeu highlight bash"><table><tr><td class="code"><pre><span class="line">hexo clean &amp;&amp; hexo d -g</span><br></pre></td></tr></table></figure></div>
-<p>Then access your website from ${username}.github.io, you can first access your github repository to see if it has been build successfully.</p>
-<h2 id="Problems-of-build-your-blog-with-codespace"><a href="#Problems-of-build-your-blog-with-codespace" class="headerlink" title="Problems of build your blog with codespace"></a>Problems of build your blog with codespace</h2><p>The point is that it seems your can’t pull and push to another repository from codespace opened for one repository. Which means you can’t put your <code>hexo-site</code> at codespace to deploy it to <a class="link" href="https://pages.github.com/">Github Page<i class="fa-solid fa-up-right-from-square"></i></a>. To fix this problem, I first tried to put it under the ${username}.github.io, but then <a class="link" href="https://pages.github.com/">Github Page<i class="fa-solid fa-up-right-from-square"></i></a> build failed when it read <code>_config.yml</code> for hexo. Then I have to add the hexo-site directory to <code>.gitignore</code>. And no long after, I nearly reach the end of my 120 free hour. In the end, I switch to my M1 Mac.</p>
-<h2 id="Make-Blog-the-Way-You-Like"><a href="#Make-Blog-the-Way-You-Like" class="headerlink" title="Make Blog the Way You Like"></a>Make Blog the Way You Like</h2><p>I picked the <a class="link" href="https://hexo.io/themes/">Theme<i class="fa-solid fa-up-right-from-square"></i></a> <a class="link" href="https://redefine-docs.evanluo.top/">redefine<i class="fa-solid fa-up-right-from-square"></i></a>, choice your own theme and config it.<br>Install theme</p>
-<div class="highlight-container" data-rel="Bash"><figure class="iseeu highlight bash"><table><tr><td class="code"><pre><span class="line">npm install hexo-theme-redefine@latest</span><br></pre></td></tr></table></figure></div>
-<p>change theme in <code>_config.yml</code></p>
-<div class="highlight-container" data-rel="Yaml"><figure class="iseeu highlight yaml"><table><tr><td class="code"><pre><span class="line"><span class="attr">theme:</span> <span class="string">redefine</span></span><br></pre></td></tr></table></figure></div>
-<p>setup <a class="link" href="https://github.com/EvanNotFound/hexo-theme-redefine/blob/main/_config.yml">theme config file<i class="fa-solid fa-up-right-from-square"></i></a></p>
-<div class="highlight-container" data-rel="Bash"><figure class="iseeu highlight bash"><table><tr><td class="code"><pre><span class="line"><span class="built_in">touch</span> _config.redefine.yml</span><br></pre></td></tr></table></figure></div>
-<p>please remember that social_contact is only available for brand.</p>
-<h3 id="word-count"><a href="#word-count" class="headerlink" title="word_count"></a>word_count</h3><div class="highlight-container" data-rel="Bash"><figure class="iseeu highlight bash"><table><tr><td class="code"><pre><span class="line">npm install hexo-wordcount</span><br></pre></td></tr></table></figure></div>
-
-<h3 id="local-search"><a href="#local-search" class="headerlink" title="local_search"></a>local_search</h3><div class="highlight-container" data-rel="Bash"><figure class="iseeu highlight bash"><table><tr><td class="code"><pre><span class="line">npm install hexo-generator-searchdb</span><br></pre></td></tr></table></figure></div>
-<p>in <code>_config.redefine.yml</code> add:</p>
-<div class="highlight-container" data-rel="Yaml"><figure class="iseeu highlight yaml"><table><tr><td class="code"><pre><span class="line"><span class="comment"># Search</span></span><br><span class="line"><span class="comment">## See: https://github.com/theme-next/hexo-generator-searchdb</span></span><br><span class="line"><span class="attr">search:</span></span><br><span class="line">  <span class="attr">path:</span> <span class="string">search.json</span></span><br><span class="line">  <span class="attr">field:</span> <span class="string">post</span></span><br><span class="line">  <span class="attr">content:</span> <span class="literal">true</span></span><br><span class="line">  <span class="attr">format:</span> <span class="string">striptags</span></span><br><span class="line"><span class="attr">local_search:</span></span><br><span class="line">  <span class="attr">enable:</span> <span class="literal">true</span></span><br></pre></td></tr></table></figure></div>
-
-<h3 id="comment"><a href="#comment" class="headerlink" title="comment"></a>comment</h3><p>Not yet set.</p>
-<h3 id="Math"><a href="#Math" class="headerlink" title="Math"></a>Math</h3><div class="highlight-container" data-rel="Bash"><figure class="iseeu highlight bash"><table><tr><td class="code"><pre><span class="line">npm install hexo-filter-mathjax</span><br></pre></td></tr></table></figure></div>
-<p>in <code>_config.yml</code> add:</p>
-<div class="highlight-container" data-rel="Yaml"><figure class="iseeu highlight yaml"><table><tr><td class="code"><pre><span class="line"><span class="attr">mathjax:</span></span><br><span class="line">  <span class="attr">tags:</span> <span class="string">none</span>               <span class="comment"># or 'ams' or 'all'</span></span><br><span class="line">  <span class="attr">single_dollars:</span> <span class="literal">true</span>     <span class="comment"># enable single dollar signs as in-line math delimiters</span></span><br><span class="line">  <span class="attr">cjk_width:</span> <span class="number">0.9</span>           <span class="comment"># relative CJK char width</span></span><br><span class="line">  <span class="attr">normal_width:</span> <span class="number">0.6</span>        <span class="comment"># relative normal (monospace) width</span></span><br><span class="line">  <span class="attr">append_css:</span> <span class="literal">true</span>         <span class="comment"># add CSS to every page</span></span><br><span class="line">  <span class="attr">every_page:</span> <span class="literal">true</span> <span class="comment"># if true, every page will be rendered by mathjax regardless the `mathjax` setting in Front-matter of each article</span></span><br></pre></td></tr></table></figure></div>
-
-<h3 id="Compress"><a href="#Compress" class="headerlink" title="Compress"></a>Compress</h3><div class="highlight-container" data-rel="Bash"><figure class="iseeu highlight bash"><table><tr><td class="code"><pre><span class="line">npm install hexo-all-minifier</span><br></pre></td></tr></table></figure></div>
-<p>I met unfixable venerablity after install this. Don’t recommend install.</p>
-<h2 id="Further-Learing"><a href="#Further-Learing" class="headerlink" title="Further Learing"></a>Further Learing</h2><p>Please refer to <a class="link" href="https://hexo.io/">Hexo<i class="fa-solid fa-up-right-from-square"></i></a></p>
-]]></content>
-      <categories>
-        <category>Tutorial</category>
-      </categories>
-      <tags>
-        <tag>Hexo</tag>
-        <tag>Github Page</tag>
-      </tags>
-  </entry>
-  <entry>
     <title>C/C++ WebServer 3 Linux 多线程开发</title>
     <url>/2022/12/17/webserver-note3/</url>
     <content><![CDATA[<h3 id="线程概述"><a href="#线程概述" class="headerlink" title="线程概述"></a>线程概述</h3><ul>
@@ -425,6 +426,74 @@
 
 
 ]]></content>
+      <categories>
+        <category>Note</category>
+      </categories>
+      <tags>
+        <tag>C</tag>
+        <tag>Linux</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>C/C++ WebServer 5 项目实战与总结</title>
+    <url>/2022/12/17/webserver-note5/</url>
+    <content><![CDATA[<h3 id="阻塞和非阻塞、同步和异步"><a href="#阻塞和非阻塞、同步和异步" class="headerlink" title="阻塞和非阻塞、同步和异步"></a>阻塞和非阻塞、同步和异步</h3><p>网络IO<br>数据就绪</p>
+<ul>
+<li>阻塞</li>
+<li>非阻塞：不会改变线程的状态，通过返回值判断<br>数据读写，应用程序</li>
+<li>同步</li>
+<li>异步：通知方式，更为麻烦<br>在处理I/O的时候，阻塞和非阻鑫都是同步I/O，只有使用了特殊的AP1 才是异步I/O。<br>Linux：AIO<br>Windows：IOCP</li>
+</ul>
+<h3 id="Unix、Linux上的五种IO模型"><a href="#Unix、Linux上的五种IO模型" class="headerlink" title="Unix、Linux上的五种IO模型"></a>Unix、Linux上的五种IO模型</h3><ol>
+<li>Blocking</li>
+<li>Nonblocking<br>EAGAIN</li>
+<li>IO multiplexing<br>Select, poll, epoll</li>
+<li>Signal-driven</li>
+<li>Asynchronous</li>
+</ol>
+<h3 id="Web服务器简介及HTTP协议"><a href="#Web服务器简介及HTTP协议" class="headerlink" title="Web服务器简介及HTTP协议"></a>Web服务器简介及HTTP协议</h3><p>HTTP 请求方法</p>
+<table>
+<thead>
+<tr>
+<th></th>
+</tr>
+</thead>
+<tbody><tr>
+<td>GET</td>
+</tr>
+<tr>
+<td>HEAD</td>
+</tr>
+<tr>
+<td>POST</td>
+</tr>
+<tr>
+<td>PUT</td>
+</tr>
+<tr>
+<td>DELETE</td>
+</tr>
+<tr>
+<td>TRACE</td>
+</tr>
+<tr>
+<td>OPTIONS</td>
+</tr>
+<tr>
+<td>CONNECT</td>
+</tr>
+</tbody></table>
+<h3 id="服务器编程基本框架和两种高效的事件处理模式"><a href="#服务器编程基本框架和两种高效的事件处理模式" class="headerlink" title="服务器编程基本框架和两种高效的事件处理模式"></a>服务器编程基本框架和两种高效的事件处理模式</h3><p>逻辑处理<br>模块：<br>I/O处理单元<br>逻辑单元：业务线程或进程（并发处理）<br>网络存储单元：数据库、文件或缓存<br>请求队列：各单元之间的通信方式<br>三类事件<br>I/O事件，信号及定时事件<br>两类事件处理模式：<br>Reactor模式：<br>主线程：监听文件描述符上是否有事件发生。工作线程<br>同步I/O<br>Proactor方式：<br>异步I/O模型：<br>将所有I/O操作都交给主线程和内核来处理，工作线程仅负责业务逻辑<br>采用同步I/O模拟Proactor模式</p>
+<h3 id="线程同步机制类封装及线程池实现"><a href="#线程同步机制类封装及线程池实现" class="headerlink" title="线程同步机制类封装及线程池实现"></a>线程同步机制类封装及线程池实现</h3><p>线程池是由服务器预先创建的一组子线程，线程池中的线程数应该和 CPU 数星差不多。线程池中的所有子线程都运行着相同的代码。当有新的任务到来时，主线程将通过某种方式选择线程池中的某一个子线程来为之服务。相比与动态的创建子线程，选择一个已经存在的子线程的代价显然要小得多。至于主线程选择哪个子线程来为新任务服务，则有多种方式：</p>
+<ul>
+<li>主线程使用某种算法来主动选择子线程。最简单、最常用的算法是随机算法和Round Robin(轮流选取）算法，但更优秀、更智能的算法将使任务在各个工作线程中更均匀地分配，从而減轻服务器的整体压力。</li>
+<li>主线程和所有子线程通过一个共享的工作队列来同步，子线程都睡眠在该工作队列上。当有新的任务到来时，主线程将任务添加到工作队列中。这将唤醒正在等待任务的子结程，不过只有一个子线程将获得新任务的接管权，已可以从工作队列中取出任务并执行之，而其他子线程将继续睡眠在工作队列上。<br>对于CPU密集型的任务，线程数最最好也设置为4（或者+1防止其他因素造成的线程阻塞），对于IO密集型的任务，一般要多于CPU的核数，因为线程间竞争的不是CPU的计算资源而是IO，IO的处理一般较慢，多于cores数的线程将为CPU争取更多的任务，不至在线程处理IO的过程造成CPU空闲导致资源浪费。</li>
+<li>空间换时间，浪费服务器的硬件资源，换取运行效率。</li>
+<li>池是一组资源的集合，这组资源在服务器启动之初就被完全创建好并初始化，这称为静态资源。</li>
+<li>当服务器进入正式运行阶段，开始处理客户请求的时候，如果它需要相关的资源，可以直接从池中获取，无需动态分配。</li>
+<li>当服务器处理完一个客户连接后，可以把相关的资源放回池中，无需执行系统调用释放资源。</li>
+</ul>
+<h3 id="定时检测非活跃连接、服务器压力测试"><a href="#定时检测非活跃连接、服务器压力测试" class="headerlink" title="定时检测非活跃连接、服务器压力测试"></a>定时检测非活跃连接、服务器压力测试</h3>]]></content>
       <categories>
         <category>Note</category>
       </categories>
@@ -788,74 +857,6 @@
 <div class="highlight-container" data-rel="C"><figure class="iseeu highlight c"><table><tr><td class="code"><pre><span class="line"><span class="comment">//  ipc_client.c</span></span><br><span class="line"><span class="meta">#<span class="keyword">include</span> <span class="string">&lt;stdio.h&gt;</span></span></span><br><span class="line"><span class="meta">#<span class="keyword">include</span> <span class="string">&lt;unistd.h&gt;</span></span></span><br><span class="line"><span class="meta">#<span class="keyword">include</span> <span class="string">&lt;string.h&gt;</span></span></span><br><span class="line"><span class="meta">#<span class="keyword">include</span> <span class="string">&lt;stdlib.h&gt;</span></span></span><br><span class="line"><span class="meta">#<span class="keyword">include</span> <span class="string">&lt;arpa/inet.h&gt;</span></span></span><br><span class="line"><span class="meta">#<span class="keyword">include</span> <span class="string">&lt;sys/un.h&gt;</span></span></span><br><span class="line"></span><br><span class="line"><span class="type">int</span> <span class="title function_">main</span><span class="params">(<span class="type">int</span> argc, <span class="type">const</span> <span class="type">char</span> * argv[])</span> {</span><br><span class="line">    <span class="comment">// insert code here...</span></span><br><span class="line">    <span class="type">int</span> cfd = socket(AF_LOCAL, SOCK_STREAM, <span class="number">0</span>);</span><br><span class="line">    <span class="keyword">if</span> (cfd == <span class="number">-1</span>) {</span><br><span class="line">        perror(<span class="string">"socket"</span>);</span><br><span class="line">        <span class="built_in">exit</span>(<span class="number">-1</span>);</span><br><span class="line">    }</span><br><span class="line">    </span><br><span class="line">    <span class="class"><span class="keyword">struct</span> <span class="title">sockaddr_un</span> <span class="title">clientAddr</span>;</span></span><br><span class="line">    clientAddr.sun_family = AF_LOCAL;</span><br><span class="line">    unlink(<span class="string">"client.sock"</span>);</span><br><span class="line">    <span class="built_in">strcpy</span>(clientAddr.sun_path, <span class="string">"client.sock"</span>);</span><br><span class="line">    <span class="type">int</span> ret = bind(cfd, (<span class="keyword">struct</span> sockaddr*)&amp;clientAddr, <span class="keyword">sizeof</span>(clientAddr));</span><br><span class="line">    <span class="keyword">if</span> (ret==<span class="number">-1</span>) {</span><br><span class="line">        perror(<span class="string">"bind"</span>);</span><br><span class="line">        <span class="built_in">exit</span>(<span class="number">-1</span>);</span><br><span class="line">    }</span><br><span class="line">    </span><br><span class="line">    <span class="class"><span class="keyword">struct</span> <span class="title">sockaddr_un</span> <span class="title">serverAddr</span>;</span></span><br><span class="line">    <span class="built_in">strcpy</span>(serverAddr.sun_path, <span class="string">"server.sock"</span>);</span><br><span class="line">    ret = connect(cfd, (<span class="keyword">struct</span> sockaddr*)&amp;serverAddr, <span class="keyword">sizeof</span>(serverAddr));</span><br><span class="line">    </span><br><span class="line">    <span class="comment">// communication</span></span><br><span class="line">    <span class="type">int</span> num = <span class="number">0</span>;</span><br><span class="line"></span><br><span class="line">    <span class="keyword">while</span> (<span class="number">1</span>) {</span><br><span class="line">        <span class="type">char</span> buf[<span class="number">1024</span>]  = {<span class="number">0</span>};</span><br><span class="line">        <span class="built_in">sprintf</span>(buf, <span class="string">"hello, I'm client num:%d"</span>, num++);</span><br><span class="line">        send(cfd, buf, <span class="built_in">strlen</span>(buf), <span class="number">0</span>);</span><br><span class="line">        </span><br><span class="line">        <span class="type">int</span> len =  recv(cfd, buf, <span class="keyword">sizeof</span>(buf), <span class="number">0</span>);</span><br><span class="line">        <span class="keyword">if</span> (len==<span class="number">-1</span>) {</span><br><span class="line">            perror(<span class="string">"recv"</span>);</span><br><span class="line">            <span class="built_in">exit</span>(<span class="number">-1</span>);</span><br><span class="line">        }<span class="keyword">else</span> <span class="keyword">if</span>(len==<span class="number">0</span>) {</span><br><span class="line">            <span class="built_in">printf</span>(<span class="string">"connection closed..."</span>);</span><br><span class="line">            <span class="keyword">break</span>;</span><br><span class="line">        }<span class="keyword">else</span>{</span><br><span class="line">            <span class="built_in">printf</span>(<span class="string">"server say: %s\n"</span>, buf);</span><br><span class="line">        }</span><br><span class="line">        sleep(<span class="number">1</span>);</span><br><span class="line">    }</span><br><span class="line">    </span><br><span class="line">    close(cfd);</span><br><span class="line">    <span class="keyword">return</span> <span class="number">0</span>;</span><br><span class="line">}</span><br></pre></td></tr></table></figure></div>
 
 ]]></content>
-      <categories>
-        <category>Note</category>
-      </categories>
-      <tags>
-        <tag>C</tag>
-        <tag>Linux</tag>
-      </tags>
-  </entry>
-  <entry>
-    <title>C/C++ WebServer 5 项目实战与总结</title>
-    <url>/2022/12/17/webserver-note5/</url>
-    <content><![CDATA[<h3 id="阻塞和非阻塞、同步和异步"><a href="#阻塞和非阻塞、同步和异步" class="headerlink" title="阻塞和非阻塞、同步和异步"></a>阻塞和非阻塞、同步和异步</h3><p>网络IO<br>数据就绪</p>
-<ul>
-<li>阻塞</li>
-<li>非阻塞：不会改变线程的状态，通过返回值判断<br>数据读写，应用程序</li>
-<li>同步</li>
-<li>异步：通知方式，更为麻烦<br>在处理I/O的时候，阻塞和非阻鑫都是同步I/O，只有使用了特殊的AP1 才是异步I/O。<br>Linux：AIO<br>Windows：IOCP</li>
-</ul>
-<h3 id="Unix、Linux上的五种IO模型"><a href="#Unix、Linux上的五种IO模型" class="headerlink" title="Unix、Linux上的五种IO模型"></a>Unix、Linux上的五种IO模型</h3><ol>
-<li>Blocking</li>
-<li>Nonblocking<br>EAGAIN</li>
-<li>IO multiplexing<br>Select, poll, epoll</li>
-<li>Signal-driven</li>
-<li>Asynchronous</li>
-</ol>
-<h3 id="Web服务器简介及HTTP协议"><a href="#Web服务器简介及HTTP协议" class="headerlink" title="Web服务器简介及HTTP协议"></a>Web服务器简介及HTTP协议</h3><p>HTTP 请求方法</p>
-<table>
-<thead>
-<tr>
-<th></th>
-</tr>
-</thead>
-<tbody><tr>
-<td>GET</td>
-</tr>
-<tr>
-<td>HEAD</td>
-</tr>
-<tr>
-<td>POST</td>
-</tr>
-<tr>
-<td>PUT</td>
-</tr>
-<tr>
-<td>DELETE</td>
-</tr>
-<tr>
-<td>TRACE</td>
-</tr>
-<tr>
-<td>OPTIONS</td>
-</tr>
-<tr>
-<td>CONNECT</td>
-</tr>
-</tbody></table>
-<h3 id="服务器编程基本框架和两种高效的事件处理模式"><a href="#服务器编程基本框架和两种高效的事件处理模式" class="headerlink" title="服务器编程基本框架和两种高效的事件处理模式"></a>服务器编程基本框架和两种高效的事件处理模式</h3><p>逻辑处理<br>模块：<br>I/O处理单元<br>逻辑单元：业务线程或进程（并发处理）<br>网络存储单元：数据库、文件或缓存<br>请求队列：各单元之间的通信方式<br>三类事件<br>I/O事件，信号及定时事件<br>两类事件处理模式：<br>Reactor模式：<br>主线程：监听文件描述符上是否有事件发生。工作线程<br>同步I/O<br>Proactor方式：<br>异步I/O模型：<br>将所有I/O操作都交给主线程和内核来处理，工作线程仅负责业务逻辑<br>采用同步I/O模拟Proactor模式</p>
-<h3 id="线程同步机制类封装及线程池实现"><a href="#线程同步机制类封装及线程池实现" class="headerlink" title="线程同步机制类封装及线程池实现"></a>线程同步机制类封装及线程池实现</h3><p>线程池是由服务器预先创建的一组子线程，线程池中的线程数应该和 CPU 数星差不多。线程池中的所有子线程都运行着相同的代码。当有新的任务到来时，主线程将通过某种方式选择线程池中的某一个子线程来为之服务。相比与动态的创建子线程，选择一个已经存在的子线程的代价显然要小得多。至于主线程选择哪个子线程来为新任务服务，则有多种方式：</p>
-<ul>
-<li>主线程使用某种算法来主动选择子线程。最简单、最常用的算法是随机算法和Round Robin(轮流选取）算法，但更优秀、更智能的算法将使任务在各个工作线程中更均匀地分配，从而減轻服务器的整体压力。</li>
-<li>主线程和所有子线程通过一个共享的工作队列来同步，子线程都睡眠在该工作队列上。当有新的任务到来时，主线程将任务添加到工作队列中。这将唤醒正在等待任务的子结程，不过只有一个子线程将获得新任务的接管权，已可以从工作队列中取出任务并执行之，而其他子线程将继续睡眠在工作队列上。<br>对于CPU密集型的任务，线程数最最好也设置为4（或者+1防止其他因素造成的线程阻塞），对于IO密集型的任务，一般要多于CPU的核数，因为线程间竞争的不是CPU的计算资源而是IO，IO的处理一般较慢，多于cores数的线程将为CPU争取更多的任务，不至在线程处理IO的过程造成CPU空闲导致资源浪费。</li>
-<li>空间换时间，浪费服务器的硬件资源，换取运行效率。</li>
-<li>池是一组资源的集合，这组资源在服务器启动之初就被完全创建好并初始化，这称为静态资源。</li>
-<li>当服务器进入正式运行阶段，开始处理客户请求的时候，如果它需要相关的资源，可以直接从池中获取，无需动态分配。</li>
-<li>当服务器处理完一个客户连接后，可以把相关的资源放回池中，无需执行系统调用释放资源。</li>
-</ul>
-<h3 id="定时检测非活跃连接、服务器压力测试"><a href="#定时检测非活跃连接、服务器压力测试" class="headerlink" title="定时检测非活跃连接、服务器压力测试"></a>定时检测非活跃连接、服务器压力测试</h3>]]></content>
       <categories>
         <category>Note</category>
       </categories>
