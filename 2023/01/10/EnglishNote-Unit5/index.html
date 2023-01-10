@@ -1,0 +1,905 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+    <meta name="keywords" content="Hexo Theme Redefine">
+    <meta name="description" content="Hexo Theme Redefine">
+    <meta name="author" content="Meqt">
+    
+    <title>
+        
+            EnglishNote-Unit5 |
+        
+        Meqt&#39;s Blog
+    </title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    
+<link rel="stylesheet" href="/css/style.css">
+
+    <link rel="shortcut icon" href="/fig/markdown.svg">
+    
+<link rel="stylesheet" href="/css/fontawesome.min.css">
+
+    
+<link rel="stylesheet" href="/css/brands.min.css">
+
+    
+<link rel="stylesheet" href="/css/solid.min.css">
+
+    
+<link rel="stylesheet" href="/css/regular.min.css">
+
+    
+    
+    
+    
+<link rel="stylesheet" href="/css/css2.css">
+
+    <script id="hexo-configurations">
+    let REDEFINE = window.REDEFINE || {};
+    REDEFINE.hexo_config = {"hostname":"meqtmac.github.io","root":"/","language":"en","path":"search.xml"};
+    REDEFINE.theme_config = {"toc":{"enable":true,"number":true,"expand_all":true,"init_open":true},"style":{"primary_color":"#005080","avatar":"https://static.wikia.nocookie.net/gensin-impact/images/0/08/Icon_Emoji_Venti_4.png","favicon":"/fig/markdown.svg","article_img_align":"center","right_side_width":"210px","content_max_width":"1000px","nav_color":{"left":"#f78736","right":"#367df7","transparency":35},"hover":{"shadow":true,"scale":false},"first_screen":{"enable":true,"background_image":{"light":"/fig/cover_light.jpg","dark":"/fig/cover_dark.jpg"},"title_color":{"light":"#fff","dark":"#d1d1b6"},"description":"As astra abyssosque"},"scroll":{"progress_bar":{"enable":true},"percent":{"enable":false}}},"local_search":{"enable":true,"preload":true},"code_copy":{"enable":true,"style":"mac"},"pjax":{"enable":true},"lazyload":{"enable":true},"version":"0.3.5"};
+    REDEFINE.language_ago = {"second":"%s seconds ago","minute":"%s minutes ago","hour":"%s hours ago","day":"%s days ago","week":"%s weeks ago","month":"%s months ago","year":"%s years ago"};
+  </script>
+<meta name="generator" content="Hexo 6.3.0"><style>mjx-container[jax="SVG"] {
+  direction: ltr;
+}
+
+mjx-container[jax="SVG"] > svg {
+  overflow: visible;
+}
+
+mjx-container[jax="SVG"][display="true"] {
+  display: block;
+  text-align: center;
+  margin: 1em 0;
+}
+
+mjx-container[jax="SVG"][justify="left"] {
+  text-align: left;
+}
+
+mjx-container[jax="SVG"][justify="right"] {
+  text-align: right;
+}
+
+g[data-mml-node="merror"] > g {
+  fill: red;
+  stroke: red;
+}
+
+g[data-mml-node="merror"] > rect[data-background] {
+  fill: yellow;
+  stroke: none;
+}
+
+g[data-mml-node="mtable"] > line[data-line] {
+  stroke-width: 70px;
+  fill: none;
+}
+
+g[data-mml-node="mtable"] > rect[data-frame] {
+  stroke-width: 70px;
+  fill: none;
+}
+
+g[data-mml-node="mtable"] > .mjx-dashed {
+  stroke-dasharray: 140;
+}
+
+g[data-mml-node="mtable"] > .mjx-dotted {
+  stroke-linecap: round;
+  stroke-dasharray: 0,140;
+}
+
+g[data-mml-node="mtable"] > svg {
+  overflow: visible;
+}
+
+[jax="SVG"] mjx-tool {
+  display: inline-block;
+  position: relative;
+  width: 0;
+  height: 0;
+}
+
+[jax="SVG"] mjx-tool > mjx-tip {
+  position: absolute;
+  top: 0;
+  left: 0;
+}
+
+mjx-tool > mjx-tip {
+  display: inline-block;
+  padding: .2em;
+  border: 1px solid #888;
+  font-size: 70%;
+  background-color: #F8F8F8;
+  color: black;
+  box-shadow: 2px 2px 5px #AAAAAA;
+}
+
+g[data-mml-node="maction"][data-toggle] {
+  cursor: pointer;
+}
+
+mjx-status {
+  display: block;
+  position: fixed;
+  left: 1em;
+  bottom: 1em;
+  min-width: 25%;
+  padding: .2em .4em;
+  border: 1px solid #888;
+  font-size: 90%;
+  background-color: #F8F8F8;
+  color: black;
+}
+
+foreignObject[data-mjx-xml] {
+  font-family: initial;
+  line-height: normal;
+  overflow: visible;
+}
+
+.MathJax path {
+  stroke-width: 3;
+}
+
+mjx-container[display="true"] {
+  overflow: auto hidden;
+}
+
+mjx-container[display="true"] + br {
+  display: none;
+}
+</style></head>
+
+
+<body>
+<div class="progress-bar-container">
+    
+        <span class="scroll-progress-bar"></span>
+    
+
+    
+        <span class="pjax-progress-bar"></span>
+        <span class="pjax-progress-icon">
+            <i class="fa-solid fa-circle-notch fa-spin"></i>
+        </span>
+    
+</div>
+
+
+<main class="page-container">
+
+    
+
+    <div class="page-main-content">
+
+        <div class="page-main-content-top">
+            <header class="header-wrapper">
+    
+    <div class="header-content">
+        <div class="left">
+            
+            <a class="logo-title" href="/">
+                Meqt&#39;s Blog
+            </a>
+        </div>
+
+        <div class="right">
+            <!-- PC -->
+            <div class="pc">
+                <ul class="menu-list">
+                    
+                        <li class="menu-item">
+                            <!-- Menu -->
+                            <a class="" 
+                                href="/" >
+                                 
+                                    HOME
+                                
+                            </a>
+                            <!-- Submenu -->
+                            
+                        </li>
+                    
+                        <li class="menu-item">
+                            <!-- Menu -->
+                            <a class="" 
+                                href="/archives" >
+                                 
+                                    ARCHIVES
+                                
+                            </a>
+                            <!-- Submenu -->
+                            
+                        </li>
+                    
+                        <li class="menu-item">
+                            <!-- Menu -->
+                            <a class="" 
+                                target="_blank" rel="noopener" href="https://space.bilibili.com/502369884/bangumi" >
+                                 
+                                    BANGUMI
+                                
+                            </a>
+                            <!-- Submenu -->
+                            
+                        </li>
+                    
+                    
+                        <li class="menu-item search search-popup-trigger">
+                            <i class="fa-solid fa-magnifying-glass"></i>
+                        </li>
+                    
+                </ul>
+            </div>
+            <!-- Mobile -->
+            <div class="mobile">
+                
+                    <div class="icon-item search search-popup-trigger"><i class="fa-solid fa-magnifying-glass"></i></div>
+                
+                <div class="icon-item menu-bar">
+                    <div class="menu-bar-middle"></div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Mobile drawer -->
+    <div class="header-drawer">
+        <ul class="drawer-menu-list">
+            
+                <li class="drawer-menu-item flex-center">
+                    <a class="" 
+                       href="/" >
+                         
+                            HOME
+                        
+                    </a>
+                    
+                </li>
+                <!-- Submenu -->
+                
+            
+                <li class="drawer-menu-item flex-center">
+                    <a class="" 
+                       href="/archives" >
+                         
+                            ARCHIVES
+                        
+                    </a>
+                    
+                </li>
+                <!-- Submenu -->
+                
+            
+                <li class="drawer-menu-item flex-center">
+                    <a class="" 
+                       target="_blank" rel="noopener" href="https://space.bilibili.com/502369884/bangumi" >
+                         
+                            BANGUMI
+                        
+                    </a>
+                    
+                </li>
+                <!-- Submenu -->
+                
+            
+        </ul>
+    </div>
+
+    <div class="window-mask"></div>
+
+</header>
+
+
+        </div>
+
+        <div class="page-main-content-middle">
+
+            <div class="main-content">
+
+                
+                    <div class="fade-in-down-animation">
+    <div class="post-page-container">
+        <div class="article-content-container">
+            <div class="article-title">
+                <span class="title-hover-animation"><h1 style="font-size:2rem; font-weight: bold; margin: 10px 0;">EnglishNote-Unit5</h1></span>
+            </div>
+
+            
+                <div class="article-header">
+                    <div class="avatar">
+                        <img src="https://static.wikia.nocookie.net/gensin-impact/images/0/08/Icon_Emoji_Venti_4.png">
+                    </div>
+                    <div class="info">
+                        <div class="author">
+                            <span class="name">Meqt</span>
+                            
+                        </div>
+                        <div class="meta-info">
+                            <div class="article-meta-info">
+    <span class="article-date article-meta-item">
+        <i class="fa-regular fa-pen-line"></i>&nbsp;
+        <span class="pc">2023-01-10 13:55:18</span>
+        <span class="mobile">2023-01-10 13:55</span>
+    </span>
+    
+        <span class="article-categories article-meta-item">
+            <i class="fa-regular fa-folder-open"></i>&nbsp;
+            <ul>
+                
+                    <li>
+                        <a href="/categories/Note/">Note</a>&nbsp;
+                    </li>
+                
+            </ul>
+        </span>
+    
+    
+
+    
+    
+        <span class="article-wordcount article-meta-item">
+            <i class="fa-solid fa-file-word"></i>&nbsp;<span>4.4k Words</span>
+        </span>
+    
+    
+        <span class="article-min2read article-meta-item">
+            <i class="fa-solid fa-clock"></i>&nbsp;<span>18 Mins</span>
+        </span>
+    
+    
+        <span class="article-pv article-meta-item">
+            <i class="fa-regular fa-eye"></i>&nbsp;<span id="busuanzi_value_page_pv"></span>
+        </span>
+    
+</div>
+
+                        </div>
+                    </div>
+                </div>
+            
+
+            <div class="article-content markdown-body">
+                <h1 id="Unit-5"><a href="#Unit-5" class="headerlink" title="Unit 5"></a>Unit 5</h1><h2 id="guardsman-中缀介绍与拓展"><a href="#guardsman-中缀介绍与拓展" class="headerlink" title="guardsman: 中缀介绍与拓展"></a>guardsman: 中缀介绍与拓展</h2><p>a man who guards 卫士，卫兵</p>
+<ul>
+<li>sportsman运动员 </li>
+<li>sportswear运动衣</li>
+<li>salesman售货员</li>
+<li>salesgirl, saleswoman 女售货员，女营业员，女店员 (女权主义的产物) </li>
+<li>craftsman 手艺人</li>
+<li>statesman 政治家</li>
+</ul>
+<p><em>-s-: infix 中缀</em><br>-o-<br>therm-o-meter 温度计<br>therm-: 热 thermos 热水瓶，开水瓶 thermophysics 热物理</p>
+<p>bar-o-meter<br>bar: 气压(压强)单位，巴，毫巴 barometer 气压计</p>
+<p>spir-o-meter 肺活量测量仪<br>词根-spir-表示呼吸, 生命, 精神</p>
+<p>acceler-o-meter 加速度计</p>
+<p>cycl-o-meter (自行车)里程器</p>
+<p>此外，另一类被也认为是中缀的情况:打断一个词，在中间加入另一<br>个词，构成新词</p>
+<p>a-whole-nother = another whole <em>Oh, I understand. That’s a-whole-nother story.</em> 噢，我懂了。那是完全彻底的另外一回事。<br>He <strong>absobloodylutely</strong> wanted to see her again. 他真想再见她一次。</p>
+<p>人们通常在词中加一个表达强烈感情的词， 以加强语气。 ——此为英语俚语，并不推荐使用。</p>
+<p>单词“颜色”的区别<br>statesman 与 politician 单词的内涵意义(connotative meaning)<br>denotative meaning: 字面意思<br>connotative meaning: 内涵意思, 即在文化与情感上的联系而产生的意义</p>
+<ul>
+<li><p>politician: 字面意思:积极从事政治活动的人; (通常指职业的)政治家 内涵意思:政客; 玩弄权术者 <em>You need to be a bit of a politician to succeed in this company.</em> 要想在这家公司步步登高, 就需要耍点手腕。<br><em>baby-kisser</em> 竞选时笼络人心的政客</p>
+</li>
+<li><p>statesman: 政治家，国务活动家，治国之才 <em>Premier Zhou was a very famous statesman.</em></p>
+</li>
+</ul>
+<p><strong>-spir-</strong><br>呼吸-&gt;精神，神，灵感</p>
+<ul>
+<li>inspire: 呼吸，吸入-&gt;(使)具有灵感-&gt;鼓励 inspiration 灵感 </li>
+<li>perspire: per-: through 穿，贯穿;全过程不断地呼吸 breathe hard-&gt;汗水，hard work;perspiration 血汗<br>  <em>Genius is 2 percent inspiration and 98 percent perspiration. –Thomas Edison</em> 天才是2%的灵感加98%的血汗。</li>
+<li>aspire:<br>  a-: ad-的变体，加强<br>  aspire: 憋着呼吸去做…<br>  aspire for 渴望，追求 </li>
+<li>expire:<br>  ex-: out, 只有出气(没有进气)-&gt;没有呼吸，死了，到期了</li>
+<li>respire:<br>  re-: again 恢复，恢复元气正常反复呼吸<br>  respiration 呼吸<br>  SARS: Severe Acute Respiratory Syndrome 非典型性肺炎 严重急性呼吸道症状</li>
+</ul>
+<h2 id="feature-与汉语意义有差距的词，汉英词汇在是否及物方面的区别"><a href="#feature-与汉语意义有差距的词，汉英词汇在是否及物方面的区别" class="headerlink" title="feature: 与汉语意义有差距的词，汉英词汇在是否及物方面的区别"></a>feature: 与汉语意义有差距的词，汉英词汇在是否及物方面的区别</h2><p><em>n.</em></p>
+<ol>
+<li>面部的一部分(如鼻、 口、 眼)<br> <em>Her eyes are her most striking feature.</em> 她面部最突出的部分是那双眼睛。<br> features [pl] 面貌; 容貌:<br> <em>a woman of delicate features</em> 相貌秀气姣好的女子 </li>
+<li>特征; 特色; 特点<br> <em>memorable features of the village landscape</em> 乡村景色中令人难忘的特征<br> -&gt;feature (on sb/sth) (报纸、 电视等中关于某人[某事物]的)特写或专题节目<br> <em>This magazine will be running a special feature on education next week.</em> 这一杂志下周要发表一篇关于教育的专题文章。<br> -&gt;feature(电影的)正片, 故事片the main feature following the cartoon 动画片之后的正片<br> [attributive 作定语] a feature film 故事片</li>
+</ol>
+<p><em>v.</em></p>
+<ul>
+<li><strong>A features B</strong><br>  A 以B为主要特色，A 给予B显著地位，由B主演等<br>  <em>The film features a new French actress</em> 这部电影由一个法国新女星主演.<br>  <em>A traditional Thanksgiving dinner usually features roast turkey.</em> 传统的感恩节菜肴通常以烤火鸡为主要特色。</li>
+<li><strong>B features in A</strong><br>  B在A中起重要作用或扮演主要角色<br>  <em>His later paintings feature prominently in the exhibition.</em> 展览主要展出他后期的画作。(这次展览主要展出他后期的画作。)</li>
+</ul>
+<p>英汉动词的及物性区别,部分英语单词与其对应的汉语翻译在及物性上有很大差别<br>dispose和汉语“处理”在及物性上的差异</p>
+<ul>
+<li>汉: 处理 (及物动词)</li>
+<li>英: dispose 安排;编排 (及物动词) </li>
+<li>英: dispose of 处理 (不及物动词)<br>Let’s <em>dispose</em> the chairs in a semi-circle. 我们来把椅子摆成半圆形。<br>All the furniture has been <em>disposed of</em>. 所有的家具都已处理掉了。<br>热处理 hot disposal X<br>  = 热加工 = heat treatment<br><strong>dispose of Properly</strong><br>disposal <em>n.</em><br>at one’s disposal 任由 … 处理<br>That was the first time I’d got ten yuan <em>at my own disposal.</em> 那是第一次我有10元钱可以随便花。</li>
+</ul>
+<p><strong>contact 和汉语“联系”在及物性上的差异</strong><br>汉: 联系 (不及物动词)，通常说“与…联系”<br>英: contact (及物动词)，通常说contact sb. <em>Where can I contact you tomorrow?</em> 明天我在哪里能跟你联系?</p>
+<p><strong>serve 和汉语“服务”在及物性上的差异</strong><br>汉: 服务 (不及物动词)，通常说“为…服务”<br>英: serve (及物动词) 直接说 serve sb.<br><em>We should serve the people heart and soul.</em> 我们应该全心全意为人民服务。</p>
+<h2 id="take…for-granted-短语意义的理据，英语句子之短短长原则"><a href="#take…for-granted-短语意义的理据，英语句子之短短长原则" class="headerlink" title="take…for granted: 短语意义的理据，英语句子之短短长原则"></a>take…for granted: 短语意义的理据，英语句子之短短长原则</h2><p><strong>take … for granted</strong> 想当然(地认为)…<br>grant: </p>
+<ul>
+<li><em>v.</em> 恩赐，赐予 (by God, the emperor or the king) (只管接受，无问西东 ) 理所当然<br>  They <strong>granted</strong> him permission to leave. 他们准许他离开。<br>  She was <strong>granted</strong> a pension. 她得到了养老金。(她被给予养老金。)</li>
+<li><em>n.</em>: 授予物; (尤指政府的)拨款: 助学金，科研经费等</li>
+<li><em>v.</em>: 同意或承认(某事属实)<br>  <em>He hasn’t made much progress, I’ll grant you that.</em> 我得向你承认，他没有取得什么进展。<br>  <em>You just accept something without asking why because it is granted.</em> 你心安理得地接受某件东西，因为它是赐予给你的。</li>
+</ul>
+<p><strong>take … for …</strong><br><em>v.</em> to suppose to be; mistake for 认为是…; 错误地把…当做…<br>    <em>Do you take me for a fool?</em> 你把我当傻子么?<br>    <em>At first sight you would take him for a football player, not a poet.</em> 第一眼你会误认为他是足球运动员，而不是诗人。<br>    <em>He was always taken for his twin brother.</em> 他经常被误认为是他的双胞胎兄弟。</p>
+<p><strong>take … for granted</strong><br>把什么(误)认为是理所当然<br><em>We always take our parents’ love for granted.</em> 我们经常把父母对我们的爱看成是理所当然的。<br>A teacher cannot take <strong>that students always do their homework</strong> for granted. 老师不能想当然地认为学生通常会做课外作业。</p>
+<p><strong>end weight 末端重量</strong><br>宾语 that students always do their homework太长<br>for granted 太短<br>句子不平衡</p>
+<p>解决:短-短-长原则–短的成分放前面，长的信息放句尾。<br>构成:</p>
+<ul>
+<li>it做形式主语或形式宾语，而正在的主语或宾语放句尾。 </li>
+<li>直接将长的信息后置，短的成分前移。<br>A teacher cannot <strong>take (it) for granted</strong> that students always do their homework.</li>
+</ul>
+<p>末端重量在句子结构调整中的实例<br><strong>It</strong> is very important that we should pay attention to this matter. 重要的是，我们要关注这件事。<br>make sth. possible 使 … 成为可能<br><em>Hard work has made his success possible.</em> 辛勤的工作使他的成功成为可能。</p>
+<p><em>His help made things like computer chips and GPS possible.(头重脚轻!)</em> 他的帮助使得像电脑芯片和GPS这样的事成功可能。<br><em>His help made possible things like computer chips and GPS.</em><br>All is not gold <strong>that glitters.</strong> (分离定语从句，修饰all。)<br>发光的不一定都是金子。</p>
+<p>英语词序与汉语思维中的逻辑顺序可能会出现差异，要注意其特征，在<br>心理恢复其本身的逻辑顺序。<br>Air is to human ? water is to fish.<br>A.as B. like C. what D while<br>To human, air is <strong>what water is to fish.</strong> 人离不开空气，就像鱼离不开水一样。<br><em>As many innovations now arrive in one year as once arrived in a millennium.</em> 句子的as … as…结构需要复原<br><strong>As many</strong> innovations <strong>as</strong> once arrived in a millennium <strong>now arrive in one year.</strong><br>曾经需要千年才到来的创新发明，现在只需一年就到来了。<br>now arrive in one year是句子的谓语部分。</p>
+<h2 id="on-behalf-of-短语中of与所有格代词之间的关系"><a href="#on-behalf-of-短语中of与所有格代词之间的关系" class="headerlink" title="on behalf of: 短语中of与所有格代词之间的关系"></a>on behalf of: 短语中of与所有格代词之间的关系</h2><p>BrE. on behalf of sb. (AmE.: in behalf of sb.) 代表</p>
+<p>half: 一半，球场的一半(一边)<br>    better half 贤内助<br>be-: by<br>behalf: by the side of 站在某一边<br><em>On behalf of my colleagues and myself I thank you.</em> 我代表我的同事以及我自己向你表示谢意。<br><em>Ken is not present, so I shall accept the prize on his behalf.</em> 肯不在场, 所以我代表他领奖。</p>
+<p>通常of sth./sb. 表示属于: the window of the room 房间的窗户<br>可以用其所有格来表示: the room’s window</p>
+<p>on his behalf -&gt; on behalf of him</p>
+<ol>
+<li>They do not <strong>take our notice</strong> at all when we come back home. 我们回家时，它们根本不注意我们。<br> <strong>take our notice</strong> = <strong>take notice of us</strong> 注意我们</li>
+<li>Who is going to <strong>take my care</strong> when I go there? 我去那里，谁照顾我啊?<br> take my care = take care of me 照顾我</li>
+</ol>
+<p>in charge of vs. in <strong>the</strong> charge of<br>in charge of 管理，负责<br>A is in charge of B: A负责B<br>in the charge of 管理，负责<br>A is in the charge of B: B负责A</p>
+<p><em>I am in charge of the island.</em> = <em>I control the island.</em> 我负责/管理这个岛。<br><em>The island is in my charge.</em> =  <em>The island is under my control.</em><br>in my charge-&gt;可以异化为: in the charge of me 在我的控制下<br>所以，in the charge of sb. 表示处于…的控制之下<br>Children usually get naughtier when they are <strong>in the charge of their grandparents</strong>. 由爷爷奶奶照看时，小孩往往变得更加调皮。</p>
+<h2 id="graduate：了解单词的真正含义"><a href="#graduate：了解单词的真正含义" class="headerlink" title="graduate：了解单词的真正含义"></a>graduate：了解单词的真正含义</h2><ul>
+<li><em>v.</em> 毕业<br>  从…毕业 (graduate from)<br>  <em>She graduated from Cambridge with a degree in law.</em> 她毕业于剑桥大学, 获法学学士学位。<br>  <em>The college graduated 50 students from the science department last year.</em> 这所学院去年有50名理科毕业生。</li>
+<li><em>n.</em> 毕业生; 研究生 (AmE.)<br>  研究生 (BrE. postgraduate)<br>  研究生院 ( graduate school)</li>
+</ul>
+<p><strong>高等教育不同阶段的表达</strong></p>
+<ul>
+<li>高等教育 higher education/advanced education </li>
+<li>高中 high (school)</li>
+<li>初中 junior high (school) </li>
+<li>高中 senior high (school)</li>
+<li>学士学位 bachelor’s degree</li>
+<li>在读本科生 undergraduate (student)<ul>
+<li>freshman </li>
+<li>sophomore</li>
+<li>junior </li>
+<li>senior</li>
+</ul>
+</li>
+<li>毕业学位 graduate degree</li>
+<li>毕业生 graduate (student)/ university graduate </li>
+<li>硕士学位 master’s degree/postgraduate degree </li>
+<li>研究生 (post)graduate student</li>
+<li>博士学位 doctoral degree/ doctor’s degree/ PhD </li>
+<li>博士后研究 postdoctoral research </li>
+<li>博士后研究员 postdoctoral researcher</li>
+</ul>
+<p>PhD: philosophiae doctor (拉丁语) doctor of philosophy (哲学博士) 哲学在古代指自然科学，研究宇宙运行，万事万物的科学，所<br>以哲学包罗万象，尤其指自然科学。<br>牛顿《自然哲学的数学原理》<br>Mathematical Principles of Natural Philosophy<br>Doctor of Philosophy 指所有研究型博士。 博士毕业获取博士学位，即为Doctor。</p>
+<ul>
+<li>bachelor: 学士; 单身汉 </li>
+<li>master: 硕士;主人 </li>
+<li>doctor: 博士;医生</li>
+</ul>
+<p>After four years in the university, we are still bachelors. 大学四年仍然单身。/大学四年，学士而已!<br>A family is a university where you will lose your bachelor’s degree without getting your master’s degree. 大学：失去学士学位,没有硕士学位/家庭:不再是单身汉,没有当家做主</p>
+<p><strong>graduate词义的发展</strong></p>
+<ul>
+<li>grade 等级，级别</li>
+<li>graduate <em>v.</em> 分等级</li>
+<li>graduated <em>adj.</em> 分等级的</li>
+<li>graduated tax scheme 等级税制<br>  <em>In a graduated tax scheme, the more one earns, the more one pays.</em> 按照累进税制, 收入多者多纳税。</li>
+<li><em>v.</em> (在仪器或容器上)做标记<br>  <em>The stem was graduated with marks for each hour.</em> 每个小时都在那根竿子上做标记。</li>
+<li><em>v.</em> 进入另一(更高)等级<br>  <em>Our son has just graduated from a tricycle to a bicycle.</em> 我们的儿子刚刚从骑三轮自行车进阶到骑两轮车了。</li>
+<li><em>v.</em> 毕业</li>
+<li><em>v.</em> 逐渐发展(成为) developed gradually into<br>  <em>This reading activity graduated into a habit of the whole class.</em> 这种阅读活动逐渐成为全班的阅读习惯。</li>
+</ul>
+<p>gradual *adj.*逐渐的;渐变的<br>gradually <em>adv.</em> 逐渐地; 渐变地</p>
+<h2 id="genuine-单词意义的获取以及与同义词的比较"><a href="#genuine-单词意义的获取以及与同义词的比较" class="headerlink" title="genuine: 单词意义的获取以及与同义词的比较"></a>genuine: 单词意义的获取以及与同义词的比较</h2><p>真的，名副其实的; 非伪造的; 非人工的<br>(fig 比喻) sincere; honest 真诚的; 诚实的<br>“gen-“, 基因， 种族</p>
+<ul>
+<li>gene <ul>
+<li><em>n.</em> 基因 </li>
+<li><em>adj.</em> genetic </li>
+<li><em>adv.</em> genetically</li>
+</ul>
+</li>
+<li>genetically modified food 转基因食品 </li>
+<li>organic food 有机食品 genocide 灭种，种族灭绝</li>
+<li>-cide: to cut <ul>
+<li>suicide 自杀 </li>
+<li>homicide 他杀</li>
+</ul>
+</li>
+<li>decide de-: down cut down 做决定</li>
+<li>generate 生产，发电 </li>
+<li>generation 一代人(25 years)<br>我们经常说”真皮”， 就是genuine leather 而“真爱”，我们用“true love”</li>
+<li>genuine: not imitated</li>
+<li>true: not false</li>
+<li>real: not imaginary, not imagined</li>
+</ul>
+<h2 id="delicate-隐含的单词中心意思"><a href="#delicate-隐含的单词中心意思" class="headerlink" title="delicate: 隐含的单词中心意思"></a>delicate: 隐含的单词中心意思</h2><ul>
+<li>delicate silk</li>
+<li>delicate negotiation</li>
+<li>delicate skin</li>
+<li>delicate sense of smell</li>
+<li>delicate watch</li>
+<li>delicate skill</li>
+<li>delicate china</li>
+<li>delicate color of pink</li>
+<li>delicate figure</li>
+<li>delicate perfume </li>
+<li>delicate health </li>
+<li>delicate flavor</li>
+<li>delicate finger</li>
+<li>delicate situation</li>
+<li>delicate plant</li>
+<li>delicate operation</li>
+<li>in delicate condition</li>
+<li>in delicate balance<br>单词意思非常多，不好记住，也难于知晓何时是何意。但是，一旦我们了解了该词的核心意思，我们对该词所有意思迎刃而解，一下子全部搞定!<br>delicate 一词最开始流行于口头语，是Shakespeare第一次把它用文 字形式固化下来。莎翁写的是“a delicate lady”，从此后，delicate具 有了一个lady的特征:</li>
+<li>beautiful 精美的</li>
+<li>attractive 诱人的 </li>
+<li>delicious</li>
+<li>mild, weak 柔弱的</li>
+<li>sensitive, easy to lose temper 敏感的，容易生气的</li>
+</ul>
+<h2 id="serve：一词多义与英语双关语pun的构成"><a href="#serve：一词多义与英语双关语pun的构成" class="headerlink" title="serve：一词多义与英语双关语pun的构成"></a>serve：一词多义与英语双关语pun的构成</h2><ul>
+<li><em>v.</em> 为…工作; 为…服务<br>  <em>He has served his master for many years.</em> 他伺候主人很多年了。 供职;服役<br>  <em>He served two years in the Army 他在海军服役两年。</em> (在餐馆)提供饭菜;接待客人;对待<br>  <em>We serve coffee in the lounge.</em> 我们侯客室里有咖啡。<br>  <em>Are you being served?</em> 有售货员接待您吗?<br>  <em>They served me badly/ shamefully when I was there.</em> 当初在那里时，他们待我很不好。<br>  满足(需要); 达到(目的); 适合(于)<br>  <em>This room can serve as a study.</em> 这个房间可作书房用。 <em>serve your purpose</em> 达到你的目的<br>  (网球等发球)<br>  <em>It’s your turn to serve (to me).</em> 该你发(给我)球了。<br><strong>A short story about the word SERVE</strong><br>One day, a customer came to a restaurant and had a conversation with the waiter.<br>Customer: “Do you serve crabs here?”<br>Waiter: “Yeah. Sit down please. We serve everybody.”<br>顾客:你们这里有螃蟹卖吗? (服务生理解为:你们这里招待螃蟹吗?)<br>服务生答:当然，请坐。我们为每个人提供服务。(哪怕螃蟹!)</li>
+</ul>
+<p><strong>语言的模糊性 ambiguity</strong><br>一个句子有多种理解的情况叫语言的模糊性，或叫歧义(ambiguity).<br>Ambiguous sentences are sentences that can be understood in more than one way.<br>I saw him in the garden. (Who is in the garden?)</p>
+<p>Driver: Turn left?<br>Boss: Right!</p>
+<p>语言的模糊性在写作中通常要尽量避免。 但语言的模糊性让我们看到了语言的活力、回味与幽默。 语言的模糊性能产生意外的表达效果。 对语言模糊性的故意使用，修辞上叫一语双关–<strong>pun</strong>.</p>
+<p>pun的产生形式与使用场合</p>
+<ul>
+<li>同音产生双关 homophones </li>
+<li>同形产生双关 homographs</li>
+<li>一词多义产生双关 polysemy </li>
+<li>单词用法不同、词义不同产生双关 </li>
+<li>修饰性模糊产生双关 </li>
+<li>指代模糊产生双关 </li>
+<li>仿词仿句产生双关 parody</li>
+</ul>
+<p><strong>pun的产生形式与使用场合</strong></p>
+<ul>
+<li>同音产生双关 homophones<ul>
+<li><em>Seven days of work makes one week (weak).</em> 一周工作七天。 工作七天使人虚弱。</li>
+<li><em>I scream for ice cream.</em> I scream – ice cream</li>
+<li><em>Lettuce (Let us) try it!</em> 生菜，试试看!</li>
+<li><em>To survive in a desert, you can eat the sandwiches (sand which is) there.</em> 为了在沙漠中生存，你可以吃那里的三明治(沙子)。</li>
+</ul>
+</li>
+<li>同形产生双关 homograph 两个单词，正好拼法一样<br>  <em>War doesn’t show who’s right, but who’s left.</em><br>  战争并不证明谁是对的，而证明谁能活下来。<br>  An ambassador is the one who lies abroad for the good of the country.<br>  Beauty lies in lover’s eyes.</li>
+<li>单词用法不同，词义不同产生双关<ul>
+<li>Do you cook yourself? </li>
+<li>I only cook my food.<br>  cook: <em>vi.</em> 或者 <em>vt.</em> + 宾语</li>
+</ul>
+</li>
+<li>修饰模糊产生的双关<br>  Nice desk for ladies with thin and long legs. (女士专用细腿桌)</li>
+<li>指代模糊产生的双关<br>  <em>Don’t kill your wife with the chores.</em> 不要用家务事去谋害你的妻子。<br>  <em>Let our machine do the dirty job.</em> 脏活让我们的机器去做吧。</li>
+<li>仿词仿句产生的双关 parody<br>  <em>Our machine is DimeSaving.</em> Dime听起来像time, 暗指时间;同时又是10美分, 指金钱。<br>  <em>One flower does not make a spring.</em> (一花独放不是春，中文中常用。)<br>  <em>One swallow does not make a summer.</em> (一燕不成夏，英文中常用。)<br>  One swallow does make a summer! (酒店广告)</li>
+</ul>
+<h2 id="than：比较句的完整结构与理解"><a href="#than：比较句的完整结构与理解" class="headerlink" title="than：比较句的完整结构与理解"></a>than：比较句的完整结构与理解</h2><p><em>Tom is as clever as Jim.</em> 汤姆和吉姆一样聪明。<br>省略is: <em>Tom is as clever as Jim is.</em><br>完整的句子应该是: <em>Tom is as clever as Jim is clever.</em> 因为clever重复， 所以省略。因为都是is，所以省略。比较的就是clever。</p>
+<p><em>Tom is as clever as Jim is stupid.</em> 汤姆有多聪明，吉姆就有多愚蠢。 如果是同质比较，可以省略一部分。如果是不同质比较，要关注相同点，即程度(extent，degree)。 比较的东西由矢量变成了标量，没有了方向性，仅为量度。<br><em>The mountain is as high as the sea is deep.</em> 山有多高，水有多深。<br><em>The girl is as intelligent as she is beautiful.</em> 这个女孩才貌双全。<br><em>The teacher speaks faster than the students can take notes.</em> 老师讲话的速度超过了学生做笔记的速度。</p>
+<p><strong>比较句省略有时会导致歧义/双关语</strong><br><em>He loves their dog more than his wife.</em><br>他比他的妻子更爱他们的狗。/相比他的妻子，他更爱他们的狗。<br>消岐的办法:<br><em>He loves their dog more than his wife does.</em> (wife变主语，不变宾语)<br><em>He loves their dog more than he does (loves) his wife.</em> (直接变宾语)</p>
+<p><strong>比较连词than的介词化倾向</strong><br>He is taller than I.<br>He is taller than I am tall.<br>-&gt; He is taller than me. 用宾格时，than变成了介词。</p>
+<p><strong>than引导定语从句</strong><br>用来修饰被比较级修饰的名词，没有任何比较的意思，只是对该名词的量作限定，表示量超过一个限度。<br><em>He drinks more wine than is good for his health.</em> 他喝酒的量超过了对健康有利的程度。<br><em>Parents should not give children more money than is necessary.</em> 父母不应该给小孩不必要的钱。<br><em>There were more casualties than was reported.</em> 伤亡人数超过了当初报道的数目。</p>
+
+            </div>
+
+            
+                <div class="post-copyright-info">
+                    <div class="article-copyright-info-container">
+    <ul>
+        <li>Post title：EnglishNote-Unit5</li>
+        <li>Post author：Meqt</li>
+        <li>Create time：2023-01-10 13:55:18</li>
+        <li>
+            Post link：https://meqtmac.github.io/2023/01/10/EnglishNote-Unit5/
+        </li>
+        <li>
+            Copyright Notice：All articles in this blog are licensed under <a class="license" target="_blank" rel="noopener" href="https://creativecommons.org/licenses/by-nc-sa/4.0/deed.zh">BY-NC-SA</a> unless stating additionally.
+        </li>
+    </ul>
+</div>
+
+                </div>
+            
+
+            
+
+            
+                <div class="article-nav">
+                    
+                    
+                        <div class="article-next">
+                            <a class="next"
+                            rel="next"
+                            href="/2023/01/09/EnglishNote-Unit4/"
+                            >
+                                <span class="title flex-center">
+                                    <span class="post-nav-title-item">EnglishNote-Unit4</span>
+                                    <span class="post-nav-item">Next posts</span>
+                                </span>
+                                <span class="right arrow-icon flex-center">
+                                    <i class="fa-solid fa-chevron-right"></i>
+                                </span>
+                            </a>
+                        </div>
+                    
+                </div>
+            
+
+            
+        </div>
+
+        
+            <div class="toc-content-container">
+                <div class="post-toc-wrap">
+    <div class="post-toc">
+        <div style="font-size: 1.3rem;margin-top: 0; margin-bottom: 0.8rem; transition-duration: 0.1s;"><i class="fa-solid fa-list"></i> <strong>Contents</strong></div>
+        <ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#Unit-5"><span class="nav-number">1.</span> <span class="nav-text">Unit 5</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#guardsman-%E4%B8%AD%E7%BC%80%E4%BB%8B%E7%BB%8D%E4%B8%8E%E6%8B%93%E5%B1%95"><span class="nav-number">1.1.</span> <span class="nav-text">guardsman: 中缀介绍与拓展</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#feature-%E4%B8%8E%E6%B1%89%E8%AF%AD%E6%84%8F%E4%B9%89%E6%9C%89%E5%B7%AE%E8%B7%9D%E7%9A%84%E8%AF%8D%EF%BC%8C%E6%B1%89%E8%8B%B1%E8%AF%8D%E6%B1%87%E5%9C%A8%E6%98%AF%E5%90%A6%E5%8F%8A%E7%89%A9%E6%96%B9%E9%9D%A2%E7%9A%84%E5%8C%BA%E5%88%AB"><span class="nav-number">1.2.</span> <span class="nav-text">feature: 与汉语意义有差距的词，汉英词汇在是否及物方面的区别</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#take%E2%80%A6for-granted-%E7%9F%AD%E8%AF%AD%E6%84%8F%E4%B9%89%E7%9A%84%E7%90%86%E6%8D%AE%EF%BC%8C%E8%8B%B1%E8%AF%AD%E5%8F%A5%E5%AD%90%E4%B9%8B%E7%9F%AD%E7%9F%AD%E9%95%BF%E5%8E%9F%E5%88%99"><span class="nav-number">1.3.</span> <span class="nav-text">take…for granted: 短语意义的理据，英语句子之短短长原则</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#on-behalf-of-%E7%9F%AD%E8%AF%AD%E4%B8%ADof%E4%B8%8E%E6%89%80%E6%9C%89%E6%A0%BC%E4%BB%A3%E8%AF%8D%E4%B9%8B%E9%97%B4%E7%9A%84%E5%85%B3%E7%B3%BB"><span class="nav-number">1.4.</span> <span class="nav-text">on behalf of: 短语中of与所有格代词之间的关系</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#graduate%EF%BC%9A%E4%BA%86%E8%A7%A3%E5%8D%95%E8%AF%8D%E7%9A%84%E7%9C%9F%E6%AD%A3%E5%90%AB%E4%B9%89"><span class="nav-number">1.5.</span> <span class="nav-text">graduate：了解单词的真正含义</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#genuine-%E5%8D%95%E8%AF%8D%E6%84%8F%E4%B9%89%E7%9A%84%E8%8E%B7%E5%8F%96%E4%BB%A5%E5%8F%8A%E4%B8%8E%E5%90%8C%E4%B9%89%E8%AF%8D%E7%9A%84%E6%AF%94%E8%BE%83"><span class="nav-number">1.6.</span> <span class="nav-text">genuine: 单词意义的获取以及与同义词的比较</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#delicate-%E9%9A%90%E5%90%AB%E7%9A%84%E5%8D%95%E8%AF%8D%E4%B8%AD%E5%BF%83%E6%84%8F%E6%80%9D"><span class="nav-number">1.7.</span> <span class="nav-text">delicate: 隐含的单词中心意思</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#serve%EF%BC%9A%E4%B8%80%E8%AF%8D%E5%A4%9A%E4%B9%89%E4%B8%8E%E8%8B%B1%E8%AF%AD%E5%8F%8C%E5%85%B3%E8%AF%ADpun%E7%9A%84%E6%9E%84%E6%88%90"><span class="nav-number">1.8.</span> <span class="nav-text">serve：一词多义与英语双关语pun的构成</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#than%EF%BC%9A%E6%AF%94%E8%BE%83%E5%8F%A5%E7%9A%84%E5%AE%8C%E6%95%B4%E7%BB%93%E6%9E%84%E4%B8%8E%E7%90%86%E8%A7%A3"><span class="nav-number">1.9.</span> <span class="nav-text">than：比较句的完整结构与理解</span></a></li></ol></li></ol>
+    </div>
+</div>
+            </div>
+        
+    </div>
+</div>
+
+
+                
+
+            </div>
+
+
+
+        </div>
+
+        <div class="page-main-content-bottom">
+            <footer class="footer">
+    <div class="info-container">
+        <div class="copyright-info info-item">
+            &copy;
+            
+              <span>2022</span>
+              -
+            
+            2023&nbsp;<i class="fa-solid fa-heart icon-animate"></i>&nbsp;<a href="/">Meqt. All Rights Reserved.</a>
+        </div>
+        
+            <script async data-pjax src="//busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js"></script>
+            <div class="website-count info-item">
+                
+                    <span id="busuanzi_container_site_uv">
+                        Visitor Count&nbsp;<span id="busuanzi_value_site_uv"></span>&ensp;
+                    </span>
+                
+                
+                    <span id="busuanzi_container_site_pv">
+                        Totalviews&nbsp;<span id="busuanzi_value_site_pv"></span>
+                    </span>
+                
+            </div>
+        
+        <div class="theme-info info-item">
+            Powered by <a target="_blank" href="https://hexo.io">Hexo</a>&nbsp;|&nbsp;Theme&nbsp;<a class="theme-version" target="_blank" href="https://github.com/EvanNotFound/hexo-theme-redefine">Redefine v0.3.5</a>
+        </div>
+        
+        
+        <script async data-pjax defer>
+            function odometer_init(){
+                    let el = document.getElementsByClassName('odometer');
+                    for (i = 0; i < el.length; i++) {
+                        od = new Odometer({
+                            el: el[i],
+                            format: '( ddd).dd',
+                            duration: 200
+                        });
+                    }
+            }
+            odometer_init();
+        </script>
+        <div id="start_time_div" style="display:none">
+            2022/12/17 15:05:00
+        </div>
+        
+            <div>
+                Blog up for <span class="odometer" id="runtime_days" ></span> days <span class="odometer" id="runtime_hours"></span> hrs <span class="odometer" id="runtime_minutes"></span> Min <span class="odometer" id="runtime_seconds"></span> Sec
+            </div>
+        
+        
+        
+    </div>
+    <link rel="stylesheet" href="//evan.beee.top/css/waline.css"/>
+    <script src="//evan.beee.top/js/waline.js"></script>
+    
+</footer>
+        </div>
+    </div>
+
+    
+        <div class="post-tools">
+            <div class="post-tools-container">
+    <ul class="tools-list">
+        <!-- TOC aside toggle -->
+        
+            <li class="tools-item page-aside-toggle">
+                <i class="fa-regular fa-outdent"></i>
+            </li>
+        
+
+        <!-- go comment -->
+        
+    </ul>
+</div>
+
+        </div>
+    
+
+    <div class="right-bottom-side-tools">
+        <div class="side-tools-container">
+    <ul class="side-tools-list">
+        <li class="tools-item tool-font-adjust-plus flex-center">
+            <i class="fa-solid fa-magnifying-glass-plus"></i>
+        </li>
+
+        <li class="tools-item tool-font-adjust-minus flex-center">
+            <i class="fa-solid fa-magnifying-glass-minus"></i>
+        </li>
+
+        <li class="tools-item tool-expand-width flex-center">
+            <i class="fa-solid fa-left-right"></i>
+        </li>
+
+        <li class="tools-item tool-dark-light-toggle flex-center">
+            <i class="fa-solid fa-moon"></i>
+        </li>
+
+        <!-- rss -->
+        
+
+        
+            <li class="tools-item tool-scroll-to-top flex-center">
+                <i class="fa-solid fa-arrow-up"></i>
+            </li>
+        
+
+        <li class="tools-item tool-scroll-to-bottom flex-center">
+            <i class="fa-solid fa-arrow-down"></i>
+        </li>
+    </ul>
+
+    <ul class="exposed-tools-list">
+        <li class="tools-item tool-toggle-show flex-center">
+            <i class="fa-solid fa-cog fa-spin"></i>
+        </li>
+        
+    </ul>
+</div>
+
+    </div>
+
+    <div class="image-viewer-container">
+    <img src="">
+</div>
+
+
+    
+        <div class="search-pop-overlay">
+    <div class="popup search-popup">
+        <div class="search-header">
+          <span class="search-input-field-pre">
+            <i class="fa-solid fa-keyboard"></i>
+          </span>
+            <div class="search-input-container">
+                <input autocomplete="off"
+                       autocorrect="off"
+                       autocapitalize="off"
+                       placeholder="Search..."
+                       spellcheck="false"
+                       type="search"
+                       class="search-input"
+                >
+            </div>
+            <span class="popup-btn-close">
+                <i class="fa-solid fa-times"></i>
+            </span>
+        </div>
+        <div id="search-result">
+            <div id="no-result">
+                <i class="fa-solid fa-spinner fa-spin-pulse fa-5x fa-fw"></i>
+            </div>
+        </div>
+    </div>
+</div>
+
+    
+
+</main>
+
+
+
+
+<script src="/js/utils.js"></script>
+
+<script src="/js/main.js"></script>
+
+<script src="/js/header-shrink.js"></script>
+
+<script src="/js/back2top.js"></script>
+
+<script src="/js/dark-light-toggle.js"></script>
+
+
+
+    
+<script src="/js/local-search.js"></script>
+
+
+
+
+    
+<script src="/js/code-copy.js"></script>
+
+
+
+
+    
+<script src="/js/lazyload.js"></script>
+
+
+
+
+    
+<script src="/js/runtime.js"></script>
+
+    
+<script src="/js/odometer.min.js"></script>
+
+    
+<link rel="stylesheet" href="/css/odometer-theme-minimal.css">
+
+
+
+<div class="post-scripts pjax">
+    
+        
+<script src="/js/toc-toggle.js"></script>
+
+<script src="/js/libs/anime.min.js"></script>
+
+<script src="/js/toc.js"></script>
+
+    
+</div>
+
+
+    
+<script src="/js/libs/pjax.min.js"></script>
+
+<script>
+    window.addEventListener('DOMContentLoaded', () => {
+        window.pjax = new Pjax({
+            selectors: [
+                'head title',
+                '.page-container',
+                '.pjax'
+            ],
+            history: true,
+            debug: false,
+            cacheBust: false,
+            timeout: 0,
+            analytics: false,
+            currentUrlFullReload: false,
+            scrollRestoration: false,
+            // scrollTo: true,
+        });
+
+        document.addEventListener('pjax:send', () => {
+            REDEFINE.utils.pjaxProgressBarStart();
+        });
+
+        document.addEventListener('pjax:complete', () => {
+            REDEFINE.utils.pjaxProgressBarEnd();
+            window.pjax.executeScripts(document.querySelectorAll('script[data-pjax], .pjax script'));
+            REDEFINE.refresh();
+        });
+    });
+</script>
+
+
+
+</body>
+</html>
