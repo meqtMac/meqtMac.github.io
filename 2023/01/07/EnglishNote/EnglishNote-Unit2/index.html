@@ -1,0 +1,881 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+    <meta name="keywords" content="Hexo Theme Redefine">
+    <meta name="description" content="Hexo Theme Redefine">
+    <meta name="author" content="Meqt">
+    
+    <title>
+        
+            EnglishNote-Unit2 |
+        
+        Meqt&#39;s Blog
+    </title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    
+<link rel="stylesheet" href="/css/style.css">
+
+    <link rel="shortcut icon" href="/fig/markdown.svg">
+    
+<link rel="stylesheet" href="/css/fontawesome.min.css">
+
+    
+<link rel="stylesheet" href="/css/brands.min.css">
+
+    
+<link rel="stylesheet" href="/css/solid.min.css">
+
+    
+<link rel="stylesheet" href="/css/regular.min.css">
+
+    
+    
+    
+    
+<link rel="stylesheet" href="/css/css2.css">
+
+    <script id="hexo-configurations">
+    let REDEFINE = window.REDEFINE || {};
+    REDEFINE.hexo_config = {"hostname":"meqtmac.github.io","root":"/","language":"en","path":"search.xml"};
+    REDEFINE.theme_config = {"toc":{"enable":true,"number":true,"expand_all":true,"init_open":true},"style":{"primary_color":"#005080","avatar":"https://static.wikia.nocookie.net/gensin-impact/images/0/08/Icon_Emoji_Venti_4.png","favicon":"/fig/markdown.svg","article_img_align":"center","right_side_width":"210px","content_max_width":"1000px","nav_color":{"left":"#f78736","right":"#367df7","transparency":35},"hover":{"shadow":true,"scale":false},"first_screen":{"enable":true,"background_image":{"light":"/fig/cover_light.jpg","dark":"/fig/cover_dark.jpg"},"title_color":{"light":"#fff","dark":"#d1d1b6"},"description":"Stay Hungry. Stay Foolish."},"scroll":{"progress_bar":{"enable":true},"percent":{"enable":false}}},"local_search":{"enable":true,"preload":true},"code_copy":{"enable":true,"style":"mac"},"pjax":{"enable":true},"lazyload":{"enable":true},"version":"0.3.5"};
+    REDEFINE.language_ago = {"second":"%s seconds ago","minute":"%s minutes ago","hour":"%s hours ago","day":"%s days ago","week":"%s weeks ago","month":"%s months ago","year":"%s years ago"};
+  </script>
+<meta name="generator" content="Hexo 6.3.0"><style>mjx-container[jax="SVG"] {
+  direction: ltr;
+}
+
+mjx-container[jax="SVG"] > svg {
+  overflow: visible;
+}
+
+mjx-container[jax="SVG"][display="true"] {
+  display: block;
+  text-align: center;
+  margin: 1em 0;
+}
+
+mjx-container[jax="SVG"][justify="left"] {
+  text-align: left;
+}
+
+mjx-container[jax="SVG"][justify="right"] {
+  text-align: right;
+}
+
+g[data-mml-node="merror"] > g {
+  fill: red;
+  stroke: red;
+}
+
+g[data-mml-node="merror"] > rect[data-background] {
+  fill: yellow;
+  stroke: none;
+}
+
+g[data-mml-node="mtable"] > line[data-line] {
+  stroke-width: 70px;
+  fill: none;
+}
+
+g[data-mml-node="mtable"] > rect[data-frame] {
+  stroke-width: 70px;
+  fill: none;
+}
+
+g[data-mml-node="mtable"] > .mjx-dashed {
+  stroke-dasharray: 140;
+}
+
+g[data-mml-node="mtable"] > .mjx-dotted {
+  stroke-linecap: round;
+  stroke-dasharray: 0,140;
+}
+
+g[data-mml-node="mtable"] > svg {
+  overflow: visible;
+}
+
+[jax="SVG"] mjx-tool {
+  display: inline-block;
+  position: relative;
+  width: 0;
+  height: 0;
+}
+
+[jax="SVG"] mjx-tool > mjx-tip {
+  position: absolute;
+  top: 0;
+  left: 0;
+}
+
+mjx-tool > mjx-tip {
+  display: inline-block;
+  padding: .2em;
+  border: 1px solid #888;
+  font-size: 70%;
+  background-color: #F8F8F8;
+  color: black;
+  box-shadow: 2px 2px 5px #AAAAAA;
+}
+
+g[data-mml-node="maction"][data-toggle] {
+  cursor: pointer;
+}
+
+mjx-status {
+  display: block;
+  position: fixed;
+  left: 1em;
+  bottom: 1em;
+  min-width: 25%;
+  padding: .2em .4em;
+  border: 1px solid #888;
+  font-size: 90%;
+  background-color: #F8F8F8;
+  color: black;
+}
+
+foreignObject[data-mjx-xml] {
+  font-family: initial;
+  line-height: normal;
+  overflow: visible;
+}
+
+.MathJax path {
+  stroke-width: 3;
+}
+
+mjx-container[display="true"] {
+  overflow: auto hidden;
+}
+
+mjx-container[display="true"] + br {
+  display: none;
+}
+</style></head>
+
+
+<body>
+<div class="progress-bar-container">
+    
+        <span class="scroll-progress-bar"></span>
+    
+
+    
+        <span class="pjax-progress-bar"></span>
+        <span class="pjax-progress-icon">
+            <i class="fa-solid fa-circle-notch fa-spin"></i>
+        </span>
+    
+</div>
+
+
+<main class="page-container">
+
+    
+
+    <div class="page-main-content">
+
+        <div class="page-main-content-top">
+            <header class="header-wrapper">
+    
+    <div class="header-content">
+        <div class="left">
+            
+            <a class="logo-title" href="/">
+                Meqt&#39;s Blog
+            </a>
+        </div>
+
+        <div class="right">
+            <!-- PC -->
+            <div class="pc">
+                <ul class="menu-list">
+                    
+                        <li class="menu-item">
+                            <!-- Menu -->
+                            <a class="" 
+                                href="/" >
+                                 
+                                    HOME
+                                
+                            </a>
+                            <!-- Submenu -->
+                            
+                        </li>
+                    
+                        <li class="menu-item">
+                            <!-- Menu -->
+                            <a class="" 
+                                href="/archives" >
+                                 
+                                    ARCHIVES
+                                
+                            </a>
+                            <!-- Submenu -->
+                            
+                        </li>
+                    
+                        <li class="menu-item">
+                            <!-- Menu -->
+                            <a class="" 
+                                target="_blank" rel="noopener" href="https://space.bilibili.com/502369884/bangumi" >
+                                 
+                                    BANGUMI
+                                
+                            </a>
+                            <!-- Submenu -->
+                            
+                        </li>
+                    
+                    
+                        <li class="menu-item search search-popup-trigger">
+                            <i class="fa-solid fa-magnifying-glass"></i>
+                        </li>
+                    
+                </ul>
+            </div>
+            <!-- Mobile -->
+            <div class="mobile">
+                
+                    <div class="icon-item search search-popup-trigger"><i class="fa-solid fa-magnifying-glass"></i></div>
+                
+                <div class="icon-item menu-bar">
+                    <div class="menu-bar-middle"></div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Mobile drawer -->
+    <div class="header-drawer">
+        <ul class="drawer-menu-list">
+            
+                <li class="drawer-menu-item flex-center">
+                    <a class="" 
+                       href="/" >
+                         
+                            HOME
+                        
+                    </a>
+                    
+                </li>
+                <!-- Submenu -->
+                
+            
+                <li class="drawer-menu-item flex-center">
+                    <a class="" 
+                       href="/archives" >
+                         
+                            ARCHIVES
+                        
+                    </a>
+                    
+                </li>
+                <!-- Submenu -->
+                
+            
+                <li class="drawer-menu-item flex-center">
+                    <a class="" 
+                       target="_blank" rel="noopener" href="https://space.bilibili.com/502369884/bangumi" >
+                         
+                            BANGUMI
+                        
+                    </a>
+                    
+                </li>
+                <!-- Submenu -->
+                
+            
+        </ul>
+    </div>
+
+    <div class="window-mask"></div>
+
+</header>
+
+
+        </div>
+
+        <div class="page-main-content-middle">
+
+            <div class="main-content">
+
+                
+                    <div class="fade-in-down-animation">
+    <div class="post-page-container">
+        <div class="article-content-container">
+            <div class="article-title">
+                <span class="title-hover-animation"><h1 style="font-size:2rem; font-weight: bold; margin: 10px 0;">EnglishNote-Unit2</h1></span>
+            </div>
+
+            
+                <div class="article-header">
+                    <div class="avatar">
+                        <img src="https://static.wikia.nocookie.net/gensin-impact/images/0/08/Icon_Emoji_Venti_4.png">
+                    </div>
+                    <div class="info">
+                        <div class="author">
+                            <span class="name">Meqt</span>
+                            
+                        </div>
+                        <div class="meta-info">
+                            <div class="article-meta-info">
+    <span class="article-date article-meta-item">
+        <i class="fa-regular fa-pen-line"></i>&nbsp;
+        <span class="pc">2023-01-07 17:46:36</span>
+        <span class="mobile">2023-01-07 17:46</span>
+    </span>
+    
+        <span class="article-categories article-meta-item">
+            <i class="fa-regular fa-folder-open"></i>&nbsp;
+            <ul>
+                
+                    <li>
+                        <a href="/categories/Note/">Note</a>&nbsp;
+                    </li>
+                
+            </ul>
+        </span>
+    
+    
+
+    
+    
+        <span class="article-wordcount article-meta-item">
+            <i class="fa-solid fa-file-word"></i>&nbsp;<span>2.2k Words</span>
+        </span>
+    
+    
+        <span class="article-min2read article-meta-item">
+            <i class="fa-solid fa-clock"></i>&nbsp;<span>9 Mins</span>
+        </span>
+    
+    
+        <span class="article-pv article-meta-item">
+            <i class="fa-regular fa-eye"></i>&nbsp;<span id="busuanzi_value_page_pv"></span>
+        </span>
+    
+</div>
+
+                        </div>
+                    </div>
+                </div>
+            
+
+            <div class="article-content markdown-body">
+                <h1 id="Unit-2"><a href="#Unit-2" class="headerlink" title="Unit 2"></a>Unit 2</h1><h2 id="slender-单词意义的颜色：褒义词和贬义词"><a href="#slender-单词意义的颜色：褒义词和贬义词" class="headerlink" title="slender: 单词意义的颜色：褒义词和贬义词"></a>slender: 单词意义的颜色：褒义词和贬义词</h2><blockquote>
+<p>slender<br><em>adj.</em> gracefully thin 苗条的</p>
+</blockquote>
+<blockquote>
+<p>thin<br>瘦的(贬义) <em>She’s very pretty but she’s too thin.</em> 她很漂亮，但是她太瘦</p>
+</blockquote>
+<blockquote>
+<p>skinny<br>皮包骨的，贬义 <em>I don’t like his looks – he’s too skinny.</em> 我不喜欢他的样子——他太瘦了</p>
+</blockquote>
+<blockquote>
+<p>bony<br>皮包骨的，贬义 <em>He held up his bony fingers.</em> 他举起他那瘦骨嶙峋的手指</p>
+</blockquote>
+<blockquote>
+<p>a bag of bones<br>皮包骨的，贬义 <em>She has lost so much weight that she’s just turning into a bag of bones.</em> 她瘦了很多，简直成了皮包骨。</p>
+</blockquote>
+<blockquote>
+<p>slim: quite thin in a way that is attractive<br>苗条的</p>
+</blockquote>
+<blockquote>
+<p>lean: slim and strong<br>瘦而强壮的 <em>Long‐distance runners are usually fairly lean.</em> 长跑运动员通常很瘦。</p>
+</blockquote>
+<blockquote>
+<p>petite: short and slim<br>娇小玲珑的</p>
+</blockquote>
+<blockquote>
+<p>underweight:<br>(中性)体重不足的 <em>He is only slightly underweight for his height.</em> 按他的身高来说，他体重仅稍轻了一点儿。</p>
+</blockquote>
+<blockquote>
+<p>不胖不瘦的</p>
+<ul>
+<li>女: well‐proportionated 匀称的 <em>with a well‐proportioned figure</em></li>
+</ul>
+</blockquote>
+<ul>
+<li>男: fit 健壮的 <em>with a strong build</em></li>
+</ul>
+<blockquote>
+<p>超重</p>
+<ul>
+<li>fat: 胖的(最直接，最伤人)</li>
+<li>stout: rather fat 胖胖的 <em>He was a tall, stout man with gray hair.</em> 他是一个身材高大、体格粗壮、头发灰白的人。</li>
+<li>stocky: strong and wide 粗壮的(稍微好一点点，仍然不是褒义词) <em>He’s got the stocky build of a rugby player.</em> 他有着橄榄球运动员一样的粗壮体型。</li>
+<li>solid: 敦实的 <em>As a child, James was always quite solid.</em> James 儿时很敦实。</li>
+<li>big: 个子大(几乎是中性词) <em>Sophie didn’t use to be so big, did she?</em> 索菲以前个子没这么大，是吗?</li>
+<li>plump, chubby: slightly fat 丰满的;胖乎乎的 (褒义词) <em>She was admiring the baby’s plump little legs.</em> 她在欣赏婴儿小小的、胖乎乎的腿。<em>Look at the lovely chubby cheeks!</em> 看看那可爱的胖乎乎的脸蛋!</li>
+<li>overweight <em>I’m overweight by 2kg according to my doctor.</em> 据医生说，我超重2公斤。 </li>
+<li>obese (医学用词)有肥胖症的</li>
+</ul>
+</blockquote>
+<h2 id="historic-ic与-ical的意义区别"><a href="#historic-ic与-ical的意义区别" class="headerlink" title="historic: -ic与-ical的意义区别"></a>historic: -ic与-ical的意义区别</h2><blockquote>
+<ul>
+<li>historic: famous or important in history, or potentially so 历史上著名的，历史上重大的，历史性的 a time of historic change 历史转折 </li>
+<li>historical: concerning past events历史(上)的a historical novel 历史小说</li>
+</ul>
+</blockquote>
+<p>‐ic and ‐ical </p>
+<ul>
+<li>‐ic: 紧靠该名词(或其引申的价值)的，关系直 </li>
+<li>ical 关于或有关该名词的，关系稍微疏远一些</li>
+</ul>
+<blockquote>
+<ul>
+<li>economic:经济的，经济学的 – economic development, economic crisis</li>
+<li>economical:考虑经济方面的，节约的，划得来的 (“经济”小吃) an economical housewife, an economical car, an economical style of writing</li>
+</ul>
+</blockquote>
+<blockquote>
+<ul>
+<li>poetic:有诗意的(尤指优美的)，诗歌价值的 – poetic language 像诗一样美丽的语言</li>
+<li>poetical:诗体的，非散文体的,诗歌形式的 – poetical language 非散文体的语言</li>
+</ul>
+</blockquote>
+<blockquote>
+<ul>
+<li>electric:发电的，电动的，于电直接相关的, an electric generator 发电机, an electric car 电动车, </li>
+<li>electrical与电有关的,电气的 an electrical engineer 电气工程师</li>
+</ul>
+</blockquote>
+<h2 id="but-双重否定的理解，意群的划分"><a href="#but-双重否定的理解，意群的划分" class="headerlink" title="but: 双重否定的理解，意群的划分"></a>but: 双重否定的理解，意群的划分</h2><ul>
+<li>He is <em>nothing but</em> a singer. 他只不过是个歌手而已!</li>
+<li>He is <em>anything but</em> a singer. 他绝对不是歌手!</li>
+</ul>
+<p>有语法家把but做关系代词，引导定于从句， 意思为: that(which,who)… not… 此时主句往往是否定句，全句为双重否定。<em>There is no man but feels pity for starving children.</em> <em>There is nothing in the world but teaches us some lessons.</em> <em>There is no book in the reading book but I have read.</em></p>
+<p>由此拓展开来，but用于否定句后面，很多都表示再否定，即: 而不，而非，构成双重否定。<em>It never rains but pours.</em></p>
+<p><strong>不要死记硬背，要理解</strong></p>
+<h2 id="forge-x2F-coin：词义区别与新词构成–混成法（blending）"><a href="#forge-x2F-coin：词义区别与新词构成–混成法（blending）" class="headerlink" title="forge/coin：词义区别与新词构成–混成法（blending）"></a>forge/coin：词义区别与新词构成–混成法（blending）</h2><ul>
+<li>锻造，铸造(金属物体) <em>核心含义</em></li>
+<li>forge a sword, a chain, an anchor, etc. 锻造剑、 铁链、 锚等</li>
+<li>forge a bond, a link, an alliance, etc. 建立同盟、 联系、 联盟等</li>
+<li>a friendship forged by adversity 患难中建立起来的友谊</li>
+<li>forge a banknote, will, signature, etc. <em>伪造</em>钞票、 遗嘱、 签字等 forger, 伪造者 forgery 伪造，伪造品，赝品</li>
+</ul>
+<p>coin</p>
+<ul>
+<li><em>n.</em> 硬币</li>
+<li><em>v.</em> (冲压金属)制造(硬币) <ul>
+<li>coin the new word/coin some language 创造 (新词语)</li>
+<li>coinage 硬币的制造，所制造的硬币 ,新词，新创造的单词</li>
+</ul>
+</li>
+</ul>
+<p>coinage</p>
+<ul>
+<li>teenager screenager 沉迷网络的年轻人</li>
+<li>chinsumer (Chinese consumer) 中国购物狂</li>
+</ul>
+<h2 id="decade-数字前缀（1-6）"><a href="#decade-数字前缀（1-6）" class="headerlink" title="decade: 数字前缀（1-6）"></a>decade: 数字前缀（1-6）</h2><ul>
+<li>hemi-, semi-, hemisphere半球, hemicycle半圆, semi-final半决赛, semiconductor半导体, semiautomatic半自动的</li>
+<li>uni- mono-: monologue 一个人说话, monocycle 独轮车, monotonous; unit, unite, unity, unify, unique <code>| ˌyo͞oˈnēk |</code>, universe</li>
+<li>di-, bi-: dioxide二氧化物, monoxide一氧化物, dialogue对白, monologue 独白; bimonthly两个月的, bilingual双语, bicycle自行车, bilateral relationship 双边关系, binary system 二进制</li>
+<li>tri-: triangle三角形, triple三倍, trilateral relationship 三边关系</li>
+<li>qua-, quarter <mjx-container class="MathJax" jax="SVG"><svg style="vertical-align: -0.781ex;" xmlns="http://www.w3.org/2000/svg" width="1.795ex" height="2.737ex" role="img" focusable="false" viewBox="0 -864.9 793.6 1209.9"><g stroke="currentColor" fill="currentColor" stroke-width="0" transform="scale(1,-1)"><g data-mml-node="math"><g data-mml-node="mfrac"><g data-mml-node="mn" transform="translate(220,394) scale(0.707)"><path data-c="31" d="M213 578L200 573Q186 568 160 563T102 556H83V602H102Q149 604 189 617T245 641T273 663Q275 666 285 666Q294 666 302 660V361L303 61Q310 54 315 52T339 48T401 46H427V0H416Q395 3 257 3Q121 3 100 0H88V46H114Q136 46 152 46T177 47T193 50T201 52T207 57T213 61V578Z"></path></g><g data-mml-node="mn" transform="translate(220,-345) scale(0.707)"><path data-c="34" d="M462 0Q444 3 333 3Q217 3 199 0H190V46H221Q241 46 248 46T265 48T279 53T286 61Q287 63 287 115V165H28V211L179 442Q332 674 334 675Q336 677 355 677H373L379 671V211H471V165H379V114Q379 73 379 66T385 54Q393 47 442 46H471V0H462ZM293 211V545L74 212L183 211H293Z"></path></g><rect width="553.6" height="60" x="120" y="220"></rect></g></g></g></svg></mjx-container>, quadruple<mjx-container class="MathJax" jax="SVG"><svg style="vertical-align: 0;" xmlns="http://www.w3.org/2000/svg" width="2.891ex" height="1.532ex" role="img" focusable="false" viewBox="0 -677 1278 677"><g stroke="currentColor" fill="currentColor" stroke-width="0" transform="scale(1,-1)"><g data-mml-node="math"><g data-mml-node="mo"><path data-c="D7" d="M630 29Q630 9 609 9Q604 9 587 25T493 118L389 222L284 117Q178 13 175 11Q171 9 168 9Q160 9 154 15T147 29Q147 36 161 51T255 146L359 250L255 354Q174 435 161 449T147 471Q147 480 153 485T168 490Q173 490 175 489Q178 487 284 383L389 278L493 382Q570 459 587 475T609 491Q630 491 630 471Q630 464 620 453T522 355L418 250L522 145Q606 61 618 48T630 29Z"></path></g><g data-mml-node="mn" transform="translate(778,0)"><path data-c="34" d="M462 0Q444 3 333 3Q217 3 199 0H190V46H221Q241 46 248 46T265 48T279 53T286 61Q287 63 287 115V165H28V211L179 442Q332 674 334 675Q336 677 355 677H373L379 671V211H471V165H379V114Q379 73 379 66T385 54Q393 47 442 46H471V0H462ZM293 211V545L74 212L183 211H293Z"></path></g></g></g></svg></mjx-container>:   </li>
+<li>pent-, penta-: Pentagon, pentagon, </li>
+<li>sex-/hex-: sexagon, hexagon</li>
+</ul>
+<h2 id="数字前缀7-10，100，1000，多：愚人节来历"><a href="#数字前缀7-10，100，1000，多：愚人节来历" class="headerlink" title="数字前缀7-10，100，1000，多：愚人节来历"></a>数字前缀7-10，100，1000，多：愚人节来历</h2><ul>
+<li>sept‐: septwolf</li>
+<li>oct‐: octopus</li>
+<li>nov‐:</li>
+<li>dec‐: decade decimal(十进制), dm decimeter 分米</li>
+<li>cent‐: century, percent, centimeter</li>
+<li>kilo‐: kilometer, kilogram, kilowatt</li>
+<li>milli‐: millennium, millimeter, milligram, milliliter</li>
+<li>multi‐: multimedia, multiply, multipurpose</li>
+</ul>
+<h2 id="log：意义获取的理据以及文化差异对比喻喻体选择的影响"><a href="#log：意义获取的理据以及文化差异对比喻喻体选择的影响" class="headerlink" title="log：意义获取的理据以及文化差异对比喻喻体选择的影响"></a>log：意义获取的理据以及文化差异对比喻喻体选择的影响</h2><p><em>n.</em> </p>
+<ul>
+<li>原木; 圆材 <em>Some birds like to nest in a hollow log</em>, <em>log cabin</em>, <em>sleep like a log</em></li>
+<li>日志</li>
+<li>观察记录<br><em>v.</em></li>
+<li>砍伐 <em>Very few trees in this area are suitable for logging.</em> 这里没有几颗树适合砍伐。</li>
+<li>记载, 记录 <em>They have kept a detailed log of your activities.</em></li>
+<li>log on/in, log off/out<br>一根长的麻绳一端绑根木头，一端系在沙漏上，中间打上等距的节。航行 时，把木头从船尾扔进海里，翻转沙漏，等沙漏漏完后收回木板头，查看有多少个节被打湿，推算船只速度。这也是船只速度单位——节kn, knot的来历。</li>
+</ul>
+<p><strong>sleep like a log</strong> 中西文化差异对比喻喻体选择的影响很大，尤其注意:</p>
+<ul>
+<li>eat like a horse(eat too much)</li>
+<li>eat like a bird (eat too little)</li>
+<li>as busy as a bee [spinning top]</li>
+<li>as poor as a church mouse</li>
+<li>cast pearls before swine (waste something good on one who has no appreciation for it)</li>
+<li>as wet as a drowned rat</li>
+<li>as strong as a horse</li>
+<li>无风不起浪 (Where there is a wave, there is a wind!) Where there is smoke, there is fire.</li>
+<li>巧妇难为无米之炊 (Even a smart wife cannot cook without rice.) One cannot make bricks without straw.</li>
+<li>这山望见那山高 The grass is always greener on the other side of the fence.</li>
+</ul>
+<h2 id="lot：词义获取的理据–抽签"><a href="#lot：词义获取的理据–抽签" class="headerlink" title="lot：词义获取的理据–抽签"></a>lot：词义获取的理据–抽签</h2><ul>
+<li>a lot of (lots of): a large number or amount of (sb/sth) 大量; 许多:<br>lot来自古英语hlot, 意为“决定一个人的份额的物体”，多为骰子、抽签用的麦草，更常见的是刻有名字的木条。 </li>
+<li>draw lots, cast lots 抽签 <em>we drew lots to decide the order.</em> 我们抽签来决定顺序。<em>These officers were elected rather than selected by lot.</em> 官员们是通过选举而不是抽签选上的。 </li>
+<li>lottery 彩票，博彩</li>
+<li>后指通过抽签而给与(或获得)之物-&gt;往往是一片土地 <em>a vacant lot 一块空地皮</em>, <em>parking lot</em></li>
+<li>抽签要抽中是有几率的，故lot指机遇,几率,可能性,命运。 <em>Her lot has been a hard one.</em> 她命苦。<em>I would not want to share his lot.</em> 我可不愿和他同甘共苦。 <em>He made the best of his lot and worked diligently.</em> 他利用命运给他的一切机会努力工作。</li>
+<li>抽签的过程是把许多签放在一起，供抽签人来抽，所以lot指放在一起的许多东西, 大量，许多. a lot of, lots of; <em>Nobody in the first lot of applicants was suitable for the job.</em> 在第一批求职者中无人适合做那份工作。</li>
+<li>-&gt; (出售物品的)项目, 批(尤指拍卖物) <em>Nineteen lots of the auction failed to sell.</em> 19件拍卖品没有成交。</li>
+</ul>
+<h2 id="compel-词根词缀学习与拓展"><a href="#compel-词根词缀学习与拓展" class="headerlink" title="compel: 词根词缀学习与拓展"></a>compel: 词根词缀学习与拓展</h2><p>使(某人)做某事; 强迫 <em>We cannot compel you to (do it), but we think you should do it.</em> 我们不能强迫你(去做), 但认为你应该做。<br>-&gt; 不能用于被动句:强夺、 强求(某物); 强迫; 使必须 <em>You can compel obedience, but you can never compel affection.</em><br>你可以逼人服从, 却无法逼人生爱。 <em>Circumstances have compelled a change of plan.</em> 因环境所迫, 计划已经改变。 His courage compels universal admiration. 他的勇气不禁令人肃然起敬。</p>
+<p>组成分析:<br>com‐: together, company, communicate, common<br>‐pel‐: to force, to drive 迫 drive together</p>
+<blockquote>
+<p>repel 排斥 <em>Like charges repel each other, and unlike charges attract each other.</em> 同性电荷互相排斥，异性电荷互相吸引。 <em>Like poles of magnets repel.</em> 相同的磁极互相排斥。</p>
+</blockquote>
+<blockquote>
+<p>propel drive forward向前推动, 驱动<br>pro‐:forward<br><em>The boat is(was) propelled by using a very long paddle.</em> 这条船是靠长桨推进的。 <em>His addiction to drugs propelled him towards a way of crime.</em> 他吸毒成瘾使他走上了犯罪的道路。</p>
+</blockquote>
+<blockquote>
+<p>expel 驱逐; 赶走; 开除<br>ex‐ out<br><em>drive out Two attachés at the embassy were expelled from the country.</em> 大使馆的两名随员已被驱逐出境。 </p>
+</blockquote>
+<blockquote>
+<p>dispel: 驱赶，驱逐，驱散，使……消失(如情感，怀疑，信念等)<br>dis‐ apart<br><em>He tried all means to dispel his doubts but failed.</em> 他想方设法消除他的疑虑，但失败了。</p>
+</blockquote>
+
+            </div>
+
+            
+                <div class="post-copyright-info">
+                    <div class="article-copyright-info-container">
+    <ul>
+        <li>Post title：EnglishNote-Unit2</li>
+        <li>Post author：Meqt</li>
+        <li>Create time：2023-01-07 17:46:36</li>
+        <li>
+            Post link：https://meqtmac.github.io/2023/01/07/EnglishNote/EnglishNote-Unit2/
+        </li>
+        <li>
+            Copyright Notice：All articles in this blog are licensed under <a class="license" target="_blank" rel="noopener" href="https://creativecommons.org/licenses/by-nc-sa/4.0/deed.zh">BY-NC-SA</a> unless stating additionally.
+        </li>
+    </ul>
+</div>
+
+                </div>
+            
+
+            
+
+            
+                <div class="article-nav">
+                    
+                        <div class="article-prev">
+                            <a class="prev"
+                            rel="prev"
+                            href="/2023/01/08/EnglishNote/EnglishNote-Unit3/"
+                            >
+                                <span class="left arrow-icon flex-center">
+                                    <i class="fa-solid fa-chevron-left"></i>
+                                </span>
+                                <span class="title flex-center">
+                                    <span class="post-nav-title-item">EnglishNote-Unit3</span>
+                                    <span class="post-nav-item">Prev posts</span>
+                                </span>
+                            </a>
+                        </div>
+                    
+                    
+                        <div class="article-next">
+                            <a class="next"
+                            rel="next"
+                            href="/2023/01/06/EnglishNote/EnglishNote-Unit1/"
+                            >
+                                <span class="title flex-center">
+                                    <span class="post-nav-title-item">EnglishNote_Unit1</span>
+                                    <span class="post-nav-item">Next posts</span>
+                                </span>
+                                <span class="right arrow-icon flex-center">
+                                    <i class="fa-solid fa-chevron-right"></i>
+                                </span>
+                            </a>
+                        </div>
+                    
+                </div>
+            
+
+            
+        </div>
+
+        
+            <div class="toc-content-container">
+                <div class="post-toc-wrap">
+    <div class="post-toc">
+        <div style="font-size: 1.3rem;margin-top: 0; margin-bottom: 0.8rem; transition-duration: 0.1s;"><i class="fa-solid fa-list"></i> <strong>Contents</strong></div>
+        <ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#Unit-2"><span class="nav-number">1.</span> <span class="nav-text">Unit 2</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#slender-%E5%8D%95%E8%AF%8D%E6%84%8F%E4%B9%89%E7%9A%84%E9%A2%9C%E8%89%B2%EF%BC%9A%E8%A4%92%E4%B9%89%E8%AF%8D%E5%92%8C%E8%B4%AC%E4%B9%89%E8%AF%8D"><span class="nav-number">1.1.</span> <span class="nav-text">slender: 单词意义的颜色：褒义词和贬义词</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#historic-ic%E4%B8%8E-ical%E7%9A%84%E6%84%8F%E4%B9%89%E5%8C%BA%E5%88%AB"><span class="nav-number">1.2.</span> <span class="nav-text">historic: -ic与-ical的意义区别</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#but-%E5%8F%8C%E9%87%8D%E5%90%A6%E5%AE%9A%E7%9A%84%E7%90%86%E8%A7%A3%EF%BC%8C%E6%84%8F%E7%BE%A4%E7%9A%84%E5%88%92%E5%88%86"><span class="nav-number">1.3.</span> <span class="nav-text">but: 双重否定的理解，意群的划分</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#forge-x2F-coin%EF%BC%9A%E8%AF%8D%E4%B9%89%E5%8C%BA%E5%88%AB%E4%B8%8E%E6%96%B0%E8%AF%8D%E6%9E%84%E6%88%90%E2%80%93%E6%B7%B7%E6%88%90%E6%B3%95%EF%BC%88blending%EF%BC%89"><span class="nav-number">1.4.</span> <span class="nav-text">forge&#x2F;coin：词义区别与新词构成–混成法（blending）</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#decade-%E6%95%B0%E5%AD%97%E5%89%8D%E7%BC%80%EF%BC%881-6%EF%BC%89"><span class="nav-number">1.5.</span> <span class="nav-text">decade: 数字前缀（1-6）</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E6%95%B0%E5%AD%97%E5%89%8D%E7%BC%807-10%EF%BC%8C100%EF%BC%8C1000%EF%BC%8C%E5%A4%9A%EF%BC%9A%E6%84%9A%E4%BA%BA%E8%8A%82%E6%9D%A5%E5%8E%86"><span class="nav-number">1.6.</span> <span class="nav-text">数字前缀7-10，100，1000，多：愚人节来历</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#log%EF%BC%9A%E6%84%8F%E4%B9%89%E8%8E%B7%E5%8F%96%E7%9A%84%E7%90%86%E6%8D%AE%E4%BB%A5%E5%8F%8A%E6%96%87%E5%8C%96%E5%B7%AE%E5%BC%82%E5%AF%B9%E6%AF%94%E5%96%BB%E5%96%BB%E4%BD%93%E9%80%89%E6%8B%A9%E7%9A%84%E5%BD%B1%E5%93%8D"><span class="nav-number">1.7.</span> <span class="nav-text">log：意义获取的理据以及文化差异对比喻喻体选择的影响</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#lot%EF%BC%9A%E8%AF%8D%E4%B9%89%E8%8E%B7%E5%8F%96%E7%9A%84%E7%90%86%E6%8D%AE%E2%80%93%E6%8A%BD%E7%AD%BE"><span class="nav-number">1.8.</span> <span class="nav-text">lot：词义获取的理据–抽签</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#compel-%E8%AF%8D%E6%A0%B9%E8%AF%8D%E7%BC%80%E5%AD%A6%E4%B9%A0%E4%B8%8E%E6%8B%93%E5%B1%95"><span class="nav-number">1.9.</span> <span class="nav-text">compel: 词根词缀学习与拓展</span></a></li></ol></li></ol>
+    </div>
+</div>
+            </div>
+        
+    </div>
+</div>
+
+
+                
+
+            </div>
+
+
+
+        </div>
+
+        <div class="page-main-content-bottom">
+            <footer class="footer">
+    <div class="info-container">
+        <div class="copyright-info info-item">
+            &copy;
+            
+              <span>2022</span>
+              -
+            
+            2023&nbsp;<i class="fa-solid fa-heart icon-animate"></i>&nbsp;<a href="/">Meqt. All Rights Reserved.</a>
+        </div>
+        
+            <script async data-pjax src="//busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js"></script>
+            <div class="website-count info-item">
+                
+                    <span id="busuanzi_container_site_uv">
+                        Visitor Count&nbsp;<span id="busuanzi_value_site_uv"></span>&ensp;
+                    </span>
+                
+                
+                    <span id="busuanzi_container_site_pv">
+                        Totalviews&nbsp;<span id="busuanzi_value_site_pv"></span>
+                    </span>
+                
+            </div>
+        
+        <div class="theme-info info-item">
+            Powered by <a target="_blank" href="https://hexo.io">Hexo</a>&nbsp;|&nbsp;Theme&nbsp;<a class="theme-version" target="_blank" href="https://github.com/EvanNotFound/hexo-theme-redefine">Redefine v0.3.5</a>
+        </div>
+        
+        
+        <script async data-pjax defer>
+            function odometer_init(){
+                    let el = document.getElementsByClassName('odometer');
+                    for (i = 0; i < el.length; i++) {
+                        od = new Odometer({
+                            el: el[i],
+                            format: '( ddd).dd',
+                            duration: 200
+                        });
+                    }
+            }
+            odometer_init();
+        </script>
+        <div id="start_time_div" style="display:none">
+            2022/12/17 15:05:00
+        </div>
+        
+            <div>
+                Blog up for <span class="odometer" id="runtime_days" ></span> days <span class="odometer" id="runtime_hours"></span> hrs <span class="odometer" id="runtime_minutes"></span> Min <span class="odometer" id="runtime_seconds"></span> Sec
+            </div>
+        
+        
+        
+    </div>
+    <link rel="stylesheet" href="//evan.beee.top/css/waline.css"/>
+    <script src="//evan.beee.top/js/waline.js"></script>
+    
+</footer>
+        </div>
+    </div>
+
+    
+        <div class="post-tools">
+            <div class="post-tools-container">
+    <ul class="tools-list">
+        <!-- TOC aside toggle -->
+        
+            <li class="tools-item page-aside-toggle">
+                <i class="fa-regular fa-outdent"></i>
+            </li>
+        
+
+        <!-- go comment -->
+        
+    </ul>
+</div>
+
+        </div>
+    
+
+    <div class="right-bottom-side-tools">
+        <div class="side-tools-container">
+    <ul class="side-tools-list">
+        <li class="tools-item tool-font-adjust-plus flex-center">
+            <i class="fa-solid fa-magnifying-glass-plus"></i>
+        </li>
+
+        <li class="tools-item tool-font-adjust-minus flex-center">
+            <i class="fa-solid fa-magnifying-glass-minus"></i>
+        </li>
+
+        <li class="tools-item tool-expand-width flex-center">
+            <i class="fa-solid fa-left-right"></i>
+        </li>
+
+        <li class="tools-item tool-dark-light-toggle flex-center">
+            <i class="fa-solid fa-moon"></i>
+        </li>
+
+        <!-- rss -->
+        
+
+        
+            <li class="tools-item tool-scroll-to-top flex-center">
+                <i class="fa-solid fa-arrow-up"></i>
+            </li>
+        
+
+        <li class="tools-item tool-scroll-to-bottom flex-center">
+            <i class="fa-solid fa-arrow-down"></i>
+        </li>
+    </ul>
+
+    <ul class="exposed-tools-list">
+        <li class="tools-item tool-toggle-show flex-center">
+            <i class="fa-solid fa-cog fa-spin"></i>
+        </li>
+        
+    </ul>
+</div>
+
+    </div>
+
+    <div class="image-viewer-container">
+    <img src="">
+</div>
+
+
+    
+        <div class="search-pop-overlay">
+    <div class="popup search-popup">
+        <div class="search-header">
+          <span class="search-input-field-pre">
+            <i class="fa-solid fa-keyboard"></i>
+          </span>
+            <div class="search-input-container">
+                <input autocomplete="off"
+                       autocorrect="off"
+                       autocapitalize="off"
+                       placeholder="Search..."
+                       spellcheck="false"
+                       type="search"
+                       class="search-input"
+                >
+            </div>
+            <span class="popup-btn-close">
+                <i class="fa-solid fa-times"></i>
+            </span>
+        </div>
+        <div id="search-result">
+            <div id="no-result">
+                <i class="fa-solid fa-spinner fa-spin-pulse fa-5x fa-fw"></i>
+            </div>
+        </div>
+    </div>
+</div>
+
+    
+
+</main>
+
+
+
+
+<script src="/js/utils.js"></script>
+
+<script src="/js/main.js"></script>
+
+<script src="/js/header-shrink.js"></script>
+
+<script src="/js/back2top.js"></script>
+
+<script src="/js/dark-light-toggle.js"></script>
+
+
+
+    
+<script src="/js/local-search.js"></script>
+
+
+
+
+    
+<script src="/js/code-copy.js"></script>
+
+
+
+
+    
+<script src="/js/lazyload.js"></script>
+
+
+
+
+    
+<script src="/js/runtime.js"></script>
+
+    
+<script src="/js/odometer.min.js"></script>
+
+    
+<link rel="stylesheet" href="/css/odometer-theme-minimal.css">
+
+
+
+<div class="post-scripts pjax">
+    
+        
+<script src="/js/toc-toggle.js"></script>
+
+<script src="/js/libs/anime.min.js"></script>
+
+<script src="/js/toc.js"></script>
+
+    
+</div>
+
+
+    
+<script src="/js/libs/pjax.min.js"></script>
+
+<script>
+    window.addEventListener('DOMContentLoaded', () => {
+        window.pjax = new Pjax({
+            selectors: [
+                'head title',
+                '.page-container',
+                '.pjax'
+            ],
+            history: true,
+            debug: false,
+            cacheBust: false,
+            timeout: 0,
+            analytics: false,
+            currentUrlFullReload: false,
+            scrollRestoration: false,
+            // scrollTo: true,
+        });
+
+        document.addEventListener('pjax:send', () => {
+            REDEFINE.utils.pjaxProgressBarStart();
+        });
+
+        document.addEventListener('pjax:complete', () => {
+            REDEFINE.utils.pjaxProgressBarEnd();
+            window.pjax.executeScripts(document.querySelectorAll('script[data-pjax], .pjax script'));
+            REDEFINE.refresh();
+        });
+    });
+</script>
+
+
+
+</body>
+</html>

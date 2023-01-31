@@ -1,0 +1,921 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+    <meta name="keywords" content="Hexo Theme Redefine">
+    <meta name="description" content="Hexo Theme Redefine">
+    <meta name="author" content="Meqt">
+    
+    <title>
+        
+            C/C++ WebServer 1 Linux系统编程入门 |
+        
+        Meqt&#39;s Blog
+    </title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    
+<link rel="stylesheet" href="/css/style.css">
+
+    <link rel="shortcut icon" href="/fig/markdown.svg">
+    
+<link rel="stylesheet" href="/css/fontawesome.min.css">
+
+    
+<link rel="stylesheet" href="/css/brands.min.css">
+
+    
+<link rel="stylesheet" href="/css/solid.min.css">
+
+    
+<link rel="stylesheet" href="/css/regular.min.css">
+
+    
+    
+    
+    
+<link rel="stylesheet" href="/css/css2.css">
+
+    <script id="hexo-configurations">
+    let REDEFINE = window.REDEFINE || {};
+    REDEFINE.hexo_config = {"hostname":"meqtmac.github.io","root":"/","language":"en","path":"search.xml"};
+    REDEFINE.theme_config = {"toc":{"enable":true,"number":true,"expand_all":true,"init_open":true},"style":{"primary_color":"#005080","avatar":"https://static.wikia.nocookie.net/gensin-impact/images/0/08/Icon_Emoji_Venti_4.png","favicon":"/fig/markdown.svg","article_img_align":"center","right_side_width":"210px","content_max_width":"1000px","nav_color":{"left":"#f78736","right":"#367df7","transparency":35},"hover":{"shadow":true,"scale":false},"first_screen":{"enable":true,"background_image":{"light":"/fig/cover_light.jpg","dark":"/fig/cover_dark.jpg"},"title_color":{"light":"#fff","dark":"#d1d1b6"},"description":"Stay Hungry. Stay Foolish."},"scroll":{"progress_bar":{"enable":true},"percent":{"enable":false}}},"local_search":{"enable":true,"preload":true},"code_copy":{"enable":true,"style":"mac"},"pjax":{"enable":true},"lazyload":{"enable":true},"version":"0.3.5"};
+    REDEFINE.language_ago = {"second":"%s seconds ago","minute":"%s minutes ago","hour":"%s hours ago","day":"%s days ago","week":"%s weeks ago","month":"%s months ago","year":"%s years ago"};
+  </script>
+<meta name="generator" content="Hexo 6.3.0"><style>mjx-container[jax="SVG"] {
+  direction: ltr;
+}
+
+mjx-container[jax="SVG"] > svg {
+  overflow: visible;
+}
+
+mjx-container[jax="SVG"][display="true"] {
+  display: block;
+  text-align: center;
+  margin: 1em 0;
+}
+
+mjx-container[jax="SVG"][justify="left"] {
+  text-align: left;
+}
+
+mjx-container[jax="SVG"][justify="right"] {
+  text-align: right;
+}
+
+g[data-mml-node="merror"] > g {
+  fill: red;
+  stroke: red;
+}
+
+g[data-mml-node="merror"] > rect[data-background] {
+  fill: yellow;
+  stroke: none;
+}
+
+g[data-mml-node="mtable"] > line[data-line] {
+  stroke-width: 70px;
+  fill: none;
+}
+
+g[data-mml-node="mtable"] > rect[data-frame] {
+  stroke-width: 70px;
+  fill: none;
+}
+
+g[data-mml-node="mtable"] > .mjx-dashed {
+  stroke-dasharray: 140;
+}
+
+g[data-mml-node="mtable"] > .mjx-dotted {
+  stroke-linecap: round;
+  stroke-dasharray: 0,140;
+}
+
+g[data-mml-node="mtable"] > svg {
+  overflow: visible;
+}
+
+[jax="SVG"] mjx-tool {
+  display: inline-block;
+  position: relative;
+  width: 0;
+  height: 0;
+}
+
+[jax="SVG"] mjx-tool > mjx-tip {
+  position: absolute;
+  top: 0;
+  left: 0;
+}
+
+mjx-tool > mjx-tip {
+  display: inline-block;
+  padding: .2em;
+  border: 1px solid #888;
+  font-size: 70%;
+  background-color: #F8F8F8;
+  color: black;
+  box-shadow: 2px 2px 5px #AAAAAA;
+}
+
+g[data-mml-node="maction"][data-toggle] {
+  cursor: pointer;
+}
+
+mjx-status {
+  display: block;
+  position: fixed;
+  left: 1em;
+  bottom: 1em;
+  min-width: 25%;
+  padding: .2em .4em;
+  border: 1px solid #888;
+  font-size: 90%;
+  background-color: #F8F8F8;
+  color: black;
+}
+
+foreignObject[data-mjx-xml] {
+  font-family: initial;
+  line-height: normal;
+  overflow: visible;
+}
+
+.MathJax path {
+  stroke-width: 3;
+}
+
+mjx-container[display="true"] {
+  overflow: auto hidden;
+}
+
+mjx-container[display="true"] + br {
+  display: none;
+}
+</style></head>
+
+
+<body>
+<div class="progress-bar-container">
+    
+        <span class="scroll-progress-bar"></span>
+    
+
+    
+        <span class="pjax-progress-bar"></span>
+        <span class="pjax-progress-icon">
+            <i class="fa-solid fa-circle-notch fa-spin"></i>
+        </span>
+    
+</div>
+
+
+<main class="page-container">
+
+    
+
+    <div class="page-main-content">
+
+        <div class="page-main-content-top">
+            <header class="header-wrapper">
+    
+    <div class="header-content">
+        <div class="left">
+            
+            <a class="logo-title" href="/">
+                Meqt&#39;s Blog
+            </a>
+        </div>
+
+        <div class="right">
+            <!-- PC -->
+            <div class="pc">
+                <ul class="menu-list">
+                    
+                        <li class="menu-item">
+                            <!-- Menu -->
+                            <a class="" 
+                                href="/" >
+                                 
+                                    HOME
+                                
+                            </a>
+                            <!-- Submenu -->
+                            
+                        </li>
+                    
+                        <li class="menu-item">
+                            <!-- Menu -->
+                            <a class="" 
+                                href="/archives" >
+                                 
+                                    ARCHIVES
+                                
+                            </a>
+                            <!-- Submenu -->
+                            
+                        </li>
+                    
+                        <li class="menu-item">
+                            <!-- Menu -->
+                            <a class="" 
+                                target="_blank" rel="noopener" href="https://space.bilibili.com/502369884/bangumi" >
+                                 
+                                    BANGUMI
+                                
+                            </a>
+                            <!-- Submenu -->
+                            
+                        </li>
+                    
+                    
+                        <li class="menu-item search search-popup-trigger">
+                            <i class="fa-solid fa-magnifying-glass"></i>
+                        </li>
+                    
+                </ul>
+            </div>
+            <!-- Mobile -->
+            <div class="mobile">
+                
+                    <div class="icon-item search search-popup-trigger"><i class="fa-solid fa-magnifying-glass"></i></div>
+                
+                <div class="icon-item menu-bar">
+                    <div class="menu-bar-middle"></div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Mobile drawer -->
+    <div class="header-drawer">
+        <ul class="drawer-menu-list">
+            
+                <li class="drawer-menu-item flex-center">
+                    <a class="" 
+                       href="/" >
+                         
+                            HOME
+                        
+                    </a>
+                    
+                </li>
+                <!-- Submenu -->
+                
+            
+                <li class="drawer-menu-item flex-center">
+                    <a class="" 
+                       href="/archives" >
+                         
+                            ARCHIVES
+                        
+                    </a>
+                    
+                </li>
+                <!-- Submenu -->
+                
+            
+                <li class="drawer-menu-item flex-center">
+                    <a class="" 
+                       target="_blank" rel="noopener" href="https://space.bilibili.com/502369884/bangumi" >
+                         
+                            BANGUMI
+                        
+                    </a>
+                    
+                </li>
+                <!-- Submenu -->
+                
+            
+        </ul>
+    </div>
+
+    <div class="window-mask"></div>
+
+</header>
+
+
+        </div>
+
+        <div class="page-main-content-middle">
+
+            <div class="main-content">
+
+                
+                    <div class="fade-in-down-animation">
+    <div class="post-page-container">
+        <div class="article-content-container">
+            <div class="article-title">
+                <span class="title-hover-animation"><h1 style="font-size:2rem; font-weight: bold; margin: 10px 0;">C/C++ WebServer 1 Linux系统编程入门</h1></span>
+            </div>
+
+            
+                <div class="article-header">
+                    <div class="avatar">
+                        <img src="https://static.wikia.nocookie.net/gensin-impact/images/0/08/Icon_Emoji_Venti_4.png">
+                    </div>
+                    <div class="info">
+                        <div class="author">
+                            <span class="name">Meqt</span>
+                            
+                        </div>
+                        <div class="meta-info">
+                            <div class="article-meta-info">
+    <span class="article-date article-meta-item">
+        <i class="fa-regular fa-pen-line"></i>&nbsp;
+        <span class="pc">2022-12-17 16:40:08</span>
+        <span class="mobile">2022-12-17 16:40</span>
+    </span>
+    
+        <span class="article-categories article-meta-item">
+            <i class="fa-regular fa-folder-open"></i>&nbsp;
+            <ul>
+                
+                    <li>
+                        <a href="/categories/Note/">Note</a>&nbsp;
+                    </li>
+                
+            </ul>
+        </span>
+    
+    
+        <span class="article-tags article-meta-item">
+            <i class="fa-regular fa-tags"></i>&nbsp;
+            <ul>
+                
+                    <li>
+                        <a href="/tags/C/">C</a>&nbsp;
+                    </li>
+                
+                    <li>
+                        | <a href="/tags/Linux/">Linux</a>&nbsp;
+                    </li>
+                
+            </ul>
+        </span>
+    
+
+    
+    
+        <span class="article-wordcount article-meta-item">
+            <i class="fa-solid fa-file-word"></i>&nbsp;<span>2.5k Words</span>
+        </span>
+    
+    
+        <span class="article-min2read article-meta-item">
+            <i class="fa-solid fa-clock"></i>&nbsp;<span>13 Mins</span>
+        </span>
+    
+    
+        <span class="article-pv article-meta-item">
+            <i class="fa-regular fa-eye"></i>&nbsp;<span id="busuanzi_value_page_pv"></span>
+        </span>
+    
+</div>
+
+                        </div>
+                    </div>
+                </div>
+            
+
+            <div class="article-content markdown-body">
+                <p>为了软件课设来看的这门课,简介上说的是C++，但其实大多数时候还是写的C-Style的代码，这门课里讲到了进程、多线程，还有同步、异步，项目里用到了epoll。但软件课设的后端相对比较简单，也没有什么多线程的问题，唯一的要求是要用数据库，这里面还没讲。感觉对软件课设帮助不大，就当看着玩吧。<a class="link" target="_blank" rel="noopener" href="https://www.nowcoder.com/study/live/504">课程链接<i class="fa-solid fa-up-right-from-square"></i></a></p>
+<p>因为最近在学C++，所以想用C++写后端，现在总之就是十分后悔。先是看了<a class="link" target="_blank" rel="noopener" href="https://www.gnu.org/software/cgicc/index.html">CGI<i class="fa-solid fa-up-right-from-square"></i></a>，还装了<a class="link" target="_blank" rel="noopener" href="https://httpd.apache.org/">Apache<i class="fa-solid fa-up-right-from-square"></i></a>,后来又找了个C++的后端库<a class="link" target="_blank" rel="noopener" href="https://oatpp.io/docs/start/">oatpp<i class="fa-solid fa-up-right-from-square"></i></a>。事已至此，只能硬着头皮写下去了。</p>
+<h3 id="gcc"><a href="#gcc" class="headerlink" title="gcc"></a>gcc</h3><table>
+<thead>
+<tr>
+<th>Command</th>
+<th>Usage</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>-E</td>
+<td>Run the preprocessing stage</td>
+</tr>
+<tr>
+<td>-S</td>
+<td>Run the previous stages as well as LLVM generation and optimization stages and target-specific code generation, producing an assembly file</td>
+</tr>
+<tr>
+<td>-c</td>
+<td>Run all of the above, plus the assembler, generating a target “.o” object file</td>
+</tr>
+<tr>
+<td>-o</td>
+<td>Write output to file</td>
+</tr>
+<tr>
+<td>-I<directory></directory></td>
+<td>Add the specified directory to the search path for included files</td>
+</tr>
+<tr>
+<td>-g</td>
+<td>Generate debug information</td>
+</tr>
+<tr>
+<td>-D</td>
+<td>Adds an implicit #define into the predefined buffer which is read before the source file is being preprocessed.</td>
+</tr>
+<tr>
+<td>-w</td>
+<td></td>
+</tr>
+<tr>
+<td>-Wall</td>
+<td></td>
+</tr>
+<tr>
+<td>-On</td>
+<td></td>
+</tr>
+<tr>
+<td>-l</td>
+<td></td>
+</tr>
+<tr>
+<td>-L</td>
+<td></td>
+</tr>
+<tr>
+<td>-fpic/-fPIC</td>
+<td></td>
+</tr>
+<tr>
+<td>-shared</td>
+<td></td>
+</tr>
+<tr>
+<td>-std</td>
+<td></td>
+</tr>
+</tbody></table>
+<div class="highlight-container" data-rel="C"><figure class="iseeu highlight c"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">#<span class="keyword">include</span> <span class="string">&lt;stdio.h&gt;</span></span></span><br><span class="line"></span><br><span class="line"><span class="type">int</span> <span class="title function_">main</span><span class="params">()</span></span><br><span class="line">{</span><br><span class="line">    <span class="type">int</span> a = <span class="number">10</span>;</span><br><span class="line"><span class="meta">#<span class="keyword">ifdef</span> DEBUG</span></span><br><span class="line">    <span class="built_in">printf</span>(<span class="string">"message appear only when debugging\n"</span>);</span><br><span class="line"><span class="meta">#<span class="keyword">endif</span></span></span><br><span class="line">    <span class="keyword">for</span>(<span class="type">int</span> i=<span class="number">0</span>; i&lt;<span class="number">3</span>; ++i) <span class="built_in">printf</span>(<span class="string">"hello, GCC!!!\n"</span>);</span><br><span class="line">    <span class="keyword">return</span> <span class="number">0</span>;</span><br><span class="line">}</span><br></pre></td></tr></table></figure></div>
+<div class="highlight-container" data-rel="Bash"><figure class="iseeu highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">gcc test.c -o <span class="built_in">test</span> -DDEBUG</span><br></pre></td></tr></table></figure></div>
+
+<h3 id="静态库的制作"><a href="#静态库的制作" class="headerlink" title="静态库的制作"></a>静态库的制作</h3><p>Name</p>
+<blockquote>
+<p>Linux : libxxx.a<br> Windows: libxxx.lib</p>
+</blockquote>
+<div class="highlight-container" data-rel="Bash"><figure class="iseeu highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">gcc -c *.c</span><br><span class="line">ar rcs libxxx.a *.o</span><br></pre></td></tr></table></figure></div>
+
+<h3 id="动态库的制作和使用"><a href="#动态库的制作和使用" class="headerlink" title="动态库的制作和使用"></a>动态库的制作和使用</h3><p><code>linux: libxxx.so</code></p>
+<div class="highlight-container" data-rel="Bash"><figure class="iseeu highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">#-fpic 与位置无关</span></span><br><span class="line">gcc -c -fpic/-fPIC a.c b.c</span><br><span class="line">gcc -shared a.o b.o -o libxxx.so</span><br><span class="line">gcc main.c -o main -I include/ -L lib/ -l calc</span><br></pre></td></tr></table></figure></div>
+<blockquote>
+<p>cannot open shared object file: No such file or directory</p>
+</blockquote>
+<h3 id="动态库加载失败的原因"><a href="#动态库加载失败的原因" class="headerlink" title="动态库加载失败的原因"></a>动态库加载失败的原因</h3><div class="highlight-container" data-rel="Bash"><figure class="iseeu highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">ldd main</span><br><span class="line">DT_RPATH -&gt; LD_LIBRARY_PATH -&gt; /etc/ld.so.cache -&gt; /lib/, /usr/lib</span><br></pre></td></tr></table></figure></div>
+
+<h3 id="解决动态库加载失败问题"><a href="#解决动态库加载失败问题" class="headerlink" title="解决动态库加载失败问题"></a>解决动态库加载失败问题</h3><div class="highlight-container" data-rel="Bash"><figure class="iseeu highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br></pre></td><td class="code"><pre><span class="line"><span class="built_in">env</span></span><br><span class="line"><span class="built_in">export</span> LD_LIBRARY_PATH=<span class="variable">$LD_LIBRARY_PATH</span>:/home/dachuang/Downloads/CppWeb/Lesson06/library/lib</span><br><span class="line"><span class="built_in">echo</span> <span class="variable">$LD_LIBRARY_PATH</span></span><br><span class="line">ldd main</span><br><span class="line"></span><br><span class="line"><span class="comment"># path will disappear after close path</span></span><br><span class="line"><span class="comment"># user level setting</span></span><br><span class="line">vim .bashrc</span><br><span class="line"><span class="built_in">export</span> LD_LIBRARY_PATH=<span class="variable">$LD_LIBRARY_PATH</span>:/home/dachuang/Downloads/CppWeb/Lesson06/library/lib</span><br><span class="line"></span><br><span class="line">. .bashrc</span><br><span class="line"><span class="built_in">source</span> .bashrc</span><br><span class="line"><span class="comment"># root</span></span><br><span class="line">sudo vim /etc/profile</span><br><span class="line"><span class="built_in">export</span> LD_LIBRARY_PATH=<span class="variable">$LD_LIBRARY_PATH</span>:/home/dachuang/Downloads/CppWeb/Lesson06/library/lib</span><br><span class="line"><span class="built_in">source</span> /etc/profile</span><br><span class="line"></span><br><span class="line"><span class="comment"># don't set both user level and system level </span></span><br><span class="line">sudo vim /etc/ld.so.conf</span><br><span class="line"><span class="comment"># /home/dachuang/Downloads/CppWeb/Lesson06/library/lib</span></span><br><span class="line">sudo ldconfig</span><br><span class="line"></span><br><span class="line"><span class="comment"># /lib /usr/lib don't recommend using</span></span><br></pre></td></tr></table></figure></div>
+
+<h3 id="静态库和动态库的对比"><a href="#静态库和动态库的对比" class="headerlink" title="静态库和动态库的对比"></a>静态库和动态库的对比</h3><p>静态库的优缺点</p>
+<ul>
+<li>优点<ul>
+<li>小-&gt;静态库</li>
+<li>大-&gt;动态库</li>
+<li>静态库加载速度更快，</li>
+<li>发布程序无需提供静态库，发布方便</li>
+</ul>
+</li>
+<li>缺点<ul>
+<li>消耗系统资源</li>
+<li>浪费内存</li>
+<li>更新，部署，发布麻烦（需要重新编译）<br>动态库的优缺点</li>
+</ul>
+</li>
+<li>优点<ul>
+<li>进程间资源共享</li>
+<li>更新部署发布简单（只用重新编译动态库，不用重编app）</li>
+<li>可以控制何时加载动态库</li>
+</ul>
+</li>
+<li>缺点<ul>
+<li>加载速度相对慢</li>
+<li>发布程序时需要提供依赖的动态库</li>
+</ul>
+</li>
+</ul>
+<h3 id="Makefile"><a href="#Makefile" class="headerlink" title="Makefile"></a>Makefile</h3><p>一个 Makefile 文件中可以有一个或者多个规则</p>
+<div class="highlight-container" data-rel="Makefile"><figure class="iseeu highlight makefile"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">obj : rely</span><br><span class="line">    command</span><br><span class="line">    ...</span><br></pre></td></tr></table></figure></div>
+<p>检查更新：目标与依赖文件的更新时间<br>预定义变量</p>
+<ul>
+<li>AR=ar</li>
+<li>CC=cc</li>
+<li>CXX=g++</li>
+<li>$@：目标的完整名称</li>
+<li>$＜：第一个依赖文件的名称</li>
+<li>$^：所有的依赖文件</li>
+<li>$(变量名）</li>
+<li>Wildcard 通配符</li>
+<li>Patsubst 替换<div class="highlight-container" data-rel="Makefile"><figure class="iseeu highlight makefile"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line">src = <span class="variable">$(<span class="built_in">wildcard</span> ./*.cpp)</span> </span><br><span class="line">objs = <span class="variable">$(<span class="built_in">patsubst</span> %.cpp, %.o,<span class="variable">$(src)</span>)</span> </span><br><span class="line">target=app</span><br><span class="line"><span class="variable">$(target)</span>:<span class="variable">$(objs)</span></span><br><span class="line">    <span class="variable">$(CXX)</span> <span class="variable">$^</span> -o <span class="variable">$@</span></span><br><span class="line"><span class="section">%.o:%.cpp</span></span><br><span class="line">    <span class="variable">$(CXX)</span> -c <span class="variable">$&lt;</span> -o <span class="variable">$@</span></span><br><span class="line"></span><br><span class="line"><span class="meta"><span class="keyword">.PHONY</span>:clean</span></span><br><span class="line"><span class="section">clean:</span></span><br><span class="line">    rm <span class="variable">$(objs)</span> -f </span><br></pre></td></tr></table></figure></div></li>
+</ul>
+<h3 id="GDB调试"><a href="#GDB调试" class="headerlink" title="GDB调试"></a>GDB调试</h3><div class="highlight-container" data-rel="Bash"><figure class="iseeu highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line">gcc -g -Wall program.c -o program</span><br><span class="line"></span><br><span class="line">gdb </span><br><span class="line">quit</span><br><span class="line"><span class="built_in">set</span> args 10 20</span><br><span class="line">show args</span><br><span class="line"><span class="built_in">help</span></span><br><span class="line">list/l</span><br><span class="line">show list/listsize</span><br><span class="line"><span class="built_in">set</span> list/listsize 行数</span><br></pre></td></tr></table></figure></div>
+<div class="highlight-container" data-rel="Bash"><figure class="iseeu highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line"><span class="built_in">break</span>/b</span><br><span class="line">info <span class="built_in">break</span></span><br><span class="line"><span class="built_in">break</span>/b file:func</span><br><span class="line"><span class="built_in">break</span>/b file:line</span><br><span class="line">d/delete Num of <span class="built_in">break</span></span><br><span class="line"><span class="built_in">disable</span>/enable Num of <span class="built_in">break</span></span><br><span class="line">b/break 16 <span class="keyword">if</span> i=5</span><br></pre></td></tr></table></figure></div>
+<div class="highlight-container" data-rel="Bash"><figure class="iseeu highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line">start</span><br><span class="line">run</span><br><span class="line">c/continue</span><br><span class="line">n/next (won<span class="string">'t enter func) vs s/step</span></span><br><span class="line"><span class="string">p/print</span></span><br><span class="line"><span class="string">ptype</span></span><br><span class="line"><span class="string">display num</span></span><br><span class="line"><span class="string">i/info display</span></span><br><span class="line"><span class="string">undisplay</span></span><br><span class="line"><span class="string">set var </span></span><br><span class="line"><span class="string">until</span></span><br></pre></td></tr></table></figure></div>
+<h3 id="标准C库IO函数和Linux系统IO函数对比"><a href="#标准C库IO函数和Linux系统IO函数对比" class="headerlink" title="标准C库IO函数和Linux系统IO函数对比"></a>标准C库IO函数和Linux系统IO函数对比</h3><p>C库调用Linux的IO API<br>C 的函数有缓冲区，系统IO无buffer</p>
+<div class="highlight-container" data-rel="C"><figure class="iseeu highlight c"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">fflush</span><br><span class="line"><span class="comment">/* buffer filled (8k) */</span></span><br><span class="line">flose</span><br><span class="line"><span class="title function_">return</span><span class="params">()</span></span><br><span class="line"><span class="title function_">exit</span><span class="params">()</span></span><br></pre></td></tr></table></figure></div>
+<div class="highlight-container" data-rel="C"><figure class="iseeu highlight c"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br></pre></td><td class="code"><pre><span class="line">File* fp</span><br><span class="line"><span class="type">int</span> _fileno;</span><br><span class="line"><span class="type">char</span>* _IO_read_ptr;        <span class="comment">/* Current read pointer */</span></span><br><span class="line"><span class="type">char</span>* _IO_read_end;        <span class="comment">/* End of get area. */</span></span><br><span class="line"><span class="type">char</span>* _IO_read_base;        <span class="comment">/* Start of putback+get area. */</span></span><br><span class="line"><span class="type">char</span>* _IO_write_base;        <span class="comment">/* Start of put area. */</span></span><br><span class="line"><span class="type">char</span>* _IO_write_ptr;        <span class="comment">/* Current put pointer. */</span></span><br><span class="line"><span class="type">char</span>* _IO_write_end;        <span class="comment">/* End of put area. */</span></span><br><span class="line"><span class="type">char</span>* _IO_buf_base;        <span class="comment">/* Start of reserve area. */</span></span><br><span class="line"><span class="type">char</span>* _IO_buf_end;        <span class="comment">/* End of reserve area. */</span></span><br><span class="line"><span class="comment">/* The following fields are used to support backing up and undo. */</span></span><br><span class="line"><span class="type">char</span> *_IO_save_base; <span class="comment">/* Pointer to start of non-current get area. */</span></span><br><span class="line"><span class="type">char</span> *_IO_backup_base;  <span class="comment">/* Pointer to first valid character of backup area */</span></span><br><span class="line"><span class="type">char</span> *_IO_save_end; <span class="comment">/* Pointer to end of non-current get area. */</span></span><br></pre></td></tr></table></figure></div>
+
+<h3 id="虚拟地址空间"><a href="#虚拟地址空间" class="headerlink" title="虚拟地址空间"></a>虚拟地址空间</h3><p>MMU 虚拟地址映射到真实地址<br>0-3G 用户区</p>
+<ul>
+<li>0-4k 保护区</li>
+<li>.text</li>
+<li>data</li>
+<li>heap 由低到高</li>
+<li>Stack &lt; heap 由高到低</li>
+<li>Args<br>3G-4G内核区</li>
+<li>内存管理</li>
+<li>进程管理</li>
+<li>设备驱动</li>
+<li>Virtual File System</li>
+</ul>
+<h3 id="文件描述符"><a href="#文件描述符" class="headerlink" title="文件描述符"></a>文件描述符</h3><p>PCB 文件描述符表 1024</p>
+<blockquote>
+<p>0 STDIN_FILENO<br>1 STDOUT_FILENO<br>2 STDERR_FILENO</p>
+</blockquote>
+<p>Fopen 同一个文件的文件描述符不同，打开最小的文件描述符</p>
+<h3 id="open创建新文件"><a href="#open创建新文件" class="headerlink" title="open创建新文件"></a>open创建新文件</h3><div class="highlight-container" data-rel="Bash"><figure class="iseeu highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">man 2 open</span><br><span class="line"><span class="built_in">umask</span> 022 <span class="comment"># set umask</span></span><br></pre></td></tr></table></figure></div>
+
+<div class="highlight-container" data-rel="C"><figure class="iseeu highlight c"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">/**</span></span><br><span class="line"><span class="comment">@param flags: O_RDONLY, O_WRONLY, O_RDWR optionly O_CREAT</span></span><br><span class="line"><span class="comment">@param mode: mode(oct num rwxrwxrwx) of file is (mode &amp; ~umask)</span></span><br><span class="line"><span class="comment">int open(const char *pathname, int flags, mode_t mode);</span></span><br><span class="line"><span class="comment">*/</span></span><br><span class="line"><span class="meta">#<span class="keyword">include</span> <span class="string">&lt;sys/types.h&gt;</span></span></span><br><span class="line"><span class="meta">#<span class="keyword">include</span> <span class="string">&lt;sys/stat.h&gt;</span></span></span><br><span class="line"><span class="meta">#<span class="keyword">include</span> <span class="string">&lt;fcntl.h&gt;</span></span></span><br><span class="line"><span class="meta">#<span class="keyword">include</span> <span class="string">&lt;stdio.h&gt;</span></span></span><br><span class="line"><span class="meta">#<span class="keyword">include</span> <span class="string">&lt;unistd.h&gt;</span></span></span><br><span class="line"><span class="type">int</span> <span class="title function_">main</span><span class="params">()</span> {</span><br><span class="line">    <span class="type">int</span> fd = open(<span class="string">"create.txt"</span>, O_RDWR | O_CREAT, <span class="number">0777</span>);</span><br><span class="line">    <span class="keyword">if</span> (fd==<span class="number">-1</span>) perror(<span class="string">"open"</span>);</span><br><span class="line">    close(fd);</span><br><span class="line">    <span class="keyword">return</span> <span class="number">0</span>;</span><br><span class="line">}</span><br></pre></td></tr></table></figure></div>
+
+<h3 id="read、write函数"><a href="#read、write函数" class="headerlink" title="read、write函数"></a>read、write函数</h3><div class="highlight-container" data-rel="Bash"><figure class="iseeu highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">man 2 <span class="built_in">read</span></span><br><span class="line">man 2 write</span><br></pre></td></tr></table></figure></div>
+
+<div class="highlight-container" data-rel="C"><figure class="iseeu highlight c"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">// copyfile.c</span></span><br><span class="line"><span class="meta">#<span class="keyword">include</span> <span class="string">&lt;unistd.h&gt;</span></span></span><br><span class="line"><span class="meta">#<span class="keyword">include</span> <span class="string">&lt;stdio.h&gt;</span></span></span><br><span class="line"><span class="meta">#<span class="keyword">include</span> <span class="string">&lt;sys/types.h&gt;</span></span></span><br><span class="line"><span class="meta">#<span class="keyword">include</span> <span class="string">&lt;sys/stat.h&gt;</span></span></span><br><span class="line"><span class="meta">#<span class="keyword">include</span> <span class="string">&lt;fcntl.h&gt;</span></span></span><br><span class="line"></span><br><span class="line"><span class="type">int</span> <span class="title function_">main</span><span class="params">()</span> {</span><br><span class="line">    <span class="type">int</span> srcfd = open(<span class="string">"english.txt"</span>, O_RDONLY);</span><br><span class="line">    <span class="keyword">if</span> (srcfd==<span class="number">-1</span>) {perror(<span class="string">"open"</span>);<span class="keyword">return</span> <span class="number">-1</span>;}</span><br><span class="line"></span><br><span class="line">    <span class="type">int</span> dstfd = open(<span class="string">"cpy.txt"</span>, O_WRONLY|O_CREAT, <span class="number">0664</span>);</span><br><span class="line">    <span class="keyword">if</span> (dstfd==<span class="number">-1</span>) {perror(<span class="string">"open"</span>);<span class="keyword">return</span> <span class="number">-1</span>;}</span><br><span class="line"></span><br><span class="line">    <span class="type">char</span> buf[<span class="number">1024</span>] = {<span class="number">0</span>};</span><br><span class="line">    <span class="type">int</span> len=<span class="number">0</span>;</span><br><span class="line">    <span class="keyword">while</span>((len = read(srcfd, buf, <span class="keyword">sizeof</span>(buf))) &gt; <span class="number">0</span> ) write(dstfd, buf, len);</span><br><span class="line">    close(dstfd);</span><br><span class="line">    close(srcfd);</span><br><span class="line">}</span><br></pre></td></tr></table></figure></div>
+
+<h3 id="lseek"><a href="#lseek" class="headerlink" title="lseek"></a>lseek</h3><div class="highlight-container" data-rel="Bash"><figure class="iseeu highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">man 2 lseek</span><br></pre></td></tr></table></figure></div>
+<div class="highlight-container" data-rel="C"><figure class="iseeu highlight c"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">#<span class="keyword">include</span> <span class="string">&lt;stdio.h&gt;</span></span></span><br><span class="line"><span class="type">int</span> <span class="title function_">fseek</span><span class="params">(FILE *stream, <span class="type">long</span> offset, <span class="type">int</span> whence)</span>;</span><br><span class="line"></span><br><span class="line"><span class="meta">#<span class="keyword">include</span> <span class="string">&lt;sys/types.h&gt;</span></span></span><br><span class="line"><span class="meta">#<span class="keyword">include</span> <span class="string">&lt;unistd.h&gt;</span></span></span><br><span class="line"><span class="comment">/**</span></span><br><span class="line"><span class="comment">@param offset </span></span><br><span class="line"><span class="comment">@param whence </span></span><br><span class="line"><span class="comment">    SEEK_SET: </span></span><br><span class="line"><span class="comment">    SEEK_CUR: current  + offset</span></span><br><span class="line"><span class="comment">    SEEK_END: file_end + offset</span></span><br><span class="line"><span class="comment">*/</span></span><br><span class="line"><span class="type">off_t</span> <span class="title function_">lseek</span><span class="params">(<span class="type">int</span> fd, <span class="type">off_t</span> offset, <span class="type">int</span> whence)</span>;</span><br><span class="line">lseek(fd, <span class="number">0</span>, SEEK_SET); <span class="comment">//文件头</span></span><br><span class="line">lseek(fd, <span class="number">0</span>, SEEK_CUR); <span class="comment">//当前文件位置</span></span><br><span class="line">lseek(fd, <span class="number">0</span>, SEEK_END); <span class="comment">//file end</span></span><br><span class="line">lseek(fd, <span class="number">100</span>, SEEK_END); <span class="comment">//extend file, 需要写入数据</span></span><br><span class="line"></span><br><span class="line"><span class="meta">#<span class="keyword">include</span> <span class="string">&lt;unistd.h&gt;</span></span></span><br><span class="line"><span class="meta">#<span class="keyword">include</span> <span class="string">&lt;fcntl.h&gt;</span></span></span><br><span class="line"><span class="meta">#<span class="keyword">include</span> <span class="string">&lt;stdio.h&gt;</span></span></span><br><span class="line"></span><br><span class="line"><span class="type">int</span> <span class="title function_">main</span><span class="params">()</span> {</span><br><span class="line">        <span class="type">int</span> fd = open(<span class="string">"hello.txt"</span>, O_RDWR);</span><br><span class="line">        <span class="keyword">if</span> (fd==<span class="number">-1</span>) {</span><br><span class="line">                perror(<span class="string">"open"</span>);</span><br><span class="line">                <span class="keyword">return</span> <span class="number">-1</span>;</span><br><span class="line">        }</span><br><span class="line">        <span class="type">int</span> ret = lseek(fd, <span class="number">100</span>, SEEK_END);</span><br><span class="line">        <span class="keyword">if</span> (ret==<span class="number">-1</span>) {</span><br><span class="line">                perror(<span class="string">"lseek"</span>);</span><br><span class="line">                <span class="keyword">return</span> <span class="number">-1</span>;</span><br><span class="line">        }</span><br><span class="line">        write(fd, <span class="string">" "</span>, <span class="number">1</span>);</span><br><span class="line">        close(fd);</span><br><span class="line">        <span class="keyword">return</span> <span class="number">0</span>;</span><br><span class="line">}</span><br></pre></td></tr></table></figure></div>
+
+<h3 id="stat、lstat函数"><a href="#stat、lstat函数" class="headerlink" title="stat、lstat函数"></a>stat、lstat函数</h3><div class="highlight-container" data-rel="Bash"><figure class="iseeu highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">man 2 <span class="built_in">stat</span></span><br><span class="line"><span class="built_in">stat</span></span><br></pre></td></tr></table></figure></div>
+<div class="highlight-container" data-rel="C"><figure class="iseeu highlight c"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">#<span class="keyword">include</span> <span class="string">&lt;sys/types.h&gt;</span></span></span><br><span class="line"><span class="meta">#<span class="keyword">include</span> <span class="string">&lt;sys/stat.h&gt;</span></span></span><br><span class="line"><span class="meta">#<span class="keyword">include</span> <span class="string">&lt;unistd.h&gt;</span></span></span><br><span class="line"></span><br><span class="line"><span class="type">int</span> <span class="title function_">stat</span><span class="params">(<span class="type">const</span> <span class="type">char</span> *pathname, <span class="keyword">struct</span> stat *statbuf)</span>;</span><br><span class="line"><span class="type">int</span> <span class="title function_">fstat</span><span class="params">(<span class="type">int</span> fd, <span class="keyword">struct</span> stat *statbuf)</span>;</span><br><span class="line"><span class="type">int</span> <span class="title function_">lstat</span><span class="params">(<span class="type">const</span> <span class="type">char</span> *pathname, <span class="keyword">struct</span> stat *statbuf)</span>;</span><br><span class="line"></span><br><span class="line">truct stat {</span><br><span class="line">   <span class="type">dev_t</span>     st_dev;         <span class="comment">/* ID of device containing file */</span></span><br><span class="line">   <span class="type">ino_t</span>     st_ino;         <span class="comment">/* Inode number */</span></span><br><span class="line">   <span class="type">mode_t</span>    st_mode;        <span class="comment">/* File type and mode */</span></span><br><span class="line">   <span class="number">0</span><span class="number">-2</span>: others</span><br><span class="line">   <span class="number">3</span><span class="number">-5</span>: group</span><br><span class="line">   <span class="number">6</span><span class="number">-8</span>: user</span><br><span class="line">   <span class="number">9</span><span class="number">-11</span>:特殊权限位</span><br><span class="line">   <span class="number">12</span><span class="number">-15</span>:文件类型</span><br><span class="line">   <span class="type">nlink_t</span>   st_nlink;       <span class="comment">/* Number of hard links */</span></span><br><span class="line">   <span class="type">uid_t</span>     st_uid;         <span class="comment">/* User ID of owner */</span></span><br><span class="line">   <span class="type">gid_t</span>     st_gid;         <span class="comment">/* Group ID of owner */</span></span><br><span class="line">   <span class="type">dev_t</span>     st_rdev;        <span class="comment">/* Device ID (if special file) */</span></span><br><span class="line">   <span class="type">off_t</span>     st_size;        <span class="comment">/* Total size, in bytes */</span></span><br><span class="line">   <span class="type">blksize_t</span> st_blksize;     <span class="comment">/* Block size for filesystem I/O */</span></span><br><span class="line">   <span class="type">blkcnt_t</span>  st_blocks;      <span class="comment">/* Number of 512B blocks allocated */</span></span><br><span class="line">   <span class="comment">/* Since Linux 2.6, the kernel supports nanosecond</span></span><br><span class="line"><span class="comment">      precision for the following timestamp fields.</span></span><br><span class="line"><span class="comment">      For the details before Linux 2.6, see NOTES. */</span></span><br><span class="line"></span><br><span class="line">   <span class="class"><span class="keyword">struct</span> <span class="title">timespec</span> <span class="title">st_atim</span>;</span>  <span class="comment">/* Time of last access */</span></span><br><span class="line">   <span class="class"><span class="keyword">struct</span> <span class="title">timespec</span> <span class="title">st_mtim</span>;</span>  <span class="comment">/* Time of last modification */</span></span><br><span class="line">   <span class="class"><span class="keyword">struct</span> <span class="title">timespec</span> <span class="title">st_ctim</span>;</span>  <span class="comment">/* Time of last status change */</span></span><br><span class="line"></span><br><span class="line"><span class="meta">#<span class="keyword">define</span> st_atime st_atim.tv_sec      <span class="comment">/* Backward compatibility */</span></span></span><br><span class="line"><span class="meta">#<span class="keyword">define</span> st_mtime st_mtim.tv_sec</span></span><br><span class="line"><span class="meta">#<span class="keyword">define</span> st_ctime st_ctim.tv_sec</span></span><br><span class="line">};</span><br></pre></td></tr></table></figure></div>
+<div class="highlight-container" data-rel="C"><figure class="iseeu highlight c"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">#<span class="keyword">include</span> <span class="string">&lt;sys/types.h&gt;</span></span></span><br><span class="line"><span class="meta">#<span class="keyword">include</span> <span class="string">&lt;sys/stat.h&gt;</span></span></span><br><span class="line"><span class="meta">#<span class="keyword">include</span> <span class="string">&lt;unistd.h&gt;</span></span></span><br><span class="line"><span class="meta">#<span class="keyword">include</span> <span class="string">&lt;stdio.h&gt;</span></span></span><br><span class="line"></span><br><span class="line"><span class="type">int</span> <span class="title function_">main</span><span class="params">()</span> {</span><br><span class="line">    <span class="class"><span class="keyword">struct</span> <span class="title">stat</span> <span class="title">statbuf</span>;</span></span><br><span class="line">    <span class="type">int</span> ret = stat(<span class="string">"a.txt"</span>, &amp;statbuf);</span><br><span class="line">    <span class="keyword">if</span> (ret==<span class="number">-1</span>) {</span><br><span class="line">        perror(<span class="string">"stat"</span>);</span><br><span class="line">        <span class="keyword">return</span> <span class="number">-1</span>;</span><br><span class="line">    }</span><br><span class="line">    <span class="built_in">printf</span>(<span class="string">"size: %ld\n"</span>, statbuf.st_size);</span><br><span class="line">    <span class="keyword">return</span> <span class="number">0</span>;</span><br><span class="line">}</span><br></pre></td></tr></table></figure></div>
+<div class="highlight-container" data-rel="Bash"><figure class="iseeu highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="built_in">ln</span> -s a.txt b.txt</span><br><span class="line">lstat 获取软连接到文件的信息</span><br></pre></td></tr></table></figure></div>
+
+<h3 id="模拟实现-ls-l-命令"><a href="#模拟实现-ls-l-命令" class="headerlink" title="模拟实现 ls -l 命令"></a>模拟实现 ls -l 命令</h3><div class="highlight-container" data-rel="C"><figure class="iseeu highlight c"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">#<span class="keyword">include</span> <span class="string">&lt;stdio.h&gt;</span></span></span><br><span class="line"><span class="meta">#<span class="keyword">include</span> <span class="string">&lt;sys/types.h&gt;</span></span></span><br><span class="line"><span class="meta">#<span class="keyword">include</span> <span class="string">&lt;sys/stat.h&gt;</span></span></span><br><span class="line"><span class="meta">#<span class="keyword">include</span> <span class="string">&lt;unistd.h&gt;</span></span></span><br><span class="line"><span class="meta">#<span class="keyword">include</span> <span class="string">&lt;pwd.h&gt;</span></span></span><br><span class="line"><span class="meta">#<span class="keyword">include</span> <span class="string">&lt;grp.h&gt;</span></span></span><br><span class="line"><span class="meta">#<span class="keyword">include</span> <span class="string">&lt;time.h&gt;</span></span></span><br><span class="line"><span class="meta">#<span class="keyword">include</span> <span class="string">&lt;string.h&gt;</span></span></span><br><span class="line"></span><br><span class="line"><span class="comment">/**</span></span><br><span class="line"><span class="comment"> * simulate ls -l command</span></span><br><span class="line"><span class="comment"> * @param argc number of arguments</span></span><br><span class="line"><span class="comment"> * @param argv value of arguments</span></span><br><span class="line"><span class="comment">*/</span></span><br><span class="line"><span class="type">int</span> <span class="title function_">main</span><span class="params">(<span class="type">int</span> argc, <span class="type">char</span>* argv[])</span> {</span><br><span class="line">    <span class="keyword">if</span> (argc&lt;<span class="number">2</span>) {</span><br><span class="line">        <span class="built_in">printf</span>(<span class="string">"%s filename\n"</span>, argv[<span class="number">0</span>]);</span><br><span class="line">        <span class="keyword">return</span> <span class="number">-1</span>;</span><br><span class="line">    }</span><br><span class="line">    <span class="comment">// access file state</span></span><br><span class="line">    <span class="class"><span class="keyword">struct</span> <span class="title">stat</span> <span class="title">statbuf</span>;</span></span><br><span class="line">    <span class="keyword">if</span>( stat(argv[<span class="number">1</span>], &amp;statbuf) == <span class="number">-1</span> ) {</span><br><span class="line">        perror(<span class="string">"stat"</span>);</span><br><span class="line">        <span class="keyword">return</span> <span class="number">-1</span>;</span><br><span class="line">    } </span><br><span class="line"></span><br><span class="line">    <span class="type">char</span> perms[] = <span class="string">"-rwxrwxrwx"</span>;</span><br><span class="line">    <span class="keyword">for</span> (<span class="type">int</span> i=<span class="number">0</span>; i&lt;<span class="number">9</span>; i++) <span class="keyword">if</span> ( ~(statbuf.st_mode&gt;&gt;i)&amp;<span class="number">1</span>) perms[<span class="number">9</span>-i] = <span class="string">'-'</span>;</span><br><span class="line"></span><br><span class="line">    <span class="type">char</span> * time = ctime(&amp;statbuf.st_mtime);</span><br><span class="line">    <span class="type">char</span> mtime[<span class="number">512</span>];</span><br><span class="line">    <span class="built_in">strncpy</span>(mtime, time, <span class="built_in">strlen</span>(time)<span class="number">-1</span>);</span><br><span class="line"></span><br><span class="line">    <span class="built_in">printf</span>(<span class="string">"%s %ld %s %s %ld %s %s\n"</span>, perms, statbuf.st_nlink, getpwuid(statbuf.st_uid)-&gt;pw_name, getgrgid(statbuf.st_gid)-&gt;gr_name, statbuf.st_size, mtime, argv[<span class="number">1</span>]);</span><br><span class="line"></span><br><span class="line">    <span class="keyword">return</span> <span class="number">0</span>;</span><br><span class="line">}</span><br></pre></td></tr></table></figure></div>
+
+<h3 id="文件属性操作函数"><a href="#文件属性操作函数" class="headerlink" title="文件属性操作函数"></a>文件属性操作函数</h3><div class="highlight-container" data-rel="Bash"><figure class="iseeu highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">man 2 access</span><br><span class="line">man 2 <span class="built_in">chmod</span></span><br><span class="line">man 2 <span class="built_in">chown</span></span><br><span class="line">man 2 <span class="built_in">truncate</span></span><br></pre></td></tr></table></figure></div>
+
+<h3 id="目录操作函数"><a href="#目录操作函数" class="headerlink" title="目录操作函数"></a>目录操作函数</h3><div class="highlight-container" data-rel="Bash"><figure class="iseeu highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">man 2 <span class="built_in">mkdir</span></span><br><span class="line">man 2 <span class="built_in">rmdir</span></span><br><span class="line">man 2 rename</span><br><span class="line">man 2 <span class="built_in">chdir</span></span><br><span class="line">man 2 getcwd</span><br></pre></td></tr></table></figure></div>
+
+<h3 id="目录遍历函数"><a href="#目录遍历函数" class="headerlink" title="目录遍历函数"></a>目录遍历函数</h3><div class="highlight-container" data-rel="C"><figure class="iseeu highlight c"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br></pre></td><td class="code"><pre><span class="line">DIR *<span class="title function_">opendir</span><span class="params">(<span class="type">const</span> <span class="type">char</span> *name)</span>;</span><br><span class="line"><span class="keyword">struct</span> dirent *<span class="title function_">readdir</span><span class="params">(DIR *dirp)</span>;</span><br><span class="line"><span class="type">int</span> <span class="title function_">closedir</span><span class="params">(DIR *dirp)</span>;</span><br><span class="line"></span><br><span class="line"><span class="meta">#<span class="keyword">include</span> <span class="string">&lt;sys/types.h&gt;</span></span></span><br><span class="line"><span class="meta">#<span class="keyword">include</span> <span class="string">&lt;dirent.h&gt;</span></span></span><br><span class="line"><span class="meta">#<span class="keyword">include</span> <span class="string">&lt;stdio.h&gt;</span></span></span><br><span class="line"><span class="meta">#<span class="keyword">include</span> <span class="string">&lt;string.h&gt;</span></span></span><br><span class="line"><span class="meta">#<span class="keyword">include</span> <span class="string">&lt;stdlib.h&gt;</span></span></span><br><span class="line"></span><br><span class="line"><span class="type">int</span> <span class="title function_">getFileNum</span><span class="params">(<span class="type">const</span> <span class="type">char</span> * path)</span>;</span><br><span class="line"><span class="comment">// 读取某个目录下所有的普通文件的个数</span></span><br><span class="line"></span><br><span class="line"><span class="type">int</span> <span class="title function_">main</span><span class="params">(<span class="type">int</span> argc, <span class="type">char</span> * argv[])</span> {</span><br><span class="line">    <span class="keyword">if</span>(argc &lt; <span class="number">2</span>) {</span><br><span class="line">        <span class="built_in">printf</span>(<span class="string">"%s path\n"</span>, argv[<span class="number">0</span>]);</span><br><span class="line">        <span class="keyword">return</span> <span class="number">-1</span>;</span><br><span class="line">    }</span><br><span class="line">    <span class="type">int</span> num = getFileNum(argv[<span class="number">1</span>]);</span><br><span class="line">    <span class="built_in">printf</span>(<span class="string">"普通文件的个数为：%d\n"</span>, num);</span><br><span class="line">    <span class="keyword">return</span> <span class="number">0</span>;</span><br><span class="line">}</span><br><span class="line"></span><br><span class="line"><span class="comment">// 用于获取目录下所有普通文件的个数</span></span><br><span class="line"><span class="type">int</span> <span class="title function_">getFileNum</span><span class="params">(<span class="type">const</span> <span class="type">char</span> * path)</span> {</span><br><span class="line">    <span class="comment">// 1.打开目录</span></span><br><span class="line">    DIR * dir = opendir(path);</span><br><span class="line">    <span class="keyword">if</span>(dir == <span class="literal">NULL</span>) {</span><br><span class="line">        perror(<span class="string">"opendir"</span>);</span><br><span class="line">        <span class="built_in">exit</span>(<span class="number">0</span>);</span><br><span class="line">    }</span><br><span class="line">    <span class="class"><span class="keyword">struct</span> <span class="title">dirent</span> *<span class="title">ptr</span>;</span></span><br><span class="line">    <span class="comment">// 记录普通文件的个数</span></span><br><span class="line">    <span class="type">int</span> total = <span class="number">0</span>;</span><br><span class="line">    <span class="keyword">while</span>((ptr = readdir(dir)) != <span class="literal">NULL</span>) {</span><br><span class="line">        <span class="comment">// 获取名称</span></span><br><span class="line">        <span class="type">char</span> * dname = ptr-&gt;d_name;</span><br><span class="line">        <span class="comment">// 忽略掉. 和..</span></span><br><span class="line">        <span class="keyword">if</span>(<span class="built_in">strcmp</span>(dname, <span class="string">"."</span>) == <span class="number">0</span> || <span class="built_in">strcmp</span>(dname, <span class="string">".."</span>) == <span class="number">0</span>) <span class="keyword">continue</span>;</span><br><span class="line">        <span class="comment">// 判断是否是普通文件还是目录</span></span><br><span class="line">        <span class="keyword">if</span>(ptr-&gt;d_type == DT_DIR) {</span><br><span class="line">            <span class="comment">// 目录,需要继续读取这个目录</span></span><br><span class="line">            <span class="type">char</span> newpath[<span class="number">256</span>];</span><br><span class="line">            <span class="built_in">sprintf</span>(newpath, <span class="string">"%s/%s"</span>, path, dname);</span><br><span class="line">            total += getFileNum(newpath);</span><br><span class="line">        }</span><br><span class="line">        <span class="keyword">if</span>(ptr-&gt;d_type == DT_REG) total++;</span><br><span class="line">    }</span><br><span class="line">    <span class="comment">// 关闭目录</span></span><br><span class="line">    closedir(dir);</span><br><span class="line">    <span class="keyword">return</span> total;</span><br><span class="line">}</span><br></pre></td></tr></table></figure></div>
+
+<h3 id="dup-dup2-函数"><a href="#dup-dup2-函数" class="headerlink" title="dup, dup2 函数"></a>dup, dup2 函数</h3><div class="highlight-container" data-rel="C"><figure class="iseeu highlight c"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">#<span class="keyword">include</span> <span class="string">&lt;unistd.h&gt;</span></span></span><br><span class="line"><span class="comment">/**</span></span><br><span class="line"><span class="comment">The  dup()  system  call  creates  a copy of the file descriptor oldfd, using the lowest-numbered unused file descriptor for the  new  descriptor.</span></span><br><span class="line"><span class="comment">*/</span></span><br><span class="line"><span class="type">int</span> <span class="title function_">dup</span><span class="params">(<span class="type">int</span> oldfd)</span>;</span><br><span class="line"><span class="comment">/**</span></span><br><span class="line"><span class="comment">The  dup2() system call performs the same task as dup(), but instead of using the lowest-numbered unused file  descriptor,  it  uses  the  file descriptor number specified in newfd.  If the file descriptor newfd was previously open, it is silently closed before being reused.</span></span><br><span class="line"><span class="comment">*/</span></span><br><span class="line"><span class="type">int</span> <span class="title function_">dup2</span><span class="params">(<span class="type">int</span> oldfd, <span class="type">int</span> newfd)</span>;</span><br></pre></td></tr></table></figure></div>
+<div class="highlight-container" data-rel="C"><figure class="iseeu highlight c"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">#<span class="keyword">include</span> <span class="string">&lt;unistd.h&gt;</span></span></span><br><span class="line"><span class="meta">#<span class="keyword">include</span> <span class="string">&lt;stdio.h&gt;</span></span></span><br><span class="line"><span class="meta">#<span class="keyword">include</span> <span class="string">&lt;sys/stat.h&gt;</span></span></span><br><span class="line"><span class="meta">#<span class="keyword">include</span> <span class="string">&lt;sys/types.h&gt;</span></span></span><br><span class="line"><span class="meta">#<span class="keyword">include</span> <span class="string">&lt;fcntl.h&gt;</span></span></span><br><span class="line"><span class="meta">#<span class="keyword">include</span> <span class="string">&lt;string.h&gt;</span></span></span><br><span class="line"></span><br><span class="line"><span class="type">int</span> <span class="title function_">main</span><span class="params">()</span> {</span><br><span class="line">    <span class="type">int</span> fd = open(<span class="string">"a.txt"</span>, O_RDWR | O_CREAT, <span class="number">0664</span>);</span><br><span class="line">    <span class="keyword">if</span> (fd==<span class="number">-1</span>) {</span><br><span class="line">        perror(<span class="string">"open"</span>);</span><br><span class="line">        <span class="keyword">return</span> <span class="number">-1</span>;</span><br><span class="line">    }</span><br><span class="line"></span><br><span class="line">    <span class="type">int</span> fd1 =dup2(fd, dup(fd));</span><br><span class="line">    close(fd);</span><br><span class="line">    <span class="built_in">printf</span>(<span class="string">"fd:%d, fd1:%d\n"</span>, fd, fd1);</span><br><span class="line">    <span class="type">char</span> *str = <span class="string">"helloworld"</span>;</span><br><span class="line">    <span class="keyword">if</span>( write(fd1, str, <span class="built_in">strlen</span>(str)) ==<span class="number">-1</span> ) {</span><br><span class="line">        perror(<span class="string">"write"</span>);</span><br><span class="line">        <span class="keyword">return</span> <span class="number">-1</span>;</span><br><span class="line">    }</span><br><span class="line">    close(fd1);</span><br><span class="line">    <span class="keyword">return</span> <span class="number">0</span>;</span><br><span class="line">}</span><br></pre></td></tr></table></figure></div>
+<div class="highlight-container" data-rel="C"><figure class="iseeu highlight c"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">#<span class="keyword">include</span> <span class="string">&lt;unistd.h&gt;</span></span></span><br><span class="line"><span class="meta">#<span class="keyword">include</span> <span class="string">&lt;stdio.h&gt;</span></span></span><br><span class="line"><span class="meta">#<span class="keyword">include</span> <span class="string">&lt;sys/stat.h&gt;</span></span></span><br><span class="line"><span class="meta">#<span class="keyword">include</span> <span class="string">&lt;sys/types.h&gt;</span></span></span><br><span class="line"><span class="meta">#<span class="keyword">include</span> <span class="string">&lt;fcntl.h&gt;</span></span></span><br><span class="line"><span class="meta">#<span class="keyword">include</span> <span class="string">&lt;string.h&gt;</span></span></span><br><span class="line"></span><br><span class="line"><span class="type">int</span> <span class="title function_">main</span><span class="params">()</span> {</span><br><span class="line">    <span class="type">int</span> fd = open(<span class="string">"a.txt"</span>, O_RDWR | O_CREAT, <span class="number">0664</span>);</span><br><span class="line">    <span class="type">int</span> fd1 = open(<span class="string">"b.txt"</span>, O_RDWR|O_CREAT, <span class="number">0664</span>);</span><br><span class="line">    <span class="keyword">if</span> (fd==<span class="number">-1</span> | fd1==<span class="number">-1</span>) {</span><br><span class="line">        perror(<span class="string">"open"</span>);</span><br><span class="line">        <span class="keyword">return</span> <span class="number">-1</span>;</span><br><span class="line">    }</span><br><span class="line"></span><br><span class="line">    <span class="type">int</span> fd2 =dup2(fd, fd1);</span><br><span class="line">    <span class="type">char</span> *str = <span class="string">"helloworld"</span>;</span><br><span class="line">    <span class="keyword">if</span>( write(fd1, str, <span class="built_in">strlen</span>(str)) ==<span class="number">-1</span> ) {</span><br><span class="line">        perror(<span class="string">"write"</span>);</span><br><span class="line">        <span class="keyword">return</span> <span class="number">-1</span>;</span><br><span class="line">    }</span><br><span class="line">    <span class="built_in">printf</span>(<span class="string">"fd:%d, fd1:%d, fd2:%d\n"</span>, fd, fd1, fd2);</span><br><span class="line">    close(fd2);</span><br><span class="line">    <span class="keyword">return</span> <span class="number">0</span>;</span><br><span class="line">}</span><br></pre></td></tr></table></figure></div>
+
+<h3 id="fcntl"><a href="#fcntl" class="headerlink" title="fcntl"></a>fcntl</h3><div class="highlight-container" data-rel="C"><figure class="iseeu highlight c"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">#<span class="keyword">include</span> <span class="string">&lt;unistd.h&gt;</span></span></span><br><span class="line"><span class="meta">#<span class="keyword">include</span> <span class="string">&lt;fcntl.h&gt;</span></span></span><br><span class="line"></span><br><span class="line"><span class="comment">/**</span></span><br><span class="line"><span class="comment">fcntl() performs one of the operations described below on the open file</span></span><br><span class="line"><span class="comment">       descriptor fd.  The operation is determined by cmd.</span></span><br><span class="line"><span class="comment">*/</span></span><br><span class="line"><span class="type">int</span> <span class="title function_">fcntl</span><span class="params">(<span class="type">int</span> fd, <span class="type">int</span> cmd, ... <span class="comment">/* arg */</span> )</span>;</span><br><span class="line"></span><br><span class="line"></span><br><span class="line"><span class="meta">#<span class="keyword">include</span> <span class="string">&lt;unistd.h&gt;</span></span></span><br><span class="line"><span class="meta">#<span class="keyword">include</span> <span class="string">&lt;fcntl.h&gt;</span></span></span><br><span class="line"><span class="meta">#<span class="keyword">include</span> <span class="string">&lt;stdio.h&gt;</span></span></span><br><span class="line"><span class="meta">#<span class="keyword">include</span> <span class="string">&lt;string.h&gt;</span></span></span><br><span class="line"></span><br><span class="line"><span class="type">int</span> <span class="title function_">main</span><span class="params">()</span> {</span><br><span class="line"></span><br><span class="line">    <span class="comment">// 1.复制文件描述符</span></span><br><span class="line">    <span class="comment">// int fd = open("1.txt", O_RDONLY);</span></span><br><span class="line">    <span class="comment">// int ret = fcntl(fd, F_DUPFD);</span></span><br><span class="line"></span><br><span class="line">    <span class="comment">// 2.修改或者获取文件状态flag</span></span><br><span class="line">    <span class="type">int</span> fd = open(<span class="string">"1.txt"</span>, O_RDWR|O_CREAT, <span class="number">0664</span>);</span><br><span class="line">    <span class="keyword">if</span>(fd == <span class="number">-1</span>) {</span><br><span class="line">        perror(<span class="string">"open"</span>);</span><br><span class="line">        <span class="keyword">return</span> <span class="number">-1</span>;</span><br><span class="line">    }</span><br><span class="line"></span><br><span class="line">    <span class="comment">// 获取文件描述符状态flag</span></span><br><span class="line">    <span class="type">int</span> flag = fcntl(fd, F_GETFL);</span><br><span class="line">    <span class="keyword">if</span>(flag == <span class="number">-1</span>) {</span><br><span class="line">        perror(<span class="string">"fcntl"</span>);</span><br><span class="line">        <span class="keyword">return</span> <span class="number">-1</span>;</span><br><span class="line">    }</span><br><span class="line">    flag |= O_APPEND;   <span class="comment">// flag = flag | O_APPEND</span></span><br><span class="line"></span><br><span class="line">    <span class="comment">// 修改文件描述符状态的flag，给flag加入O_APPEND这个标记</span></span><br><span class="line">    <span class="type">int</span> ret = fcntl(fd, F_SETFL, flag);</span><br><span class="line">    <span class="keyword">if</span>(ret == <span class="number">-1</span>) {</span><br><span class="line">        perror(<span class="string">"fcntl"</span>);</span><br><span class="line">        <span class="keyword">return</span> <span class="number">-1</span>;</span><br><span class="line">    }</span><br><span class="line"></span><br><span class="line">    <span class="type">char</span> * str = <span class="string">"nihao"</span>;</span><br><span class="line">    write(fd, str, <span class="built_in">strlen</span>(str));</span><br><span class="line"></span><br><span class="line">    close(fd);</span><br><span class="line"></span><br><span class="line">    <span class="keyword">return</span> <span class="number">0</span>;</span><br><span class="line">}</span><br></pre></td></tr></table></figure></div>
+
+            </div>
+
+            
+                <div class="post-copyright-info">
+                    <div class="article-copyright-info-container">
+    <ul>
+        <li>Post title：C/C++ WebServer 1 Linux系统编程入门</li>
+        <li>Post author：Meqt</li>
+        <li>Create time：2022-12-17 16:40:08</li>
+        <li>
+            Post link：https://meqtmac.github.io/2022/12/17/WebServerNote/webserver-note1/
+        </li>
+        <li>
+            Copyright Notice：All articles in this blog are licensed under <a class="license" target="_blank" rel="noopener" href="https://creativecommons.org/licenses/by-nc-sa/4.0/deed.zh">BY-NC-SA</a> unless stating additionally.
+        </li>
+    </ul>
+</div>
+
+                </div>
+            
+
+            
+                <ul class="post-tags-box">
+                    
+                        <li class="tag-item">
+                            <a href="/tags/C/">#C</a>&nbsp;
+                        </li>
+                    
+                        <li class="tag-item">
+                            <a href="/tags/Linux/">#Linux</a>&nbsp;
+                        </li>
+                    
+                </ul>
+            
+
+            
+                <div class="article-nav">
+                    
+                        <div class="article-prev">
+                            <a class="prev"
+                            rel="prev"
+                            href="/2022/12/17/WebServerNote/webserver-note2/"
+                            >
+                                <span class="left arrow-icon flex-center">
+                                    <i class="fa-solid fa-chevron-left"></i>
+                                </span>
+                                <span class="title flex-center">
+                                    <span class="post-nav-title-item">C/C++ WebServer 2 Linux 多进程开发</span>
+                                    <span class="post-nav-item">Prev posts</span>
+                                </span>
+                            </a>
+                        </div>
+                    
+                    
+                        <div class="article-next">
+                            <a class="next"
+                            rel="next"
+                            href="/2022/12/17/Build-my-Blog/"
+                            >
+                                <span class="title flex-center">
+                                    <span class="post-nav-title-item">Build Blog with Hexo and Github Page</span>
+                                    <span class="post-nav-item">Next posts</span>
+                                </span>
+                                <span class="right arrow-icon flex-center">
+                                    <i class="fa-solid fa-chevron-right"></i>
+                                </span>
+                            </a>
+                        </div>
+                    
+                </div>
+            
+
+            
+        </div>
+
+        
+            <div class="toc-content-container">
+                <div class="post-toc-wrap">
+    <div class="post-toc">
+        <div style="font-size: 1.3rem;margin-top: 0; margin-bottom: 0.8rem; transition-duration: 0.1s;"><i class="fa-solid fa-list"></i> <strong>Contents</strong></div>
+        <ol class="nav"><li class="nav-item nav-level-3"><a class="nav-link" href="#gcc"><span class="nav-number">1.</span> <span class="nav-text">gcc</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E9%9D%99%E6%80%81%E5%BA%93%E7%9A%84%E5%88%B6%E4%BD%9C"><span class="nav-number">2.</span> <span class="nav-text">静态库的制作</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E5%8A%A8%E6%80%81%E5%BA%93%E7%9A%84%E5%88%B6%E4%BD%9C%E5%92%8C%E4%BD%BF%E7%94%A8"><span class="nav-number">3.</span> <span class="nav-text">动态库的制作和使用</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E5%8A%A8%E6%80%81%E5%BA%93%E5%8A%A0%E8%BD%BD%E5%A4%B1%E8%B4%A5%E7%9A%84%E5%8E%9F%E5%9B%A0"><span class="nav-number">4.</span> <span class="nav-text">动态库加载失败的原因</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E8%A7%A3%E5%86%B3%E5%8A%A8%E6%80%81%E5%BA%93%E5%8A%A0%E8%BD%BD%E5%A4%B1%E8%B4%A5%E9%97%AE%E9%A2%98"><span class="nav-number">5.</span> <span class="nav-text">解决动态库加载失败问题</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E9%9D%99%E6%80%81%E5%BA%93%E5%92%8C%E5%8A%A8%E6%80%81%E5%BA%93%E7%9A%84%E5%AF%B9%E6%AF%94"><span class="nav-number">6.</span> <span class="nav-text">静态库和动态库的对比</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#Makefile"><span class="nav-number">7.</span> <span class="nav-text">Makefile</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#GDB%E8%B0%83%E8%AF%95"><span class="nav-number">8.</span> <span class="nav-text">GDB调试</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E6%A0%87%E5%87%86C%E5%BA%93IO%E5%87%BD%E6%95%B0%E5%92%8CLinux%E7%B3%BB%E7%BB%9FIO%E5%87%BD%E6%95%B0%E5%AF%B9%E6%AF%94"><span class="nav-number">9.</span> <span class="nav-text">标准C库IO函数和Linux系统IO函数对比</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E8%99%9A%E6%8B%9F%E5%9C%B0%E5%9D%80%E7%A9%BA%E9%97%B4"><span class="nav-number">10.</span> <span class="nav-text">虚拟地址空间</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E6%96%87%E4%BB%B6%E6%8F%8F%E8%BF%B0%E7%AC%A6"><span class="nav-number">11.</span> <span class="nav-text">文件描述符</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#open%E5%88%9B%E5%BB%BA%E6%96%B0%E6%96%87%E4%BB%B6"><span class="nav-number">12.</span> <span class="nav-text">open创建新文件</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#read%E3%80%81write%E5%87%BD%E6%95%B0"><span class="nav-number">13.</span> <span class="nav-text">read、write函数</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#lseek"><span class="nav-number">14.</span> <span class="nav-text">lseek</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#stat%E3%80%81lstat%E5%87%BD%E6%95%B0"><span class="nav-number">15.</span> <span class="nav-text">stat、lstat函数</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E6%A8%A1%E6%8B%9F%E5%AE%9E%E7%8E%B0-ls-l-%E5%91%BD%E4%BB%A4"><span class="nav-number">16.</span> <span class="nav-text">模拟实现 ls -l 命令</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E6%96%87%E4%BB%B6%E5%B1%9E%E6%80%A7%E6%93%8D%E4%BD%9C%E5%87%BD%E6%95%B0"><span class="nav-number">17.</span> <span class="nav-text">文件属性操作函数</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E7%9B%AE%E5%BD%95%E6%93%8D%E4%BD%9C%E5%87%BD%E6%95%B0"><span class="nav-number">18.</span> <span class="nav-text">目录操作函数</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E7%9B%AE%E5%BD%95%E9%81%8D%E5%8E%86%E5%87%BD%E6%95%B0"><span class="nav-number">19.</span> <span class="nav-text">目录遍历函数</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#dup-dup2-%E5%87%BD%E6%95%B0"><span class="nav-number">20.</span> <span class="nav-text">dup, dup2 函数</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#fcntl"><span class="nav-number">21.</span> <span class="nav-text">fcntl</span></a></li></ol>
+    </div>
+</div>
+            </div>
+        
+    </div>
+</div>
+
+
+                
+
+            </div>
+
+
+
+        </div>
+
+        <div class="page-main-content-bottom">
+            <footer class="footer">
+    <div class="info-container">
+        <div class="copyright-info info-item">
+            &copy;
+            
+              <span>2022</span>
+              -
+            
+            2023&nbsp;<i class="fa-solid fa-heart icon-animate"></i>&nbsp;<a href="/">Meqt. All Rights Reserved.</a>
+        </div>
+        
+            <script async data-pjax src="//busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js"></script>
+            <div class="website-count info-item">
+                
+                    <span id="busuanzi_container_site_uv">
+                        Visitor Count&nbsp;<span id="busuanzi_value_site_uv"></span>&ensp;
+                    </span>
+                
+                
+                    <span id="busuanzi_container_site_pv">
+                        Totalviews&nbsp;<span id="busuanzi_value_site_pv"></span>
+                    </span>
+                
+            </div>
+        
+        <div class="theme-info info-item">
+            Powered by <a target="_blank" href="https://hexo.io">Hexo</a>&nbsp;|&nbsp;Theme&nbsp;<a class="theme-version" target="_blank" href="https://github.com/EvanNotFound/hexo-theme-redefine">Redefine v0.3.5</a>
+        </div>
+        
+        
+        <script async data-pjax defer>
+            function odometer_init(){
+                    let el = document.getElementsByClassName('odometer');
+                    for (i = 0; i < el.length; i++) {
+                        od = new Odometer({
+                            el: el[i],
+                            format: '( ddd).dd',
+                            duration: 200
+                        });
+                    }
+            }
+            odometer_init();
+        </script>
+        <div id="start_time_div" style="display:none">
+            2022/12/17 15:05:00
+        </div>
+        
+            <div>
+                Blog up for <span class="odometer" id="runtime_days" ></span> days <span class="odometer" id="runtime_hours"></span> hrs <span class="odometer" id="runtime_minutes"></span> Min <span class="odometer" id="runtime_seconds"></span> Sec
+            </div>
+        
+        
+        
+    </div>
+    <link rel="stylesheet" href="//evan.beee.top/css/waline.css"/>
+    <script src="//evan.beee.top/js/waline.js"></script>
+    
+</footer>
+        </div>
+    </div>
+
+    
+        <div class="post-tools">
+            <div class="post-tools-container">
+    <ul class="tools-list">
+        <!-- TOC aside toggle -->
+        
+            <li class="tools-item page-aside-toggle">
+                <i class="fa-regular fa-outdent"></i>
+            </li>
+        
+
+        <!-- go comment -->
+        
+    </ul>
+</div>
+
+        </div>
+    
+
+    <div class="right-bottom-side-tools">
+        <div class="side-tools-container">
+    <ul class="side-tools-list">
+        <li class="tools-item tool-font-adjust-plus flex-center">
+            <i class="fa-solid fa-magnifying-glass-plus"></i>
+        </li>
+
+        <li class="tools-item tool-font-adjust-minus flex-center">
+            <i class="fa-solid fa-magnifying-glass-minus"></i>
+        </li>
+
+        <li class="tools-item tool-expand-width flex-center">
+            <i class="fa-solid fa-left-right"></i>
+        </li>
+
+        <li class="tools-item tool-dark-light-toggle flex-center">
+            <i class="fa-solid fa-moon"></i>
+        </li>
+
+        <!-- rss -->
+        
+
+        
+            <li class="tools-item tool-scroll-to-top flex-center">
+                <i class="fa-solid fa-arrow-up"></i>
+            </li>
+        
+
+        <li class="tools-item tool-scroll-to-bottom flex-center">
+            <i class="fa-solid fa-arrow-down"></i>
+        </li>
+    </ul>
+
+    <ul class="exposed-tools-list">
+        <li class="tools-item tool-toggle-show flex-center">
+            <i class="fa-solid fa-cog fa-spin"></i>
+        </li>
+        
+    </ul>
+</div>
+
+    </div>
+
+    <div class="image-viewer-container">
+    <img src="">
+</div>
+
+
+    
+        <div class="search-pop-overlay">
+    <div class="popup search-popup">
+        <div class="search-header">
+          <span class="search-input-field-pre">
+            <i class="fa-solid fa-keyboard"></i>
+          </span>
+            <div class="search-input-container">
+                <input autocomplete="off"
+                       autocorrect="off"
+                       autocapitalize="off"
+                       placeholder="Search..."
+                       spellcheck="false"
+                       type="search"
+                       class="search-input"
+                >
+            </div>
+            <span class="popup-btn-close">
+                <i class="fa-solid fa-times"></i>
+            </span>
+        </div>
+        <div id="search-result">
+            <div id="no-result">
+                <i class="fa-solid fa-spinner fa-spin-pulse fa-5x fa-fw"></i>
+            </div>
+        </div>
+    </div>
+</div>
+
+    
+
+</main>
+
+
+
+
+<script src="/js/utils.js"></script>
+
+<script src="/js/main.js"></script>
+
+<script src="/js/header-shrink.js"></script>
+
+<script src="/js/back2top.js"></script>
+
+<script src="/js/dark-light-toggle.js"></script>
+
+
+
+    
+<script src="/js/local-search.js"></script>
+
+
+
+
+    
+<script src="/js/code-copy.js"></script>
+
+
+
+
+    
+<script src="/js/lazyload.js"></script>
+
+
+
+
+    
+<script src="/js/runtime.js"></script>
+
+    
+<script src="/js/odometer.min.js"></script>
+
+    
+<link rel="stylesheet" href="/css/odometer-theme-minimal.css">
+
+
+
+<div class="post-scripts pjax">
+    
+        
+<script src="/js/toc-toggle.js"></script>
+
+<script src="/js/libs/anime.min.js"></script>
+
+<script src="/js/toc.js"></script>
+
+    
+</div>
+
+
+    
+<script src="/js/libs/pjax.min.js"></script>
+
+<script>
+    window.addEventListener('DOMContentLoaded', () => {
+        window.pjax = new Pjax({
+            selectors: [
+                'head title',
+                '.page-container',
+                '.pjax'
+            ],
+            history: true,
+            debug: false,
+            cacheBust: false,
+            timeout: 0,
+            analytics: false,
+            currentUrlFullReload: false,
+            scrollRestoration: false,
+            // scrollTo: true,
+        });
+
+        document.addEventListener('pjax:send', () => {
+            REDEFINE.utils.pjaxProgressBarStart();
+        });
+
+        document.addEventListener('pjax:complete', () => {
+            REDEFINE.utils.pjaxProgressBarEnd();
+            window.pjax.executeScripts(document.querySelectorAll('script[data-pjax], .pjax script'));
+            REDEFINE.refresh();
+        });
+    });
+</script>
+
+
+
+</body>
+</html>
