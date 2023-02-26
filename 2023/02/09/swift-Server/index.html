@@ -365,7 +365,7 @@ mjx-container[display="true"] + br {
     
     
         <span class="article-wordcount article-meta-item">
-            <i class="fa-solid fa-file-word"></i>&nbsp;<span>641 Words</span>
+            <i class="fa-solid fa-file-word"></i>&nbsp;<span>663 Words</span>
         </span>
     
     
@@ -416,7 +416,8 @@ mjx-container[display="true"] + br {
 <h2 id="MySQL"><a href="#MySQL" class="headerlink" title="MySQL"></a>MySQL</h2><p>you need to give root user a password, or vapor would keep giving your a <code>111</code> error code. So you need to add the following magic incantation</p>
 <div class="highlight-container" data-rel="Sql"><figure class="iseeu highlight sql"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">ALTER</span> <span class="keyword">USER</span> <span class="string">'root'</span>@<span class="string">'localhost'</span> IDENTIFIED <span class="keyword">BY</span> <span class="string">'MyN3wP4ssw0rd'</span>;</span><br><span class="line">flush privileges;</span><br><span class="line">exit;</span><br></pre></td></tr></table></figure></div>
 
-
+<p>mysql statements I have been used quite frequently.</p>
+<div class="highlight-container" data-rel="Sql"><figure class="iseeu highlight sql"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">show</span> databases;</span><br><span class="line">use <span class="operator">&lt;</span>database_name<span class="operator">&gt;</span>;</span><br><span class="line"><span class="keyword">show</span> tables;</span><br><span class="line"><span class="keyword">drop</span> <span class="keyword">table</span> <span class="operator">&lt;</span><span class="keyword">table</span> name<span class="operator">&gt;</span>;</span><br></pre></td></tr></table></figure></div>
 
 
             </div>

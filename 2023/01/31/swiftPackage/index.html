@@ -357,12 +357,12 @@ mjx-container[display="true"] + br {
     
     
         <span class="article-wordcount article-meta-item">
-            <i class="fa-solid fa-file-word"></i>&nbsp;<span>1.5k Words</span>
+            <i class="fa-solid fa-file-word"></i>&nbsp;<span>1.7k Words</span>
         </span>
     
     
         <span class="article-min2read article-meta-item">
-            <i class="fa-solid fa-clock"></i>&nbsp;<span>9 Mins</span>
+            <i class="fa-solid fa-clock"></i>&nbsp;<span>10 Mins</span>
         </span>
     
     
@@ -378,7 +378,11 @@ mjx-container[display="true"] + br {
             
 
             <div class="article-content markdown-body">
-                <p>尝试<a class="link" target="_blank" rel="noopener" href="https://developer.apple.com/videos/play/wwdc2022/110360/">Swift Server<i class="fa-solid fa-up-right-from-square"></i></a>，需要Vapor库，在Xcode中新建Package项目后，修改Package.swift中的dependency后，Xcode开始加载库，我开了代理，但加载库的速度仍然极慢。</p>
+                <h2 id="Date-Sun-Feb-26-17-11-43-CST-2023"><a href="#Date-Sun-Feb-26-17-11-43-CST-2023" class="headerlink" title="Date: Sun Feb 26 17:11:43 CST 2023"></a>Date: Sun Feb 26 17:11:43 CST 2023</h2><hr>
+<p>I first thought would be a problem with Xcode itself, but I’m not not much sure about it. I then have a new Proxy provider, and it fix the problem, it would take me a few seconds to have all the packages updated after launch Xcode on the project. Still, I’m not sure what happened, after I shift back to my old Proxy provider, it still works, but this time I’m at school, not home. One thing I can think out lead to this change is that I load this project with <em>Clone an existing project</em> at Xcode open panel and configured my personal access token. Besides, I didn’t clone it from command line but cloned it using Xcode. And I can’t push it in Terminal, I can push it with Xcode only, but fetch and pull is ok.</p>
+<div class="highlight-container" data-rel="Shell"><figure class="iseeu highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">git config --list</span><br></pre></td></tr></table></figure></div>
+<p>it </p>
+<p>尝试<a class="link" target="_blank" rel="noopener" href="https://developer.apple.com/videos/play/wwdc2022/110360/">Swift Server<i class="fa-solid fa-up-right-from-square"></i></a>，需要Vapor库，在Xcode中新建Package项目后，修改Package.swift中的dependency后，Xcode开始加载库，我开了代理，但加载库的速度仍然极慢。</p>
 <h2 id="手动加载库"><a href="#手动加载库" class="headerlink" title="手动加载库"></a>手动加载库</h2><p>在Termial中cd到Package项目根目录下，<a class="link" target="_blank" rel="noopener" href="https://www.jianshu.com/p/c99373ad37f7">设置当前终端的HTTP代理<i class="fa-solid fa-up-right-from-square"></i></a></p>
 <div class="highlight-container" data-rel="Bash"><figure class="iseeu highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="built_in">export</span> https_proxy=http://127.0.0.1:7890</span><br></pre></td></tr></table></figure></div>
 <p><code>7890</code>为我开的代理的端口号，端口号因自己的代理而异。<br>然后在项目的根目录下运行</p>
@@ -463,7 +467,7 @@ mjx-container[display="true"] + br {
                 <div class="post-toc-wrap">
     <div class="post-toc">
         <div style="font-size: 1.3rem;margin-top: 0; margin-bottom: 0.8rem; transition-duration: 0.1s;"><i class="fa-solid fa-list"></i> <strong>Contents</strong></div>
-        <ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#%E6%89%8B%E5%8A%A8%E5%8A%A0%E8%BD%BD%E5%BA%93"><span class="nav-number">1.</span> <span class="nav-text">手动加载库</span></a></li></ol>
+        <ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#Date-Sun-Feb-26-17-11-43-CST-2023"><span class="nav-number">1.</span> <span class="nav-text">Date: Sun Feb 26 17:11:43 CST 2023</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E6%89%8B%E5%8A%A8%E5%8A%A0%E8%BD%BD%E5%BA%93"><span class="nav-number">2.</span> <span class="nav-text">手动加载库</span></a></li></ol>
     </div>
 </div>
             </div>
