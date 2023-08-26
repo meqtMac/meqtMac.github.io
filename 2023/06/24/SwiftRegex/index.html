@@ -1,0 +1,732 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+    <meta name="keywords" content="Hexo Theme Redefine">
+    <meta name="description" content="Hexo Theme Redefine">
+    <meta name="author" content="Meqt">
+    
+    <title>
+        
+            SwiftRegex |
+        
+        Meqt&#39;s Blog
+    </title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    
+<link rel="stylesheet" href="/css/style.css">
+
+    <link rel="shortcut icon" href="/fig/markdown.svg">
+    
+<link rel="stylesheet" href="/css/fontawesome.min.css">
+
+    
+<link rel="stylesheet" href="/css/brands.min.css">
+
+    
+<link rel="stylesheet" href="/css/solid.min.css">
+
+    
+<link rel="stylesheet" href="/css/regular.min.css">
+
+    
+    
+    
+    
+<link rel="stylesheet" href="/css/css2.css">
+
+    <script id="hexo-configurations">
+    let REDEFINE = window.REDEFINE || {};
+    REDEFINE.hexo_config = {"hostname":"meqtmac.github.io","root":"/","language":"en","path":"search.xml"};
+    REDEFINE.theme_config = {"toc":{"enable":true,"number":true,"expand_all":true,"init_open":true},"style":{"primary_color":"#005080","avatar":"https://static.wikia.nocookie.net/gensin-impact/images/0/08/Icon_Emoji_Venti_4.png","favicon":"/fig/markdown.svg","article_img_align":"center","right_side_width":"210px","content_max_width":"1000px","nav_color":{"left":"#f78736","right":"#367df7","transparency":35},"hover":{"shadow":true,"scale":false},"first_screen":{"enable":true,"background_image":{"light":"/fig/cover_light.jpg","dark":"/fig/cover_dark.jpg"},"title_color":{"light":"#fff","dark":"#d1d1b6"},"description":"Stay Hungry. Stay Foolish."},"scroll":{"progress_bar":{"enable":true},"percent":{"enable":false}}},"local_search":{"enable":true,"preload":true},"code_copy":{"enable":true,"style":"mac"},"pjax":{"enable":true},"lazyload":{"enable":true},"version":"0.3.5"};
+    REDEFINE.language_ago = {"second":"%s seconds ago","minute":"%s minutes ago","hour":"%s hours ago","day":"%s days ago","week":"%s weeks ago","month":"%s months ago","year":"%s years ago"};
+  </script>
+<meta name="generator" content="Hexo 6.3.0"><style>mjx-container[jax="SVG"] {
+  direction: ltr;
+}
+
+mjx-container[jax="SVG"] > svg {
+  overflow: visible;
+}
+
+mjx-container[jax="SVG"][display="true"] {
+  display: block;
+  text-align: center;
+  margin: 1em 0;
+}
+
+mjx-container[jax="SVG"][justify="left"] {
+  text-align: left;
+}
+
+mjx-container[jax="SVG"][justify="right"] {
+  text-align: right;
+}
+
+g[data-mml-node="merror"] > g {
+  fill: red;
+  stroke: red;
+}
+
+g[data-mml-node="merror"] > rect[data-background] {
+  fill: yellow;
+  stroke: none;
+}
+
+g[data-mml-node="mtable"] > line[data-line] {
+  stroke-width: 70px;
+  fill: none;
+}
+
+g[data-mml-node="mtable"] > rect[data-frame] {
+  stroke-width: 70px;
+  fill: none;
+}
+
+g[data-mml-node="mtable"] > .mjx-dashed {
+  stroke-dasharray: 140;
+}
+
+g[data-mml-node="mtable"] > .mjx-dotted {
+  stroke-linecap: round;
+  stroke-dasharray: 0,140;
+}
+
+g[data-mml-node="mtable"] > svg {
+  overflow: visible;
+}
+
+[jax="SVG"] mjx-tool {
+  display: inline-block;
+  position: relative;
+  width: 0;
+  height: 0;
+}
+
+[jax="SVG"] mjx-tool > mjx-tip {
+  position: absolute;
+  top: 0;
+  left: 0;
+}
+
+mjx-tool > mjx-tip {
+  display: inline-block;
+  padding: .2em;
+  border: 1px solid #888;
+  font-size: 70%;
+  background-color: #F8F8F8;
+  color: black;
+  box-shadow: 2px 2px 5px #AAAAAA;
+}
+
+g[data-mml-node="maction"][data-toggle] {
+  cursor: pointer;
+}
+
+mjx-status {
+  display: block;
+  position: fixed;
+  left: 1em;
+  bottom: 1em;
+  min-width: 25%;
+  padding: .2em .4em;
+  border: 1px solid #888;
+  font-size: 90%;
+  background-color: #F8F8F8;
+  color: black;
+}
+
+foreignObject[data-mjx-xml] {
+  font-family: initial;
+  line-height: normal;
+  overflow: visible;
+}
+
+.MathJax path {
+  stroke-width: 3;
+}
+
+mjx-container[display="true"] {
+  overflow: auto hidden;
+}
+
+mjx-container[display="true"] + br {
+  display: none;
+}
+</style></head>
+
+
+<body>
+<div class="progress-bar-container">
+    
+        <span class="scroll-progress-bar"></span>
+    
+
+    
+        <span class="pjax-progress-bar"></span>
+        <span class="pjax-progress-icon">
+            <i class="fa-solid fa-circle-notch fa-spin"></i>
+        </span>
+    
+</div>
+
+
+<main class="page-container">
+
+    
+
+    <div class="page-main-content">
+
+        <div class="page-main-content-top">
+            <header class="header-wrapper">
+    
+    <div class="header-content">
+        <div class="left">
+            
+            <a class="logo-title" href="/">
+                Meqt&#39;s Blog
+            </a>
+        </div>
+
+        <div class="right">
+            <!-- PC -->
+            <div class="pc">
+                <ul class="menu-list">
+                    
+                        <li class="menu-item">
+                            <!-- Menu -->
+                            <a class="" 
+                                href="/" >
+                                 
+                                    HOME
+                                
+                            </a>
+                            <!-- Submenu -->
+                            
+                        </li>
+                    
+                        <li class="menu-item">
+                            <!-- Menu -->
+                            <a class="" 
+                                href="/archives" >
+                                 
+                                    ARCHIVES
+                                
+                            </a>
+                            <!-- Submenu -->
+                            
+                        </li>
+                    
+                        <li class="menu-item">
+                            <!-- Menu -->
+                            <a class="" 
+                                target="_blank" rel="noopener" href="https://space.bilibili.com/502369884/bangumi" >
+                                 
+                                    BANGUMI
+                                
+                            </a>
+                            <!-- Submenu -->
+                            
+                        </li>
+                    
+                    
+                        <li class="menu-item search search-popup-trigger">
+                            <i class="fa-solid fa-magnifying-glass"></i>
+                        </li>
+                    
+                </ul>
+            </div>
+            <!-- Mobile -->
+            <div class="mobile">
+                
+                    <div class="icon-item search search-popup-trigger"><i class="fa-solid fa-magnifying-glass"></i></div>
+                
+                <div class="icon-item menu-bar">
+                    <div class="menu-bar-middle"></div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Mobile drawer -->
+    <div class="header-drawer">
+        <ul class="drawer-menu-list">
+            
+                <li class="drawer-menu-item flex-center">
+                    <a class="" 
+                       href="/" >
+                         
+                            HOME
+                        
+                    </a>
+                    
+                </li>
+                <!-- Submenu -->
+                
+            
+                <li class="drawer-menu-item flex-center">
+                    <a class="" 
+                       href="/archives" >
+                         
+                            ARCHIVES
+                        
+                    </a>
+                    
+                </li>
+                <!-- Submenu -->
+                
+            
+                <li class="drawer-menu-item flex-center">
+                    <a class="" 
+                       target="_blank" rel="noopener" href="https://space.bilibili.com/502369884/bangumi" >
+                         
+                            BANGUMI
+                        
+                    </a>
+                    
+                </li>
+                <!-- Submenu -->
+                
+            
+        </ul>
+    </div>
+
+    <div class="window-mask"></div>
+
+</header>
+
+
+        </div>
+
+        <div class="page-main-content-middle">
+
+            <div class="main-content">
+
+                
+                    <div class="fade-in-down-animation">
+    <div class="post-page-container">
+        <div class="article-content-container">
+            <div class="article-title">
+                <span class="title-hover-animation"><h1 style="font-size:2rem; font-weight: bold; margin: 10px 0;">SwiftRegex</h1></span>
+            </div>
+
+            
+                <div class="article-header">
+                    <div class="avatar">
+                        <img src="https://static.wikia.nocookie.net/gensin-impact/images/0/08/Icon_Emoji_Venti_4.png">
+                    </div>
+                    <div class="info">
+                        <div class="author">
+                            <span class="name">Meqt</span>
+                            
+                        </div>
+                        <div class="meta-info">
+                            <div class="article-meta-info">
+    <span class="article-date article-meta-item">
+        <i class="fa-regular fa-pen-line"></i>&nbsp;
+        <span class="pc">2023-06-24 12:08:59</span>
+        <span class="mobile">2023-06-24 12:08</span>
+    </span>
+    
+    
+
+    
+    
+        <span class="article-wordcount article-meta-item">
+            <i class="fa-solid fa-file-word"></i>&nbsp;<span>469 Words</span>
+        </span>
+    
+    
+        <span class="article-min2read article-meta-item">
+            <i class="fa-solid fa-clock"></i>&nbsp;<span>2 Mins</span>
+        </span>
+    
+    
+        <span class="article-pv article-meta-item">
+            <i class="fa-regular fa-eye"></i>&nbsp;<span id="busuanzi_value_page_pv"></span>
+        </span>
+    
+</div>
+
+                        </div>
+                    </div>
+                </div>
+            
+
+            <div class="article-content markdown-body">
+                <h1 id="Regex-Demo"><a href="#Regex-Demo" class="headerlink" title="Regex Demo"></a>Regex Demo</h1><p>This is a recap of WWDC’s Swift </p>
+<p>@Metadata {<br>    @CallToAction(<br>       purpose: link,<br>       url: “<a class="link" target="_blank" rel="noopener" href="https://developer.apple.com/wwdc22/110357">https://developer.apple.com/wwdc22/110357<i class="fa-solid fa-up-right-from-square"></i></a>“)<br>}</p>
+<h2 id="Overview"><a href="#Overview" class="headerlink" title="Overview"></a>Overview</h2><ul>
+<li><a class="link" target="_blank" rel="noopener" href="https://developer.apple.com/wwdc22/110357">Meet Swift Regex<i class="fa-solid fa-up-right-from-square"></i></a></li>
+<li><a class="link" target="_blank" rel="noopener" href="https://developer.apple.com/wwdc22/110358">Swift Regex: Beyond the basics<i class="fa-solid fa-up-right-from-square"></i></a></li>
+</ul>
+<h3 id="Topics"><a href="#Topics" class="headerlink" title="Topics"></a>Topics</h3><h4 id="Regex-and-Regex-Builder"><a href="#Regex-and-Regex-Builder" class="headerlink" title="Regex and Regex Builder"></a>Regex and Regex Builder</h4><p>Regex is <code>Swift Standard Library</code> build in Type.<br>@Row {<br>    @Column{</p>
+<pre><code><div class="highlight-container" data-rel="Swift"><figure class="iseeu highlight swift"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">import</span> RegexBuilder</span><br><span class="line"><span class="comment">// Regex Builder</span></span><br><span class="line"><span class="type">Regex</span> {</span><br><span class="line">    <span class="string">"Hi, WWDC"</span></span><br><span class="line">    <span class="type">Repeat</span>(.digit, count: <span class="number">2</span>)</span><br><span class="line">    <span class="string">"!"</span></span><br><span class="line">}</span><br></pre></td></tr></table></figure></div>
+}
+
+@Column {
+    <div class="highlight-container" data-rel="Swift"><figure class="iseeu highlight swift"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">// regex literial</span></span><br><span class="line"><span class="keyword">let</span> regex <span class="operator">=</span> <span class="operator">/</span>user_id:\s<span class="operator">*</span>(\d<span class="operator">+</span>)<span class="operator">/</span></span><br><span class="line"><span class="comment">// Regex</span></span><br><span class="line"><span class="keyword">let</span> regex2 <span class="operator">=</span> <span class="keyword">try</span> <span class="type">Regex</span>(<span class="string">#"user_id:\s*(\d+)"#</span>)</span><br></pre></td></tr></table></figure></div>
+}
+</code></pre>
+<p>}</p>
+<p>@TabNavigator {<br>    @Tab(“Regex Builder”) {<br>        <div class="highlight-container" data-rel="Swift"><figure class="iseeu highlight swift"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">import</span> RegexBuilder</span><br><span class="line"><span class="comment">// Regex Builder</span></span><br><span class="line"><span class="type">Regex</span> {</span><br><span class="line">    <span class="string">"Hi, WWDC"</span></span><br><span class="line">    <span class="type">Repeat</span>(.digit, count: <span class="number">2</span>)</span><br><span class="line">    <span class="string">"!"</span></span><br><span class="line">}</span><br></pre></td></tr></table></figure></div><br>    }</p>
+<pre><code>@Tab("Regex Literial")  {
+    <div class="highlight-container" data-rel="Swift"><figure class="iseeu highlight swift"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">// regex literial</span></span><br><span class="line"><span class="keyword">let</span> regex <span class="operator">=</span> <span class="operator">/</span>user_id:\s<span class="operator">*</span>(\d<span class="operator">+</span>)<span class="operator">/</span></span><br></pre></td></tr></table></figure></div>
+}
+    
+@Tab("From String") {
+    <div class="highlight-container" data-rel="Swift"><figure class="iseeu highlight swift"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">// Regex</span></span><br><span class="line"><span class="keyword">let</span> regex2 <span class="operator">=</span> <span class="keyword">try</span> <span class="type">Regex</span>(<span class="string">#"user_id:\s*(\d+)"#</span>)</span><br></pre></td></tr></table></figure></div>
+}
+</code></pre>
+<p>}</p>
+<h3 id="Match"><a href="#Match" class="headerlink" title="Match"></a>Match</h3><ul>
+<li><code>firstMatch</code></li>
+<li><code>wholeMatch</code></li>
+<li><code>prefixMatch</code></li>
+<li><code>start(with: )</code></li>
+<li><code>replacing(regex, with: )</code></li>
+<li><code>trimmingPrefix()</code></li>
+<li><code>split(separator: Regex)</code></li>
+<li><code>switch case Regex: </code></li>
+</ul>
+<p>Demo</p>
+<div class="highlight-container" data-rel="Swift"><figure class="iseeu highlight swift"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">let</span> input <span class="operator">=</span> <span class="string">"name:  John Appleseed,  user_id:  100"</span></span><br><span class="line"></span><br><span class="line"><span class="keyword">let</span> regex <span class="operator">=</span> <span class="type">Regex</span>{</span><br><span class="line">    <span class="string">"user_id:"</span></span><br><span class="line">    <span class="type">ZeroOrMore</span>(.whitespace)</span><br><span class="line">    <span class="type">Capture</span>{</span><br><span class="line">        <span class="type">OneOrMore</span>(.digit)</span><br><span class="line">    }</span><br><span class="line">}</span><br><span class="line"><span class="keyword">if</span> <span class="keyword">let</span> match <span class="operator">=</span> input.firstMatch(of: regex) {</span><br><span class="line">    <span class="built_in">print</span>(<span class="string">"Matched: <span class="subst">\(match.<span class="number">0</span>)</span>"</span>)</span><br><span class="line">    <span class="built_in">print</span>(<span class="string">"User ID: <span class="subst">\(match.<span class="number">1</span>)</span>"</span>)</span><br><span class="line">}</span><br><span class="line"><span class="built_in">print</span>(<span class="string">"wholeMatch:"</span>, input.wholeMatch(of: regex))</span><br><span class="line"><span class="built_in">print</span>(<span class="string">"prefixMatch"</span>,input.prefixMatch(of: regex))</span><br><span class="line"><span class="built_in">print</span>(<span class="string">"starts:"</span>, input.starts(with: regex))</span><br><span class="line"><span class="built_in">print</span>(<span class="string">"replacing:"</span>, input.replacing(regex, with: <span class="string">"456"</span>))</span><br><span class="line"><span class="built_in">print</span>(<span class="string">"trimming:"</span>, input.trimmingPrefix(regex))</span><br><span class="line"></span><br><span class="line"><span class="keyword">let</span> regexSplitter <span class="operator">=</span> <span class="type">Regex</span>{</span><br><span class="line">    <span class="type">ZeroOrMore</span>(.whitespace)</span><br><span class="line">    <span class="string">","</span></span><br><span class="line">    <span class="type">ZeroOrMore</span>(.whitespace)</span><br><span class="line">}</span><br><span class="line"><span class="built_in">print</span>(<span class="string">"split"</span>, input.split(separator:regexSplitter))</span><br></pre></td></tr></table></figure></div>
+<p>Result</p>
+<div class="highlight-container" data-rel="Txt"><figure class="iseeu highlight txt"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line">Matched: user_id:  100</span><br><span class="line">User ID: 100</span><br><span class="line">wholeMatch: nil</span><br><span class="line">prefixMatch nil</span><br><span class="line">starts: false</span><br><span class="line">replacing: name:  John Appleseed,  456</span><br><span class="line">trimming: name:  John Appleseed,  user_id:  100</span><br><span class="line">split ["name:  John Appleseed", "user_id:  100"]</span><br></pre></td></tr></table></figure></div>
+
+<h3 id="Regex-support-in-Foundation"><a href="#Regex-support-in-Foundation" class="headerlink" title="Regex support in Foundation"></a>Regex support in Foundation</h3><p>Inorder to use Foundation’s default parser, you need to include <code>Foundation</code></p>
+<div class="highlight-container" data-rel="Swift"><figure class="iseeu highlight swift"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">import</span> Foundation</span><br><span class="line"><span class="keyword">import</span> RegexBuilder</span><br><span class="line"><span class="comment">//MARK: TestSuite Example</span></span><br><span class="line"><span class="keyword">let</span> funcNameRegex <span class="operator">=</span> <span class="type">Regex</span> {</span><br><span class="line">    <span class="type">CharacterClass</span>(<span class="string">"a"</span><span class="operator">...</span><span class="string">"z"</span>, <span class="string">"A"</span><span class="operator">...</span><span class="string">"Z"</span>)</span><br><span class="line">    <span class="type">ZeroOrMore</span>{</span><br><span class="line">        <span class="type">CharacterClass</span>(<span class="string">"a"</span><span class="operator">...</span><span class="string">"z"</span>, <span class="string">"A"</span><span class="operator">...</span><span class="string">"Z"</span>, <span class="string">"0"</span><span class="operator">...</span><span class="string">"9"</span>)</span><br><span class="line">    }</span><br><span class="line">}</span><br><span class="line"></span><br><span class="line"><span class="keyword">enum</span> <span class="title class_">TestResult</span>: <span class="title class_">String</span> {</span><br><span class="line">    <span class="keyword">case</span> started</span><br><span class="line">    <span class="keyword">case</span> passed</span><br><span class="line">    <span class="keyword">case</span> failed</span><br><span class="line">    <span class="keyword">case</span> unknown</span><br><span class="line">}</span><br><span class="line"></span><br><span class="line"><span class="keyword">let</span> testRegex <span class="operator">=</span> <span class="type">Regex</span>{</span><br><span class="line">    <span class="string">"Test Suite '"</span></span><br><span class="line">    <span class="type">Capture</span>(funcNameRegex)</span><br><span class="line">    <span class="string">"' "</span></span><br><span class="line">    </span><br><span class="line">    <span class="type">TryCapture</span>{</span><br><span class="line">        <span class="type">ChoiceOf</span> {</span><br><span class="line">            <span class="string">"started"</span></span><br><span class="line">            <span class="string">"passed"</span></span><br><span class="line">            <span class="string">"failed"</span></span><br><span class="line">        }</span><br><span class="line">    } transform: {</span><br><span class="line">        <span class="keyword">return</span> <span class="type">TestResult</span>(rawValue: <span class="type">String</span>(<span class="variable">$0</span>))</span><br><span class="line">    }</span><br><span class="line">    </span><br><span class="line">    <span class="string">" at "</span></span><br><span class="line">    <span class="type">Capture</span>(</span><br><span class="line">        .iso8601(timeZone: .current,</span><br><span class="line">                 includingFractionalSeconds: <span class="literal">true</span>,</span><br><span class="line">                 dateTimeSeparator: .space)</span><br><span class="line">    )</span><br><span class="line">    <span class="type">Optionally</span>(<span class="string">"."</span>)</span><br><span class="line">}</span><br><span class="line"></span><br><span class="line"><span class="keyword">let</span> testSuiteTestInputs <span class="operator">=</span> [</span><br><span class="line">    <span class="string">"Test Suite 'RegexDSLTests' started at 2022-06-06 09:41:00.001"</span>,</span><br><span class="line">    <span class="string">"Test Suite 'RegexDSLTests' failed at 2022-06-06 09:41:00.001."</span>,</span><br><span class="line">    <span class="string">"Test Suite 'RegexDSLTests' passed at 2022-06-06 09:41:00.001."</span></span><br><span class="line">]</span><br><span class="line"></span><br><span class="line"><span class="keyword">for</span> line <span class="keyword">in</span> testSuiteTestInputs {</span><br><span class="line">    <span class="keyword">if</span> <span class="keyword">let</span> (<span class="keyword">_</span>, name, status, date) <span class="operator">=</span> line.wholeMatch(of: testRegex)<span class="operator">?</span>.output {</span><br><span class="line">        <span class="built_in">print</span>(<span class="string">"Matched: "</span>, name, status, date, separator: <span class="string">", "</span>)</span><br><span class="line">    }</span><br><span class="line">}</span><br></pre></td></tr></table></figure></div>
+
+<h3 id="Reuse-an-existing-parser"><a href="#Reuse-an-existing-parser" class="headerlink" title="Reuse an existing parser"></a>Reuse an existing parser</h3><p><code>strtod</code> C function</p>
+<div class="highlight-container" data-rel="Swift"><figure class="iseeu highlight swift"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">//MARK: reuse an existing parser</span></span><br><span class="line"><span class="keyword">import</span> Darwin</span><br><span class="line"><span class="keyword">import</span> RegexBuilder</span><br><span class="line"><span class="keyword">struct</span> <span class="title class_">CDoubleParser</span>: <span class="title class_">CustomConsumingRegexComponent</span> {</span><br><span class="line">    <span class="keyword">typealias</span> <span class="type">RegexOutput</span> <span class="operator">=</span> <span class="type">Double</span></span><br><span class="line">    <span class="keyword">func</span> <span class="title function_">consuming</span>(</span><br><span class="line">        <span class="keyword">_</span> <span class="params">input</span>: <span class="type">String</span>,</span><br><span class="line">        <span class="params">startingAt</span> <span class="params">index</span>: <span class="type">String</span>.<span class="type">Index</span>,</span><br><span class="line">        <span class="params">in</span> <span class="params">bounds</span>: <span class="type">Range</span>&lt;<span class="type">String</span>.<span class="type">Index</span>&gt;) <span class="keyword">throws</span> -&gt; (upperBound: <span class="type">String</span>.<span class="type">Index</span>, output: <span class="type">Double</span>)<span class="operator">?</span> {</span><br><span class="line">            input[index<span class="operator">...</span>].withCString { startAddress <span class="keyword">in</span></span><br><span class="line">                <span class="keyword">var</span> endAddress: <span class="type">UnsafeMutablePointer</span>&lt;<span class="type">CChar</span>&gt;!</span><br><span class="line">                <span class="keyword">let</span> output <span class="operator">=</span> strtod(startAddress, <span class="operator">&amp;</span>endAddress)</span><br><span class="line">                <span class="keyword">guard</span> endAddress <span class="operator">&gt;</span> startAddress <span class="keyword">else</span> {<span class="keyword">return</span> <span class="literal">nil</span>}</span><br><span class="line">                <span class="keyword">let</span> parsedLength <span class="operator">=</span> startAddress.distance(to: endAddress)</span><br><span class="line">                <span class="keyword">let</span> upperBound <span class="operator">=</span> input.utf8.index(index, offsetBy: parsedLength )</span><br><span class="line">                <span class="keyword">return</span> (upperBound, output)</span><br><span class="line">            }</span><br><span class="line">        }</span><br><span class="line">}</span><br><span class="line"></span><br><span class="line"><span class="keyword">let</span> testCaseWithDurationInput <span class="operator">=</span> <span class="string">"Test Case '-[RegexDSLTests testCharacterClass]' passed (0.001 seconds)."</span></span><br><span class="line"></span><br><span class="line"><span class="keyword">let</span> testCaseWithDurationRegex <span class="operator">=</span> <span class="type">Regex</span> {</span><br><span class="line">    <span class="string">"Test Case "</span></span><br><span class="line">    <span class="type">OneOrMore</span>(.any, .reluctant)</span><br><span class="line">    <span class="string">"("</span></span><br><span class="line">    <span class="type">Capture</span> {</span><br><span class="line">        <span class="type">CDoubleParser</span>()</span><br><span class="line">    }</span><br><span class="line">    <span class="string">" seconds)."</span></span><br><span class="line">}</span><br><span class="line"></span><br><span class="line"></span><br><span class="line"></span><br><span class="line"><span class="keyword">if</span> <span class="keyword">let</span> match <span class="operator">=</span> testCaseWithDurationInput.wholeMatch(of: testCaseWithDurationRegex) {</span><br><span class="line">    <span class="built_in">print</span>(<span class="string">"Time: <span class="subst">\(match.<span class="number">1</span>)</span>"</span>)</span><br><span class="line">}</span><br><span class="line"><span class="comment">// Time: 0.001 </span></span><br></pre></td></tr></table></figure></div>
+
+
+
+            </div>
+
+            
+                <div class="post-copyright-info">
+                    <div class="article-copyright-info-container">
+    <ul>
+        <li>Post title：SwiftRegex</li>
+        <li>Post author：Meqt</li>
+        <li>Create time：2023-06-24 12:08:59</li>
+        <li>
+            Post link：https://meqtmac.github.io/2023/06/24/SwiftRegex/
+        </li>
+        <li>
+            Copyright Notice：All articles in this blog are licensed under <a class="license" target="_blank" rel="noopener" href="https://creativecommons.org/licenses/by-nc-sa/4.0/deed.zh">BY-NC-SA</a> unless stating additionally.
+        </li>
+    </ul>
+</div>
+
+                </div>
+            
+
+            
+
+            
+                <div class="article-nav">
+                    
+                    
+                        <div class="article-next">
+                            <a class="next"
+                            rel="next"
+                            href="/2023/06/15/WWDC-NewsInSwift/"
+                            >
+                                <span class="title flex-center">
+                                    <span class="post-nav-title-item">WWDC_NewsInSwift</span>
+                                    <span class="post-nav-item">Next posts</span>
+                                </span>
+                                <span class="right arrow-icon flex-center">
+                                    <i class="fa-solid fa-chevron-right"></i>
+                                </span>
+                            </a>
+                        </div>
+                    
+                </div>
+            
+
+            
+        </div>
+
+        
+            <div class="toc-content-container">
+                <div class="post-toc-wrap">
+    <div class="post-toc">
+        <div style="font-size: 1.3rem;margin-top: 0; margin-bottom: 0.8rem; transition-duration: 0.1s;"><i class="fa-solid fa-list"></i> <strong>Contents</strong></div>
+        <ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#Regex-Demo"><span class="nav-number">1.</span> <span class="nav-text">Regex Demo</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#Overview"><span class="nav-number">1.1.</span> <span class="nav-text">Overview</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#Topics"><span class="nav-number">1.1.1.</span> <span class="nav-text">Topics</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#Regex-and-Regex-Builder"><span class="nav-number">1.1.1.1.</span> <span class="nav-text">Regex and Regex Builder</span></a></li></ol></li><li class="nav-item nav-level-3"><a class="nav-link" href="#Match"><span class="nav-number">1.1.2.</span> <span class="nav-text">Match</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#Regex-support-in-Foundation"><span class="nav-number">1.1.3.</span> <span class="nav-text">Regex support in Foundation</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#Reuse-an-existing-parser"><span class="nav-number">1.1.4.</span> <span class="nav-text">Reuse an existing parser</span></a></li></ol></li></ol></li></ol>
+    </div>
+</div>
+            </div>
+        
+    </div>
+</div>
+
+
+                
+
+            </div>
+
+
+
+        </div>
+
+        <div class="page-main-content-bottom">
+            <footer class="footer">
+    <div class="info-container">
+        <div class="copyright-info info-item">
+            &copy;
+            
+              <span>2022</span>
+              -
+            
+            2023&nbsp;<i class="fa-solid fa-heart icon-animate"></i>&nbsp;<a href="/">Meqt. All Rights Reserved.</a>
+        </div>
+        
+            <script async data-pjax src="//busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js"></script>
+            <div class="website-count info-item">
+                
+                    <span id="busuanzi_container_site_uv">
+                        Visitor Count&nbsp;<span id="busuanzi_value_site_uv"></span>&ensp;
+                    </span>
+                
+                
+                    <span id="busuanzi_container_site_pv">
+                        Totalviews&nbsp;<span id="busuanzi_value_site_pv"></span>
+                    </span>
+                
+            </div>
+        
+        <div class="theme-info info-item">
+            Powered by <a target="_blank" href="https://hexo.io">Hexo</a>&nbsp;|&nbsp;Theme&nbsp;<a class="theme-version" target="_blank" href="https://github.com/EvanNotFound/hexo-theme-redefine">Redefine v0.3.5</a>
+        </div>
+        
+        
+        <script async data-pjax defer>
+            function odometer_init(){
+                    let el = document.getElementsByClassName('odometer');
+                    for (i = 0; i < el.length; i++) {
+                        od = new Odometer({
+                            el: el[i],
+                            format: '( ddd).dd',
+                            duration: 200
+                        });
+                    }
+            }
+            odometer_init();
+        </script>
+        <div id="start_time_div" style="display:none">
+            2022/12/17 15:05:00
+        </div>
+        
+            <div>
+                Blog up for <span class="odometer" id="runtime_days" ></span> days <span class="odometer" id="runtime_hours"></span> hrs <span class="odometer" id="runtime_minutes"></span> Min <span class="odometer" id="runtime_seconds"></span> Sec
+            </div>
+        
+        
+        
+    </div>
+    <link rel="stylesheet" href="//evan.beee.top/css/waline.css"/>
+    <script src="//evan.beee.top/js/waline.js"></script>
+    
+</footer>
+        </div>
+    </div>
+
+    
+        <div class="post-tools">
+            <div class="post-tools-container">
+    <ul class="tools-list">
+        <!-- TOC aside toggle -->
+        
+            <li class="tools-item page-aside-toggle">
+                <i class="fa-regular fa-outdent"></i>
+            </li>
+        
+
+        <!-- go comment -->
+        
+    </ul>
+</div>
+
+        </div>
+    
+
+    <div class="right-bottom-side-tools">
+        <div class="side-tools-container">
+    <ul class="side-tools-list">
+        <li class="tools-item tool-font-adjust-plus flex-center">
+            <i class="fa-solid fa-magnifying-glass-plus"></i>
+        </li>
+
+        <li class="tools-item tool-font-adjust-minus flex-center">
+            <i class="fa-solid fa-magnifying-glass-minus"></i>
+        </li>
+
+        <li class="tools-item tool-expand-width flex-center">
+            <i class="fa-solid fa-left-right"></i>
+        </li>
+
+        <li class="tools-item tool-dark-light-toggle flex-center">
+            <i class="fa-solid fa-moon"></i>
+        </li>
+
+        <!-- rss -->
+        
+
+        
+            <li class="tools-item tool-scroll-to-top flex-center">
+                <i class="fa-solid fa-arrow-up"></i>
+            </li>
+        
+
+        <li class="tools-item tool-scroll-to-bottom flex-center">
+            <i class="fa-solid fa-arrow-down"></i>
+        </li>
+    </ul>
+
+    <ul class="exposed-tools-list">
+        <li class="tools-item tool-toggle-show flex-center">
+            <i class="fa-solid fa-cog fa-spin"></i>
+        </li>
+        
+    </ul>
+</div>
+
+    </div>
+
+    <div class="image-viewer-container">
+    <img src="">
+</div>
+
+
+    
+        <div class="search-pop-overlay">
+    <div class="popup search-popup">
+        <div class="search-header">
+          <span class="search-input-field-pre">
+            <i class="fa-solid fa-keyboard"></i>
+          </span>
+            <div class="search-input-container">
+                <input autocomplete="off"
+                       autocorrect="off"
+                       autocapitalize="off"
+                       placeholder="Search..."
+                       spellcheck="false"
+                       type="search"
+                       class="search-input"
+                >
+            </div>
+            <span class="popup-btn-close">
+                <i class="fa-solid fa-times"></i>
+            </span>
+        </div>
+        <div id="search-result">
+            <div id="no-result">
+                <i class="fa-solid fa-spinner fa-spin-pulse fa-5x fa-fw"></i>
+            </div>
+        </div>
+    </div>
+</div>
+
+    
+
+</main>
+
+
+
+
+<script src="/js/utils.js"></script>
+
+<script src="/js/main.js"></script>
+
+<script src="/js/header-shrink.js"></script>
+
+<script src="/js/back2top.js"></script>
+
+<script src="/js/dark-light-toggle.js"></script>
+
+
+
+    
+<script src="/js/local-search.js"></script>
+
+
+
+
+    
+<script src="/js/code-copy.js"></script>
+
+
+
+
+    
+<script src="/js/lazyload.js"></script>
+
+
+
+
+    
+<script src="/js/runtime.js"></script>
+
+    
+<script src="/js/odometer.min.js"></script>
+
+    
+<link rel="stylesheet" href="/css/odometer-theme-minimal.css">
+
+
+
+<div class="post-scripts pjax">
+    
+        
+<script src="/js/toc-toggle.js"></script>
+
+<script src="/js/libs/anime.min.js"></script>
+
+<script src="/js/toc.js"></script>
+
+    
+</div>
+
+
+    
+<script src="/js/libs/pjax.min.js"></script>
+
+<script>
+    window.addEventListener('DOMContentLoaded', () => {
+        window.pjax = new Pjax({
+            selectors: [
+                'head title',
+                '.page-container',
+                '.pjax'
+            ],
+            history: true,
+            debug: false,
+            cacheBust: false,
+            timeout: 0,
+            analytics: false,
+            currentUrlFullReload: false,
+            scrollRestoration: false,
+            // scrollTo: true,
+        });
+
+        document.addEventListener('pjax:send', () => {
+            REDEFINE.utils.pjaxProgressBarStart();
+        });
+
+        document.addEventListener('pjax:complete', () => {
+            REDEFINE.utils.pjaxProgressBarEnd();
+            window.pjax.executeScripts(document.querySelectorAll('script[data-pjax], .pjax script'));
+            REDEFINE.refresh();
+        });
+    });
+</script>
+
+
+
+</body>
+</html>

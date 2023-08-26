@@ -1,0 +1,764 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+    <meta name="keywords" content="Hexo Theme Redefine">
+    <meta name="description" content="Hexo Theme Redefine">
+    <meta name="author" content="Meqt">
+    
+    <title>
+        
+            Use CMake to Generate Xcode C++ Project |
+        
+        Meqt&#39;s Blog
+    </title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    
+<link rel="stylesheet" href="/css/style.css">
+
+    <link rel="shortcut icon" href="/fig/markdown.svg">
+    
+<link rel="stylesheet" href="/css/fontawesome.min.css">
+
+    
+<link rel="stylesheet" href="/css/brands.min.css">
+
+    
+<link rel="stylesheet" href="/css/solid.min.css">
+
+    
+<link rel="stylesheet" href="/css/regular.min.css">
+
+    
+    
+    
+    
+<link rel="stylesheet" href="/css/css2.css">
+
+    <script id="hexo-configurations">
+    let REDEFINE = window.REDEFINE || {};
+    REDEFINE.hexo_config = {"hostname":"meqtmac.github.io","root":"/","language":"en","path":"search.xml"};
+    REDEFINE.theme_config = {"toc":{"enable":true,"number":true,"expand_all":true,"init_open":true},"style":{"primary_color":"#005080","avatar":"https://static.wikia.nocookie.net/gensin-impact/images/0/08/Icon_Emoji_Venti_4.png","favicon":"/fig/markdown.svg","article_img_align":"center","right_side_width":"210px","content_max_width":"1000px","nav_color":{"left":"#f78736","right":"#367df7","transparency":35},"hover":{"shadow":true,"scale":false},"first_screen":{"enable":true,"background_image":{"light":"/fig/cover_light.jpg","dark":"/fig/cover_dark.jpg"},"title_color":{"light":"#fff","dark":"#d1d1b6"},"description":"Stay Hungry. Stay Foolish."},"scroll":{"progress_bar":{"enable":true},"percent":{"enable":false}}},"local_search":{"enable":true,"preload":true},"code_copy":{"enable":true,"style":"mac"},"pjax":{"enable":true},"lazyload":{"enable":true},"version":"0.3.5"};
+    REDEFINE.language_ago = {"second":"%s seconds ago","minute":"%s minutes ago","hour":"%s hours ago","day":"%s days ago","week":"%s weeks ago","month":"%s months ago","year":"%s years ago"};
+  </script>
+<meta name="generator" content="Hexo 6.3.0"><style>mjx-container[jax="SVG"] {
+  direction: ltr;
+}
+
+mjx-container[jax="SVG"] > svg {
+  overflow: visible;
+}
+
+mjx-container[jax="SVG"][display="true"] {
+  display: block;
+  text-align: center;
+  margin: 1em 0;
+}
+
+mjx-container[jax="SVG"][justify="left"] {
+  text-align: left;
+}
+
+mjx-container[jax="SVG"][justify="right"] {
+  text-align: right;
+}
+
+g[data-mml-node="merror"] > g {
+  fill: red;
+  stroke: red;
+}
+
+g[data-mml-node="merror"] > rect[data-background] {
+  fill: yellow;
+  stroke: none;
+}
+
+g[data-mml-node="mtable"] > line[data-line] {
+  stroke-width: 70px;
+  fill: none;
+}
+
+g[data-mml-node="mtable"] > rect[data-frame] {
+  stroke-width: 70px;
+  fill: none;
+}
+
+g[data-mml-node="mtable"] > .mjx-dashed {
+  stroke-dasharray: 140;
+}
+
+g[data-mml-node="mtable"] > .mjx-dotted {
+  stroke-linecap: round;
+  stroke-dasharray: 0,140;
+}
+
+g[data-mml-node="mtable"] > svg {
+  overflow: visible;
+}
+
+[jax="SVG"] mjx-tool {
+  display: inline-block;
+  position: relative;
+  width: 0;
+  height: 0;
+}
+
+[jax="SVG"] mjx-tool > mjx-tip {
+  position: absolute;
+  top: 0;
+  left: 0;
+}
+
+mjx-tool > mjx-tip {
+  display: inline-block;
+  padding: .2em;
+  border: 1px solid #888;
+  font-size: 70%;
+  background-color: #F8F8F8;
+  color: black;
+  box-shadow: 2px 2px 5px #AAAAAA;
+}
+
+g[data-mml-node="maction"][data-toggle] {
+  cursor: pointer;
+}
+
+mjx-status {
+  display: block;
+  position: fixed;
+  left: 1em;
+  bottom: 1em;
+  min-width: 25%;
+  padding: .2em .4em;
+  border: 1px solid #888;
+  font-size: 90%;
+  background-color: #F8F8F8;
+  color: black;
+}
+
+foreignObject[data-mjx-xml] {
+  font-family: initial;
+  line-height: normal;
+  overflow: visible;
+}
+
+.MathJax path {
+  stroke-width: 3;
+}
+
+mjx-container[display="true"] {
+  overflow: auto hidden;
+}
+
+mjx-container[display="true"] + br {
+  display: none;
+}
+</style></head>
+
+
+<body>
+<div class="progress-bar-container">
+    
+        <span class="scroll-progress-bar"></span>
+    
+
+    
+        <span class="pjax-progress-bar"></span>
+        <span class="pjax-progress-icon">
+            <i class="fa-solid fa-circle-notch fa-spin"></i>
+        </span>
+    
+</div>
+
+
+<main class="page-container">
+
+    
+
+    <div class="page-main-content">
+
+        <div class="page-main-content-top">
+            <header class="header-wrapper">
+    
+    <div class="header-content">
+        <div class="left">
+            
+            <a class="logo-title" href="/">
+                Meqt&#39;s Blog
+            </a>
+        </div>
+
+        <div class="right">
+            <!-- PC -->
+            <div class="pc">
+                <ul class="menu-list">
+                    
+                        <li class="menu-item">
+                            <!-- Menu -->
+                            <a class="" 
+                                href="/" >
+                                 
+                                    HOME
+                                
+                            </a>
+                            <!-- Submenu -->
+                            
+                        </li>
+                    
+                        <li class="menu-item">
+                            <!-- Menu -->
+                            <a class="" 
+                                href="/archives" >
+                                 
+                                    ARCHIVES
+                                
+                            </a>
+                            <!-- Submenu -->
+                            
+                        </li>
+                    
+                        <li class="menu-item">
+                            <!-- Menu -->
+                            <a class="" 
+                                target="_blank" rel="noopener" href="https://space.bilibili.com/502369884/bangumi" >
+                                 
+                                    BANGUMI
+                                
+                            </a>
+                            <!-- Submenu -->
+                            
+                        </li>
+                    
+                    
+                        <li class="menu-item search search-popup-trigger">
+                            <i class="fa-solid fa-magnifying-glass"></i>
+                        </li>
+                    
+                </ul>
+            </div>
+            <!-- Mobile -->
+            <div class="mobile">
+                
+                    <div class="icon-item search search-popup-trigger"><i class="fa-solid fa-magnifying-glass"></i></div>
+                
+                <div class="icon-item menu-bar">
+                    <div class="menu-bar-middle"></div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Mobile drawer -->
+    <div class="header-drawer">
+        <ul class="drawer-menu-list">
+            
+                <li class="drawer-menu-item flex-center">
+                    <a class="" 
+                       href="/" >
+                         
+                            HOME
+                        
+                    </a>
+                    
+                </li>
+                <!-- Submenu -->
+                
+            
+                <li class="drawer-menu-item flex-center">
+                    <a class="" 
+                       href="/archives" >
+                         
+                            ARCHIVES
+                        
+                    </a>
+                    
+                </li>
+                <!-- Submenu -->
+                
+            
+                <li class="drawer-menu-item flex-center">
+                    <a class="" 
+                       target="_blank" rel="noopener" href="https://space.bilibili.com/502369884/bangumi" >
+                         
+                            BANGUMI
+                        
+                    </a>
+                    
+                </li>
+                <!-- Submenu -->
+                
+            
+        </ul>
+    </div>
+
+    <div class="window-mask"></div>
+
+</header>
+
+
+        </div>
+
+        <div class="page-main-content-middle">
+
+            <div class="main-content">
+
+                
+                    <div class="fade-in-down-animation">
+    <div class="post-page-container">
+        <div class="article-content-container">
+            <div class="article-title">
+                <span class="title-hover-animation"><h1 style="font-size:2rem; font-weight: bold; margin: 10px 0;">Use CMake to Generate Xcode C++ Project</h1></span>
+            </div>
+
+            
+                <div class="article-header">
+                    <div class="avatar">
+                        <img src="https://static.wikia.nocookie.net/gensin-impact/images/0/08/Icon_Emoji_Venti_4.png">
+                    </div>
+                    <div class="info">
+                        <div class="author">
+                            <span class="name">Meqt</span>
+                            
+                        </div>
+                        <div class="meta-info">
+                            <div class="article-meta-info">
+    <span class="article-date article-meta-item">
+        <i class="fa-regular fa-pen-line"></i>&nbsp;
+        <span class="pc">2022-12-17 01:42:13</span>
+        <span class="mobile">2022-12-17 01:42</span>
+    </span>
+    
+        <span class="article-categories article-meta-item">
+            <i class="fa-regular fa-folder-open"></i>&nbsp;
+            <ul>
+                
+                    <li>
+                        <a href="/categories/Tutorial/">Tutorial</a>&nbsp;
+                    </li>
+                
+                    <li>
+                        &gt; <a href="/categories/Tutorial/Mac/">Mac</a>&nbsp;
+                    </li>
+                
+            </ul>
+        </span>
+    
+    
+        <span class="article-tags article-meta-item">
+            <i class="fa-regular fa-tags"></i>&nbsp;
+            <ul>
+                
+                    <li>
+                        <a href="/tags/C/">C++</a>&nbsp;
+                    </li>
+                
+                    <li>
+                        | <a href="/tags/CMake/">CMake</a>&nbsp;
+                    </li>
+                
+                    <li>
+                        | <a href="/tags/Xcode/">Xcode</a>&nbsp;
+                    </li>
+                
+            </ul>
+        </span>
+    
+
+    
+    
+        <span class="article-wordcount article-meta-item">
+            <i class="fa-solid fa-file-word"></i>&nbsp;<span>452 Words</span>
+        </span>
+    
+    
+        <span class="article-min2read article-meta-item">
+            <i class="fa-solid fa-clock"></i>&nbsp;<span>2 Mins</span>
+        </span>
+    
+    
+        <span class="article-pv article-meta-item">
+            <i class="fa-regular fa-eye"></i>&nbsp;<span id="busuanzi_value_page_pv"></span>
+        </span>
+    
+</div>
+
+                        </div>
+                    </div>
+                </div>
+            
+
+            <div class="article-content markdown-body">
+                <h2 id="What’s-CMake"><a href="#What’s-CMake" class="headerlink" title="What’s CMake"></a>What’s <a class="link" target="_blank" rel="noopener" href="https://cmake.org/">CMake<i class="fa-solid fa-up-right-from-square"></i></a></h2><p>CMake is used to control the software compilation process using simple platform and compiler independent configuration files, and generate native makefiles and workspaces that can be used in the compiler environment of your choice.</p>
+<p>If you are a C++ programmer, CMake is what you can’t miss, especially when you write cross platform apps. </p>
+<p>When Learning a Computer Graphics Course this year, teacher upload an project with Makefile which doesn’t work on my M1 Mac. I use Xcode for C++ IDE, and it’s frustrued set up file path, include path, library path. Then I learned CMake, which you write a <code>CMakeLists.txt</code> to set up your project, like targets, libraries, and it can generate build file for varies developing environment from UNIX Makefile(Which is the default build system), Visual Studio, to Xcode. What’s more, this makes you code portable, as you can’t send you Xcode Project to a friend who is a Windows user.</p>
+<p>Besides, some library won’t provide you a compile version of the library, instead, you can download source code, and compile on your own computer. For example:</p>
+<div class="highlight-container" data-rel="Bash"><figure class="iseeu highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line">git <span class="built_in">clone</span> https://github.com/oatpp/oatpp.git</span><br><span class="line"><span class="built_in">cd</span> oatpp/</span><br><span class="line"></span><br><span class="line"><span class="built_in">mkdir</span> build &amp;&amp; <span class="built_in">cd</span> build</span><br><span class="line"></span><br><span class="line">cmake ..</span><br><span class="line">make install</span><br></pre></td></tr></table></figure></div>
+
+<h2 id="CMake-Learning-Material"><a href="#CMake-Learning-Material" class="headerlink" title="CMake Learning Material"></a>CMake Learning Material</h2><p><a class="link" target="_blank" rel="noopener" href="https://cmake.org/cmake/help/latest/guide/tutorial/index.html">CMake<i class="fa-solid fa-up-right-from-square"></i></a></p>
+<h2 id="an-CMakeList-txt-example"><a href="#an-CMakeList-txt-example" class="headerlink" title="an CMakeList.txt example"></a>an CMakeList.txt example</h2><div class="highlight-container" data-rel="Cmake"><figure class="iseeu highlight cmake"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">cmake_minimum_required</span>(VERSION <span class="number">3.15</span>)</span><br><span class="line"><span class="keyword">project</span>(Tutorial VERSION <span class="number">1.0</span>)</span><br><span class="line"></span><br><span class="line"><span class="keyword">add_library</span>(tutorial_compiler_flags INTERFACE)        </span><br><span class="line"><span class="keyword">target_compile_features</span>(tutorial_compiler_flags INTERFACE cxx_std_11)</span><br><span class="line"><span class="keyword">set</span>(gcc_like_cxx <span class="string">"$&lt;COMPILE_LANG_AND_ID:CXX,ARMClang,AppleClang,Clang,CNU,LCC&gt;"</span>)</span><br><span class="line"><span class="keyword">set</span>(msvc_cxx <span class="string">"$&lt;COMPILE_LANG_AND_ID:CXX,MSVC&gt;"</span>)</span><br><span class="line"><span class="keyword">target_compile_options</span>(tutorial_compiler_flags INTERFACE</span><br><span class="line">  <span class="string">"$&lt;${gcc_like_cxx}:$&lt;BUILD_INTERFACE:-Wall;-Wextra;-Wshadow;-Wformat=2;-Wunused&gt;&gt;"</span></span><br><span class="line">  <span class="string">"$&lt;${msvc_cxx}:$&lt;BUILD_INTERFACE:-W3&gt;&gt;"</span></span><br><span class="line">)</span><br><span class="line"><span class="keyword">option</span>(USE_MYMATH <span class="string">"Use tutorial provided math implementation"</span> <span class="keyword">ON</span>)</span><br><span class="line"><span class="keyword">configure_file</span>(TutorialConfig.h.in TutorialConfig.h)</span><br><span class="line"></span><br><span class="line"><span class="keyword">if</span>(USE_MYMATH)</span><br><span class="line">  <span class="keyword">add_subdirectory</span>(MathFunctions)</span><br><span class="line">  <span class="keyword">list</span>(APPEND EXTRA_LIBS MathFunctions)</span><br><span class="line"><span class="keyword">endif</span>()</span><br><span class="line"><span class="keyword">add_executable</span>(Tutorial tutorial.cxx)</span><br><span class="line"><span class="keyword">target_link_libraries</span>(Tutorial PUBLIC <span class="variable">${EXTRA_LIBS}</span> tutorial_compiler_flags)</span><br><span class="line"></span><br><span class="line"><span class="keyword">target_include_directories</span>(Tutorial PUBLIC</span><br><span class="line">                           <span class="string">"${PROJECT_BINARY_DIR}"</span></span><br><span class="line">                           )</span><br></pre></td></tr></table></figure></div>
+<h2 id="Build-Project"><a href="#Build-Project" class="headerlink" title="Build Project"></a>Build Project</h2><div class="highlight-container" data-rel="Bash"><figure class="iseeu highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="built_in">mkdir</span> Step1_build</span><br><span class="line"><span class="built_in">cd</span> Step1_build</span><br><span class="line">cmake ../Step1</span><br><span class="line">cmake --build .</span><br></pre></td></tr></table></figure></div>
+<h2 id="Simplest-CMakeLists-txt-Example"><a href="#Simplest-CMakeLists-txt-Example" class="headerlink" title="Simplest CMakeLists.txt Example"></a>Simplest CMakeLists.txt Example</h2><div class="highlight-container" data-rel="Cmake"><figure class="iseeu highlight cmake"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">add_library</span>(MathFunctions mysqrt.cxx)</span><br><span class="line"></span><br><span class="line"><span class="keyword">target_include_directories</span>(MathFunctions</span><br><span class="line">          INTERFACE <span class="variable">${CMAKE_CURRENT_SOURCE_DIR}</span></span><br><span class="line">          )</span><br><span class="line"></span><br><span class="line"><span class="keyword">target_link_libraries</span>(MathFunctions tutorial_compiler_flags)</span><br></pre></td></tr></table></figure></div>
+<h2 id="Generate-Xcode-Project"><a href="#Generate-Xcode-Project" class="headerlink" title="Generate Xcode Project"></a>Generate Xcode Project</h2><p>The default generator is UNIX Make, you can change the generator to Xcode Using at newly maked build_xcode directory, </p>
+<div class="highlight-container" data-rel="Bash"><figure class="iseeu highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">cmake <span class="variable">${CMakeLists.txt file path}</span> -G Xcode</span><br></pre></td></tr></table></figure></div>
+<p>Remember, after you add files to your Xcode project, it hasn’t been add to your <code>CMakeLists.txt</code>, if you regenerate xcode project with cmake, problems gonna happen. You can fix it be edit your <code>CMakeLists.txt</code>, emm, it truly tedious add your file in <code>CMakeLists.txt</code> every time, but I haven’t found a better way yet.</p>
+<h2 id="Xcode-C-Error"><a href="#Xcode-C-Error" class="headerlink" title="Xcode C++ Error"></a>Xcode C++ Error</h2><p>Date: Sun Dec 18 11:22:30 CST 2022<br>After I Updated Xcode 14.2 Last Night, when I reopen my c++ Project, this problem happened.<br><img lazyload="" src="/images/loading.svg" data-src="/fig/xcode_c++_error_20221218_01.jpg" alt="error"><br>Problem fixed after I regenerate my xcode project in directory <code>build_xode</code>:</p>
+<div class="highlight-container" data-rel="Bash"><figure class="iseeu highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="built_in">rm</span> -r *</span><br><span class="line">cmake .. -G Xcode</span><br></pre></td></tr></table></figure></div>
+            </div>
+
+            
+                <div class="post-copyright-info">
+                    <div class="article-copyright-info-container">
+    <ul>
+        <li>Post title：Use CMake to Generate Xcode C++ Project</li>
+        <li>Post author：Meqt</li>
+        <li>Create time：2022-12-17 01:42:13</li>
+        <li>
+            Post link：https://meqtmac.github.io/2022/12/17/cmake_xcode/
+        </li>
+        <li>
+            Copyright Notice：All articles in this blog are licensed under <a class="license" target="_blank" rel="noopener" href="https://creativecommons.org/licenses/by-nc-sa/4.0/deed.zh">BY-NC-SA</a> unless stating additionally.
+        </li>
+    </ul>
+</div>
+
+                </div>
+            
+
+            
+                <ul class="post-tags-box">
+                    
+                        <li class="tag-item">
+                            <a href="/tags/C/">#C++</a>&nbsp;
+                        </li>
+                    
+                        <li class="tag-item">
+                            <a href="/tags/CMake/">#CMake</a>&nbsp;
+                        </li>
+                    
+                        <li class="tag-item">
+                            <a href="/tags/Xcode/">#Xcode</a>&nbsp;
+                        </li>
+                    
+                </ul>
+            
+
+            
+                <div class="article-nav">
+                    
+                        <div class="article-prev">
+                            <a class="prev"
+                            rel="prev"
+                            href="/2022/12/17/LaTeX/"
+                            >
+                                <span class="left arrow-icon flex-center">
+                                    <i class="fa-solid fa-chevron-left"></i>
+                                </span>
+                                <span class="title flex-center">
+                                    <span class="post-nav-title-item">LaTeX</span>
+                                    <span class="post-nav-item">Prev posts</span>
+                                </span>
+                            </a>
+                        </div>
+                    
+                    
+                        <div class="article-next">
+                            <a class="next"
+                            rel="next"
+                            href="/2022/12/17/hello-world/"
+                            >
+                                <span class="title flex-center">
+                                    <span class="post-nav-title-item">Hello World</span>
+                                    <span class="post-nav-item">Next posts</span>
+                                </span>
+                                <span class="right arrow-icon flex-center">
+                                    <i class="fa-solid fa-chevron-right"></i>
+                                </span>
+                            </a>
+                        </div>
+                    
+                </div>
+            
+
+            
+        </div>
+
+        
+            <div class="toc-content-container">
+                <div class="post-toc-wrap">
+    <div class="post-toc">
+        <div style="font-size: 1.3rem;margin-top: 0; margin-bottom: 0.8rem; transition-duration: 0.1s;"><i class="fa-solid fa-list"></i> <strong>Contents</strong></div>
+        <ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#What%E2%80%99s-CMake"><span class="nav-number">1.</span> <span class="nav-text">What’s CMake</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#CMake-Learning-Material"><span class="nav-number">2.</span> <span class="nav-text">CMake Learning Material</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#an-CMakeList-txt-example"><span class="nav-number">3.</span> <span class="nav-text">an CMakeList.txt example</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#Build-Project"><span class="nav-number">4.</span> <span class="nav-text">Build Project</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#Simplest-CMakeLists-txt-Example"><span class="nav-number">5.</span> <span class="nav-text">Simplest CMakeLists.txt Example</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#Generate-Xcode-Project"><span class="nav-number">6.</span> <span class="nav-text">Generate Xcode Project</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#Xcode-C-Error"><span class="nav-number">7.</span> <span class="nav-text">Xcode C++ Error</span></a></li></ol>
+    </div>
+</div>
+            </div>
+        
+    </div>
+</div>
+
+
+                
+
+            </div>
+
+
+
+        </div>
+
+        <div class="page-main-content-bottom">
+            <footer class="footer">
+    <div class="info-container">
+        <div class="copyright-info info-item">
+            &copy;
+            
+              <span>2022</span>
+              -
+            
+            2023&nbsp;<i class="fa-solid fa-heart icon-animate"></i>&nbsp;<a href="/">Meqt. All Rights Reserved.</a>
+        </div>
+        
+            <script async data-pjax src="//busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js"></script>
+            <div class="website-count info-item">
+                
+                    <span id="busuanzi_container_site_uv">
+                        Visitor Count&nbsp;<span id="busuanzi_value_site_uv"></span>&ensp;
+                    </span>
+                
+                
+                    <span id="busuanzi_container_site_pv">
+                        Totalviews&nbsp;<span id="busuanzi_value_site_pv"></span>
+                    </span>
+                
+            </div>
+        
+        <div class="theme-info info-item">
+            Powered by <a target="_blank" href="https://hexo.io">Hexo</a>&nbsp;|&nbsp;Theme&nbsp;<a class="theme-version" target="_blank" href="https://github.com/EvanNotFound/hexo-theme-redefine">Redefine v0.3.5</a>
+        </div>
+        
+        
+        <script async data-pjax defer>
+            function odometer_init(){
+                    let el = document.getElementsByClassName('odometer');
+                    for (i = 0; i < el.length; i++) {
+                        od = new Odometer({
+                            el: el[i],
+                            format: '( ddd).dd',
+                            duration: 200
+                        });
+                    }
+            }
+            odometer_init();
+        </script>
+        <div id="start_time_div" style="display:none">
+            2022/12/17 15:05:00
+        </div>
+        
+            <div>
+                Blog up for <span class="odometer" id="runtime_days" ></span> days <span class="odometer" id="runtime_hours"></span> hrs <span class="odometer" id="runtime_minutes"></span> Min <span class="odometer" id="runtime_seconds"></span> Sec
+            </div>
+        
+        
+        
+    </div>
+    <link rel="stylesheet" href="//evan.beee.top/css/waline.css"/>
+    <script src="//evan.beee.top/js/waline.js"></script>
+    
+</footer>
+        </div>
+    </div>
+
+    
+        <div class="post-tools">
+            <div class="post-tools-container">
+    <ul class="tools-list">
+        <!-- TOC aside toggle -->
+        
+            <li class="tools-item page-aside-toggle">
+                <i class="fa-regular fa-outdent"></i>
+            </li>
+        
+
+        <!-- go comment -->
+        
+    </ul>
+</div>
+
+        </div>
+    
+
+    <div class="right-bottom-side-tools">
+        <div class="side-tools-container">
+    <ul class="side-tools-list">
+        <li class="tools-item tool-font-adjust-plus flex-center">
+            <i class="fa-solid fa-magnifying-glass-plus"></i>
+        </li>
+
+        <li class="tools-item tool-font-adjust-minus flex-center">
+            <i class="fa-solid fa-magnifying-glass-minus"></i>
+        </li>
+
+        <li class="tools-item tool-expand-width flex-center">
+            <i class="fa-solid fa-left-right"></i>
+        </li>
+
+        <li class="tools-item tool-dark-light-toggle flex-center">
+            <i class="fa-solid fa-moon"></i>
+        </li>
+
+        <!-- rss -->
+        
+
+        
+            <li class="tools-item tool-scroll-to-top flex-center">
+                <i class="fa-solid fa-arrow-up"></i>
+            </li>
+        
+
+        <li class="tools-item tool-scroll-to-bottom flex-center">
+            <i class="fa-solid fa-arrow-down"></i>
+        </li>
+    </ul>
+
+    <ul class="exposed-tools-list">
+        <li class="tools-item tool-toggle-show flex-center">
+            <i class="fa-solid fa-cog fa-spin"></i>
+        </li>
+        
+    </ul>
+</div>
+
+    </div>
+
+    <div class="image-viewer-container">
+    <img src="">
+</div>
+
+
+    
+        <div class="search-pop-overlay">
+    <div class="popup search-popup">
+        <div class="search-header">
+          <span class="search-input-field-pre">
+            <i class="fa-solid fa-keyboard"></i>
+          </span>
+            <div class="search-input-container">
+                <input autocomplete="off"
+                       autocorrect="off"
+                       autocapitalize="off"
+                       placeholder="Search..."
+                       spellcheck="false"
+                       type="search"
+                       class="search-input"
+                >
+            </div>
+            <span class="popup-btn-close">
+                <i class="fa-solid fa-times"></i>
+            </span>
+        </div>
+        <div id="search-result">
+            <div id="no-result">
+                <i class="fa-solid fa-spinner fa-spin-pulse fa-5x fa-fw"></i>
+            </div>
+        </div>
+    </div>
+</div>
+
+    
+
+</main>
+
+
+
+
+<script src="/js/utils.js"></script>
+
+<script src="/js/main.js"></script>
+
+<script src="/js/header-shrink.js"></script>
+
+<script src="/js/back2top.js"></script>
+
+<script src="/js/dark-light-toggle.js"></script>
+
+
+
+    
+<script src="/js/local-search.js"></script>
+
+
+
+
+    
+<script src="/js/code-copy.js"></script>
+
+
+
+
+    
+<script src="/js/lazyload.js"></script>
+
+
+
+
+    
+<script src="/js/runtime.js"></script>
+
+    
+<script src="/js/odometer.min.js"></script>
+
+    
+<link rel="stylesheet" href="/css/odometer-theme-minimal.css">
+
+
+
+<div class="post-scripts pjax">
+    
+        
+<script src="/js/toc-toggle.js"></script>
+
+<script src="/js/libs/anime.min.js"></script>
+
+<script src="/js/toc.js"></script>
+
+    
+</div>
+
+
+    
+<script src="/js/libs/pjax.min.js"></script>
+
+<script>
+    window.addEventListener('DOMContentLoaded', () => {
+        window.pjax = new Pjax({
+            selectors: [
+                'head title',
+                '.page-container',
+                '.pjax'
+            ],
+            history: true,
+            debug: false,
+            cacheBust: false,
+            timeout: 0,
+            analytics: false,
+            currentUrlFullReload: false,
+            scrollRestoration: false,
+            // scrollTo: true,
+        });
+
+        document.addEventListener('pjax:send', () => {
+            REDEFINE.utils.pjaxProgressBarStart();
+        });
+
+        document.addEventListener('pjax:complete', () => {
+            REDEFINE.utils.pjaxProgressBarEnd();
+            window.pjax.executeScripts(document.querySelectorAll('script[data-pjax], .pjax script'));
+            REDEFINE.refresh();
+        });
+    });
+</script>
+
+
+
+</body>
+</html>

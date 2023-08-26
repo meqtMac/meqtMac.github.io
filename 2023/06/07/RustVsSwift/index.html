@@ -1,0 +1,879 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+    <meta name="keywords" content="Hexo Theme Redefine">
+    <meta name="description" content="Hexo Theme Redefine">
+    <meta name="author" content="Meqt">
+    
+    <title>
+        
+            Rust, Swift and C++ |
+        
+        Meqt&#39;s Blog
+    </title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    
+<link rel="stylesheet" href="/css/style.css">
+
+    <link rel="shortcut icon" href="/fig/markdown.svg">
+    
+<link rel="stylesheet" href="/css/fontawesome.min.css">
+
+    
+<link rel="stylesheet" href="/css/brands.min.css">
+
+    
+<link rel="stylesheet" href="/css/solid.min.css">
+
+    
+<link rel="stylesheet" href="/css/regular.min.css">
+
+    
+    
+    
+    
+<link rel="stylesheet" href="/css/css2.css">
+
+    <script id="hexo-configurations">
+    let REDEFINE = window.REDEFINE || {};
+    REDEFINE.hexo_config = {"hostname":"meqtmac.github.io","root":"/","language":"en","path":"search.xml"};
+    REDEFINE.theme_config = {"toc":{"enable":true,"number":true,"expand_all":true,"init_open":true},"style":{"primary_color":"#005080","avatar":"https://static.wikia.nocookie.net/gensin-impact/images/0/08/Icon_Emoji_Venti_4.png","favicon":"/fig/markdown.svg","article_img_align":"center","right_side_width":"210px","content_max_width":"1000px","nav_color":{"left":"#f78736","right":"#367df7","transparency":35},"hover":{"shadow":true,"scale":false},"first_screen":{"enable":true,"background_image":{"light":"/fig/cover_light.jpg","dark":"/fig/cover_dark.jpg"},"title_color":{"light":"#fff","dark":"#d1d1b6"},"description":"Stay Hungry. Stay Foolish."},"scroll":{"progress_bar":{"enable":true},"percent":{"enable":false}}},"local_search":{"enable":true,"preload":true},"code_copy":{"enable":true,"style":"mac"},"pjax":{"enable":true},"lazyload":{"enable":true},"version":"0.3.5"};
+    REDEFINE.language_ago = {"second":"%s seconds ago","minute":"%s minutes ago","hour":"%s hours ago","day":"%s days ago","week":"%s weeks ago","month":"%s months ago","year":"%s years ago"};
+  </script>
+<meta name="generator" content="Hexo 6.3.0"><style>mjx-container[jax="SVG"] {
+  direction: ltr;
+}
+
+mjx-container[jax="SVG"] > svg {
+  overflow: visible;
+}
+
+mjx-container[jax="SVG"][display="true"] {
+  display: block;
+  text-align: center;
+  margin: 1em 0;
+}
+
+mjx-container[jax="SVG"][justify="left"] {
+  text-align: left;
+}
+
+mjx-container[jax="SVG"][justify="right"] {
+  text-align: right;
+}
+
+g[data-mml-node="merror"] > g {
+  fill: red;
+  stroke: red;
+}
+
+g[data-mml-node="merror"] > rect[data-background] {
+  fill: yellow;
+  stroke: none;
+}
+
+g[data-mml-node="mtable"] > line[data-line] {
+  stroke-width: 70px;
+  fill: none;
+}
+
+g[data-mml-node="mtable"] > rect[data-frame] {
+  stroke-width: 70px;
+  fill: none;
+}
+
+g[data-mml-node="mtable"] > .mjx-dashed {
+  stroke-dasharray: 140;
+}
+
+g[data-mml-node="mtable"] > .mjx-dotted {
+  stroke-linecap: round;
+  stroke-dasharray: 0,140;
+}
+
+g[data-mml-node="mtable"] > svg {
+  overflow: visible;
+}
+
+[jax="SVG"] mjx-tool {
+  display: inline-block;
+  position: relative;
+  width: 0;
+  height: 0;
+}
+
+[jax="SVG"] mjx-tool > mjx-tip {
+  position: absolute;
+  top: 0;
+  left: 0;
+}
+
+mjx-tool > mjx-tip {
+  display: inline-block;
+  padding: .2em;
+  border: 1px solid #888;
+  font-size: 70%;
+  background-color: #F8F8F8;
+  color: black;
+  box-shadow: 2px 2px 5px #AAAAAA;
+}
+
+g[data-mml-node="maction"][data-toggle] {
+  cursor: pointer;
+}
+
+mjx-status {
+  display: block;
+  position: fixed;
+  left: 1em;
+  bottom: 1em;
+  min-width: 25%;
+  padding: .2em .4em;
+  border: 1px solid #888;
+  font-size: 90%;
+  background-color: #F8F8F8;
+  color: black;
+}
+
+foreignObject[data-mjx-xml] {
+  font-family: initial;
+  line-height: normal;
+  overflow: visible;
+}
+
+.MathJax path {
+  stroke-width: 3;
+}
+
+mjx-container[display="true"] {
+  overflow: auto hidden;
+}
+
+mjx-container[display="true"] + br {
+  display: none;
+}
+</style></head>
+
+
+<body>
+<div class="progress-bar-container">
+    
+        <span class="scroll-progress-bar"></span>
+    
+
+    
+        <span class="pjax-progress-bar"></span>
+        <span class="pjax-progress-icon">
+            <i class="fa-solid fa-circle-notch fa-spin"></i>
+        </span>
+    
+</div>
+
+
+<main class="page-container">
+
+    
+
+    <div class="page-main-content">
+
+        <div class="page-main-content-top">
+            <header class="header-wrapper">
+    
+    <div class="header-content">
+        <div class="left">
+            
+            <a class="logo-title" href="/">
+                Meqt&#39;s Blog
+            </a>
+        </div>
+
+        <div class="right">
+            <!-- PC -->
+            <div class="pc">
+                <ul class="menu-list">
+                    
+                        <li class="menu-item">
+                            <!-- Menu -->
+                            <a class="" 
+                                href="/" >
+                                 
+                                    HOME
+                                
+                            </a>
+                            <!-- Submenu -->
+                            
+                        </li>
+                    
+                        <li class="menu-item">
+                            <!-- Menu -->
+                            <a class="" 
+                                href="/archives" >
+                                 
+                                    ARCHIVES
+                                
+                            </a>
+                            <!-- Submenu -->
+                            
+                        </li>
+                    
+                        <li class="menu-item">
+                            <!-- Menu -->
+                            <a class="" 
+                                target="_blank" rel="noopener" href="https://space.bilibili.com/502369884/bangumi" >
+                                 
+                                    BANGUMI
+                                
+                            </a>
+                            <!-- Submenu -->
+                            
+                        </li>
+                    
+                    
+                        <li class="menu-item search search-popup-trigger">
+                            <i class="fa-solid fa-magnifying-glass"></i>
+                        </li>
+                    
+                </ul>
+            </div>
+            <!-- Mobile -->
+            <div class="mobile">
+                
+                    <div class="icon-item search search-popup-trigger"><i class="fa-solid fa-magnifying-glass"></i></div>
+                
+                <div class="icon-item menu-bar">
+                    <div class="menu-bar-middle"></div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Mobile drawer -->
+    <div class="header-drawer">
+        <ul class="drawer-menu-list">
+            
+                <li class="drawer-menu-item flex-center">
+                    <a class="" 
+                       href="/" >
+                         
+                            HOME
+                        
+                    </a>
+                    
+                </li>
+                <!-- Submenu -->
+                
+            
+                <li class="drawer-menu-item flex-center">
+                    <a class="" 
+                       href="/archives" >
+                         
+                            ARCHIVES
+                        
+                    </a>
+                    
+                </li>
+                <!-- Submenu -->
+                
+            
+                <li class="drawer-menu-item flex-center">
+                    <a class="" 
+                       target="_blank" rel="noopener" href="https://space.bilibili.com/502369884/bangumi" >
+                         
+                            BANGUMI
+                        
+                    </a>
+                    
+                </li>
+                <!-- Submenu -->
+                
+            
+        </ul>
+    </div>
+
+    <div class="window-mask"></div>
+
+</header>
+
+
+        </div>
+
+        <div class="page-main-content-middle">
+
+            <div class="main-content">
+
+                
+                    <div class="fade-in-down-animation">
+    <div class="post-page-container">
+        <div class="article-content-container">
+            <div class="article-title">
+                <span class="title-hover-animation"><h1 style="font-size:2rem; font-weight: bold; margin: 10px 0;">Rust, Swift and C++</h1></span>
+            </div>
+
+            
+                <div class="article-header">
+                    <div class="avatar">
+                        <img src="https://static.wikia.nocookie.net/gensin-impact/images/0/08/Icon_Emoji_Venti_4.png">
+                    </div>
+                    <div class="info">
+                        <div class="author">
+                            <span class="name">Meqt</span>
+                            
+                        </div>
+                        <div class="meta-info">
+                            <div class="article-meta-info">
+    <span class="article-date article-meta-item">
+        <i class="fa-regular fa-pen-line"></i>&nbsp;
+        <span class="pc">2023-06-07 13:49:42</span>
+        <span class="mobile">2023-06-07 13:49</span>
+    </span>
+    
+    
+
+    
+    
+        <span class="article-wordcount article-meta-item">
+            <i class="fa-solid fa-file-word"></i>&nbsp;<span>3.3k Words</span>
+        </span>
+    
+    
+        <span class="article-min2read article-meta-item">
+            <i class="fa-solid fa-clock"></i>&nbsp;<span>20 Mins</span>
+        </span>
+    
+    
+        <span class="article-pv article-meta-item">
+            <i class="fa-regular fa-eye"></i>&nbsp;<span id="busuanzi_value_page_pv"></span>
+        </span>
+    
+</div>
+
+                        </div>
+                    </div>
+                </div>
+            
+
+            <div class="article-content markdown-body">
+                <p>A simple Comparsion on Swift, Rust, C++’s syntax as a beginner on Rust after learning some swift and C/C++. Three static-typed, compiled programming language .</p>
+<p>Besides, as swift 5.9 comes with <a target="_blank" rel="noopener" href="https://www.swift.org/documentation/cxx-interop/">C++ <strong>inter</strong>operability</a> support I think it would be a good source to learn some C++ and Swift relationship and comparision.</p>
+<h2 id="Value-and-Types"><a href="#Value-and-Types" class="headerlink" title="Value and Types"></a>Value and Types</h2><p>It’s infact impossible to talk about value, without talking about how do functions, closure, structure, class, and ARC d</p>
+<h3 id="Swift-value-basics"><a href="#Swift-value-basics" class="headerlink" title="Swift value basics"></a>Swift value basics</h3><div class="highlight-container" data-rel="Swift"><figure class="iseeu highlight swift"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">let</span> x <span class="operator">=</span> <span class="number">1</span></span><br><span class="line"><span class="keyword">var</span> y <span class="operator">=</span> x</span><br><span class="line"><span class="built_in">print</span>(<span class="string">"<span class="subst">\(x)</span>, <span class="subst">\(y)</span>"</span>)</span><br></pre></td></tr></table></figure></div>
+<h3 id="Rust-with-owership"><a href="#Rust-with-owership" class="headerlink" title="Rust with owership"></a>Rust with owership</h3><p>After I write this code, I believe rust should be safer and faster with it’s ownership, reference and borrowing.</p>
+<div class="highlight-container" data-rel="Rust"><figure class="iseeu highlight rust"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">fn</span> <span class="title function_">main</span>() {</span><br><span class="line">    <span class="keyword">let</span> <span class="variable">x</span> = <span class="number">1</span>;</span><br><span class="line">    <span class="keyword">let</span> <span class="keyword">mut </span><span class="variable">y</span> = x;</span><br><span class="line">    <span class="keyword">let</span> <span class="keyword">mut </span><span class="variable">z</span> = x;</span><br><span class="line"></span><br><span class="line">    <span class="keyword">let</span> <span class="variable">rx1</span> = &amp;x;</span><br><span class="line">    <span class="keyword">let</span> <span class="keyword">mut </span><span class="variable">rx2</span> = &amp;x;</span><br><span class="line">    <span class="comment">/*   error[E0596]: cannot borrow `x` as mutable, as it is not declared as mutable</span></span><br><span class="line"><span class="comment">        let rx3 = &amp;mut x;</span></span><br><span class="line"><span class="comment">     */</span></span><br><span class="line">    <span class="keyword">let</span> <span class="variable">ry1</span> = &amp;y;</span><br><span class="line">    <span class="keyword">let</span> <span class="variable">ry2</span> = &amp;y;</span><br><span class="line">    <span class="comment">/* error[E0502]: cannot borrow `y` as mutable because it is also borrowed as immutable</span></span><br><span class="line"><span class="comment">        let ry_err = &amp;mut y;</span></span><br><span class="line"><span class="comment">        println!("{}, {}, {}", ry1, ry2, ry_err);</span></span><br><span class="line"><span class="comment">    */</span></span><br><span class="line">    <span class="built_in">println!</span>(<span class="string">"{}, {}"</span>, ry1, ry2);</span><br><span class="line"></span><br><span class="line">    <span class="keyword">let</span> <span class="variable">rz1</span> = &amp;<span class="keyword">mut</span> z;</span><br><span class="line">    <span class="comment">/* error[E0499]: cannot borrow `z` as mutable more than once at a time</span></span><br><span class="line"><span class="comment">        let rz2 = &amp;mut z;</span></span><br><span class="line"><span class="comment">        println!("{}, {}", rz1, rz2);</span></span><br><span class="line"><span class="comment">    */</span></span><br><span class="line">}</span><br></pre></td></tr></table></figure></div>
+<h3 id="Swift-Memory-Operation"><a href="#Swift-Memory-Operation" class="headerlink" title="Swift Memory Operation"></a>Swift Memory Operation</h3><p>while in swift you don’t expecilitly have a reference for what ever value you want, but class, and ARC is a thing to talk about.</p>
+<p>Someone said that swift don’t have directly access to Memory which makes it slower. I don’t know if it’s becaused my misundering, though uncommon, but we have for array:</p>
+<div class="highlight-container" data-rel="Swift"><figure class="iseeu highlight swift"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">var</span> arr <span class="operator">=</span> [<span class="number">10</span>, <span class="number">100</span>, <span class="number">1000</span>, <span class="number">10000</span>]</span><br><span class="line"> <span class="keyword">mutating</span> <span class="keyword">func</span> <span class="title function_">withUnsafeMutableBufferPointer</span>&lt;<span class="type">R</span>&gt;(<span class="keyword">_</span> <span class="params">body</span>: (<span class="keyword">inout</span> <span class="type">UnsafeMutableBufferPointer</span>&lt;<span class="type">Element</span>&gt;) <span class="keyword">throws</span> -&gt; <span class="type">R</span>) <span class="keyword">rethrows</span> -&gt; <span class="type">R</span></span><br><span class="line">arr.withUnsafeMutableBufferPointer { ptr <span class="keyword">in</span></span><br><span class="line">    <span class="operator">&lt;</span>#code#<span class="operator">&gt;</span></span><br><span class="line">}</span><br><span class="line"></span><br><span class="line"><span class="keyword">let</span> constArr <span class="operator">=</span> [<span class="number">10</span>, <span class="number">100</span>, <span class="number">1000</span>, <span class="number">1000</span>]</span><br><span class="line">constArr.withUnsafeBufferPointer { ptr <span class="keyword">in</span></span><br><span class="line">    <span class="operator">&lt;</span>#code#<span class="operator">&gt;</span></span><br><span class="line">}</span><br><span class="line"><span class="keyword">func</span> <span class="title function_">withUnsafeBufferPointer</span>&lt;<span class="type">R</span>&gt;(<span class="keyword">_</span> <span class="params">body</span>: (<span class="type">UnsafeBufferPointer</span>&lt;<span class="type">Element</span>&gt;) <span class="keyword">throws</span> -&gt; <span class="type">R</span>) <span class="keyword">rethrows</span> -&gt; <span class="type">R</span></span><br></pre></td></tr></table></figure></div>
+
+<p>and </p>
+<div class="highlight-container" data-rel="Swift"><figure class="iseeu highlight swift"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">let</span> arr <span class="operator">=</span> [<span class="number">10</span>, <span class="number">20</span>]</span><br><span class="line"><span class="built_in">withUnsafePointer</span>(to: arr) { ptr <span class="keyword">in</span></span><br><span class="line">    <span class="operator">&lt;</span>#code#<span class="operator">&gt;</span></span><br><span class="line">}</span><br><span class="line"></span><br><span class="line"><span class="keyword">var</span> mutableArr <span class="operator">=</span> [<span class="number">10</span>, <span class="number">20</span>]</span><br><span class="line"><span class="built_in">withUnsafeMutablePointer</span>(to: <span class="operator">&amp;</span>mutableArr) { ptr <span class="keyword">in</span></span><br><span class="line">    <span class="operator">&lt;</span>#code#<span class="operator">&gt;</span></span><br><span class="line">}</span><br></pre></td></tr></table></figure></div>
+<p>Nothat these ptr are different, one is type method for array, with <code>BufferPointer</code>; and another is Generic function and <code>Pointer</code>.<br>This is not talked about in <a class="link" target="_blank" rel="noopener" href="https://docs.swift.org/swift-book/documentation/the-swift-programming-language/">Swift Programming Language<i class="fa-solid fa-up-right-from-square"></i></a>, but have a detailed explaination in <a class="link" target="_blank" rel="noopener" href="https://developer.apple.com/documentation/swift/manual-memory-management">Standard Library Documentation<i class="fa-solid fa-up-right-from-square"></i></a></p>
+<p>These function would be helpful when coping with c code. But if not, you may not ever see these code in swift. Anyway, it’s a big topic, but a glimpses of it makes me have a better understanding of swift programming language. And I hope this would be helpful for anyone learn these language.</p>
+<h3 id="stored-property-calculated-property-and-property-observer"><a href="#stored-property-calculated-property-and-property-observer" class="headerlink" title="stored property, calculated property, and property observer."></a>stored property, calculated property, and property observer.</h3><div class="highlight-container" data-rel="Swift"><figure class="iseeu highlight swift"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">var</span> stored: <span class="type">Int</span> <span class="operator">=</span> <span class="number">0</span>  {</span><br><span class="line">    <span class="keyword">willSet</span> {</span><br><span class="line">    }</span><br><span class="line">    <span class="keyword">didSet</span> {</span><br><span class="line">    }</span><br><span class="line">}</span><br><span class="line"></span><br><span class="line"><span class="keyword">var</span> getOnlyComputedValue: <span class="type">Int</span> {</span><br><span class="line">    <span class="keyword">get</span> {</span><br><span class="line">        <span class="keyword">return</span> stored</span><br><span class="line">    }</span><br><span class="line">}</span><br><span class="line"></span><br><span class="line"><span class="comment">// var getOnlyComputedValue: Int {</span></span><br><span class="line"><span class="comment">//  stored</span></span><br><span class="line"><span class="comment">// }</span></span><br><span class="line"></span><br><span class="line"><span class="keyword">var</span> settableComputedValue: <span class="type">Int</span> {</span><br><span class="line">    <span class="keyword">get</span> {</span><br><span class="line">        getOnlyComputedValue</span><br><span class="line">    }</span><br><span class="line">    <span class="keyword">set</span> {</span><br><span class="line">        stored <span class="operator">+=</span> <span class="number">1</span></span><br><span class="line">    }</span><br><span class="line">}</span><br><span class="line"></span><br></pre></td></tr></table></figure></div>
+<h4 id="I-think-swift-struct-and-class-should-also-be-talked-about-in-this-phase-for-accordance-and-better-understanding-with-let-and-val-and-let-var-for-compound-value-and-reference"><a href="#I-think-swift-struct-and-class-should-also-be-talked-about-in-this-phase-for-accordance-and-better-understanding-with-let-and-val-and-let-var-for-compound-value-and-reference" class="headerlink" title="I think swift struct and class should also be talked about in this phase, for accordance, and better understanding with let and val, and let, var for compound value and reference."></a>I think swift struct and class should also be talked about in this phase, for accordance, and better understanding with let and val, and let, var for compound value and reference.</h4><h3 id="Type"><a href="#Type" class="headerlink" title="Type"></a>Type</h3><p>Both in swift and rust, thougth staticly typed. Many times you don’t expilictly write type, and type Inferenced is the default behavior, unlike c/c++, thought you have auto and decltype, it’s not the default behavior, thus most times you still need to write types.</p>
+<p>But still, swift and rust have some difference in type inference:</p>
+<div class="highlight-container" data-rel="Rust"><figure class="iseeu highlight rust"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">use</span> std::collections::HashMap;</span><br><span class="line"><span class="keyword">let</span> <span class="keyword">mut </span><span class="variable">scores</span> = HashMap::<span class="title function_ invoke__">new</span>();</span><br><span class="line">scores.<span class="title function_ invoke__">insert</span>(<span class="type">String</span>::<span class="title function_ invoke__">from</span>(<span class="string">"Blue"</span>), <span class="number">10</span>);</span><br><span class="line">scores.<span class="title function_ invoke__">insert</span>(<span class="type">String</span>::<span class="title function_ invoke__">from</span>(<span class="string">"Yellow"</span>), <span class="number">50</span>);</span><br></pre></td></tr></table></figure></div>
+<p>this phase is legal, as type of <code>scores</code> is infered from line below.</p>
+<p>How, similar code is impossible in swift, in swift these code are ok, as the type can but infered from literal after the assignment sign.</p>
+<div class="highlight-container" data-rel="Swift"><figure class="iseeu highlight swift"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">let</span> arr <span class="operator">=</span> [<span class="number">10</span>, <span class="number">100</span>, <span class="number">1000</span>] <span class="comment">// OK</span></span><br><span class="line"><span class="keyword">var</span> dict <span class="operator">=</span> [</span><br><span class="line">    <span class="string">"Blue"</span>: <span class="number">10</span>,</span><br><span class="line">    <span class="string">"Yellow"</span>: <span class="number">50</span>,</span><br><span class="line">    <span class="string">"Green"</span>: <span class="number">100</span></span><br><span class="line">    ] <span class="comment">// OK</span></span><br></pre></td></tr></table></figure></div>
+
+<p>but in swift, type can’t be infered from line after</p>
+<div class="highlight-container" data-rel="Swift"><figure class="iseeu highlight swift"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">var</span> dict <span class="operator">=</span> <span class="type">Dictionary</span>() <span class="comment">//Error: Generic parameter 'Key' could not be inferred</span></span><br><span class="line">dict[<span class="string">"Blue"</span>] <span class="operator">=</span> <span class="number">10</span></span><br></pre></td></tr></table></figure></div>
+<p>Believe, this won’t cause much trouble in swift, and I believe would your code more clear.</p>
+<p>What’s more, I think this limited make’s <code>swift repl</code> possible.<br>I think in <strong>Rust</strong> this type inference would cause trouble in implementation of repl, as you can do this when writing in a file, types are infered from line after, but in repl, when you write code line by line, this feature was impossible. But it seems Rust really have a repl thing, maybe they just disabled this feature in  <code>REPL</code>, I don’t know.</p>
+<h3 id="Struct-Class"><a href="#Struct-Class" class="headerlink" title="Struct, Class"></a>Struct, Class</h3><p>Some Language have only struct like C, some only class like Java, maybe python, I don’t rememeber any python code with struct. Up to my knowledge know, Rust has only Struct. C++ have both struct and class, but it’s kind of redundancy. While in swift, struct and class have core difference, <strong>struct</strong> is <strong>value type</strong> and <strong>class</strong> is <strong>reference type</strong>, this is what I found unique for swift(up to my knowledge now), and thought that it’s for this reason, in swift, c++ interoperatability, c++ struct and class are both mapped to struct in swift, still swift struct and c++ class aren’t equivalent.</p>
+<p>And in swift, thus comes ARC for Class.</p>
+<p>In rust, <code>struct</code> and <code>impl</code> are seprated, while in swift, you can have methods defined inside struct. </p>
+<p>And when it comes to c++, it’s awkwardly complicated, powerful, efficient. </p>
+<h2 id="Expressions-Statement-and-semicolons"><a href="#Expressions-Statement-and-semicolons" class="headerlink" title="Expressions, Statement, and semicolons"></a>Expressions, Statement, and semicolons</h2><h2 id="Functions-and-maybe-Closure"><a href="#Functions-and-maybe-Closure" class="headerlink" title="Functions and maybe Closure"></a>Functions and maybe Closure</h2><div class="highlight-container" data-rel="Swift"><figure class="iseeu highlight swift"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">func</span> <span class="title function_">foo</span>(<span class="params">input</span> <span class="params">val</span>: <span class="type">Int</span>) {</span><br><span class="line">    <span class="built_in">print</span>(val)</span><br><span class="line">}</span><br><span class="line"></span><br><span class="line"><span class="keyword">func</span> <span class="title function_">foo</span>(<span class="keyword">_</span> <span class="params">val</span>: <span class="keyword">inout</span> <span class="type">Int</span>) -&gt; <span class="type">Int</span> {</span><br><span class="line">    <span class="keyword">let</span> oldValue <span class="operator">=</span> val</span><br><span class="line">    val <span class="operator">+=</span> <span class="number">1</span></span><br><span class="line">    <span class="built_in">print</span>(val)</span><br><span class="line">    <span class="keyword">return</span> oldValue</span><br><span class="line">}</span><br><span class="line"></span><br><span class="line"><span class="keyword">let</span> x <span class="operator">=</span> <span class="number">1</span></span><br><span class="line">foo(input: <span class="number">1</span>)</span><br><span class="line">foo(input: x)</span><br><span class="line"><span class="keyword">var</span> y <span class="operator">=</span> <span class="number">1</span></span><br><span class="line"><span class="keyword">let</span> output <span class="operator">=</span> foo(<span class="operator">&amp;</span>y)</span><br><span class="line"><span class="built_in">print</span>(output)</span><br></pre></td></tr></table></figure></div>
+
+<div class="highlight-container" data-rel="Rust"><figure class="iseeu highlight rust"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">fn</span> <span class="title function_">foo</span>(s: <span class="type">String</span>) {</span><br><span class="line">    <span class="title function_ invoke__">print</span>(<span class="string">"{}"</span>, s);</span><br><span class="line">}</span><br><span class="line"></span><br><span class="line"><span class="keyword">fn</span> <span class="title function_">first_word_slice</span>(s: &amp;<span class="keyword">mut</span> <span class="type">String</span>) <span class="punctuation">-&gt;</span> &amp;<span class="type">str</span> {</span><br><span class="line">    s.<span class="title function_ invoke__">push_str</span>(<span class="string">" world."</span>);</span><br><span class="line">    <span class="keyword">let</span> <span class="variable">bytes</span> = s.<span class="title function_ invoke__">as_bytes</span>();</span><br><span class="line">    <span class="title function_ invoke__">for</span> (i, &amp;item) <span class="keyword">in</span> bytes.<span class="title function_ invoke__">iter</span>().<span class="title function_ invoke__">enumerate</span>() {</span><br><span class="line">        <span class="keyword">if</span> item == <span class="string">b' '</span> {</span><br><span class="line">            <span class="keyword">return</span> &amp;s[<span class="number">0</span>..i];</span><br><span class="line">        }</span><br><span class="line">    }</span><br><span class="line">    &amp;s[..]</span><br><span class="line">}</span><br><span class="line"></span><br><span class="line"><span class="keyword">fn</span> <span class="title function_">main</span>() {</span><br><span class="line">    <span class="keyword">let</span> <span class="keyword">mut </span><span class="variable">s1</span> = <span class="type">String</span>::<span class="title function_ invoke__">from</span>(<span class="string">"hello"</span>);</span><br><span class="line">    <span class="keyword">let</span> <span class="variable">word1</span> = <span class="title function_ invoke__">first_word_slice</span>(&amp;<span class="keyword">mut</span> s1);</span><br><span class="line">    <span class="built_in">println!</span>(<span class="string">"the first word is: {}"</span>, word1);</span><br><span class="line">}</span><br></pre></td></tr></table></figure></div>
+
+<h2 id="Enum"><a href="#Enum" class="headerlink" title="Enum"></a>Enum</h2><h3 id="Option"><a href="#Option" class="headerlink" title="Option"></a>Option</h3><div class="highlight-container" data-rel="Rust"><figure class="iseeu highlight rust"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">let</span> <span class="variable">some_number</span> = <span class="title function_ invoke__">Some</span>(<span class="number">5</span>);</span><br><span class="line"><span class="keyword">let</span> <span class="variable">some_char</span> = <span class="title function_ invoke__">Some</span>(<span class="string">'e'</span>);</span><br><span class="line"><span class="keyword">let</span> <span class="variable">absent_number</span>: <span class="type">Option</span>&lt;<span class="type">i32</span>&gt; = <span class="literal">None</span>;</span><br></pre></td></tr></table></figure></div>
+
+<div class="highlight-container" data-rel="Swift"><figure class="iseeu highlight swift"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">var</span> x: <span class="type">Int</span>? <span class="operator">=</span> <span class="literal">nil</span></span><br><span class="line"><span class="keyword">let</span> y <span class="operator">=</span> <span class="number">1</span></span><br></pre></td></tr></table></figure></div>
+
+<p>I’m not sure, but much thing beside for Option in Rust and Swift are same. </p>
+<p>First when I saw, <code>?</code>, <code>!</code>, <code>??</code>, <code>try?</code>, <code>try?</code> <code>if let</code>, <code>guard let</code>, in Swift Programmming Language, it’s makes me feel weird. I’ve now get used to it, and I thought this syntax is helpful and persures clarity.</p>
+<h3 id="Pattern-Matching"><a href="#Pattern-Matching" class="headerlink" title="Pattern Matching"></a>Pattern Matching</h3><ul>
+<li>Rust is with match synatx</li>
+<li>Swift use switch/case<br>both with assocative value, and execustive match</li>
+</ul>
+<h2 id="Packages-Crates-and-Modules"><a href="#Packages-Crates-and-Modules" class="headerlink" title="Packages, Crates and Modules"></a>Packages, Crates and Modules</h2><h3 id="Swift"><a href="#Swift" class="headerlink" title="Swift"></a>Swift</h3><p>In swift, we have swift package manager. We got Packages, targets and module is something your didn’t always talk about but used all the time.</p>
+<p> One thing I like about this swift package manager is Package.swift that enable your to write swift directly in manifest.<br> <div class="highlight-container" data-rel="Swift"><figure class="iseeu highlight swift"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br></pre></td><td class="code"><pre><span class="line"> <span class="comment">// swift-tools-version: 5.8</span></span><br><span class="line"><span class="comment">// The swift-tools-version declares the minimum version of Swift required to build this package.</span></span><br><span class="line"></span><br><span class="line"><span class="keyword">import</span> PackageDescription</span><br><span class="line"></span><br><span class="line"><span class="keyword">let</span> package <span class="operator">=</span> <span class="type">Package</span>(</span><br><span class="line">    name: <span class="string">"MyBufferTests"</span>,</span><br><span class="line">    platforms: [</span><br><span class="line">        .macOS(.v13),</span><br><span class="line">    ],</span><br><span class="line">    products: [ ],</span><br><span class="line">    dependencies: [ ],</span><br><span class="line">    targets: [</span><br><span class="line">        .target(</span><br><span class="line">            name: <span class="string">"CmmulMEQT"</span>,</span><br><span class="line">            cSettings: [</span><br><span class="line">                .unsafeFlags([<span class="string">"-O3"</span>]),</span><br><span class="line">                .define(<span class="string">"ACCELERATE_NEW_LAPACK"</span>)</span><br><span class="line">            ],</span><br><span class="line">            linkerSettings: [</span><br><span class="line">                .linkedFramework(<span class="string">"Accelerate"</span>)</span><br><span class="line">            ]</span><br><span class="line">        ),</span><br><span class="line">        .executableTarget(</span><br><span class="line">            name: <span class="string">"SwiftBufferTests"</span>,</span><br><span class="line">            dependencies: [</span><br><span class="line">                <span class="string">"CmmulMEQT"</span></span><br><span class="line">            ],</span><br><span class="line">            swiftSettings: [</span><br><span class="line">                .unsafeFlags([<span class="string">"-O"</span>])</span><br><span class="line">            ]</span><br><span class="line">        ),</span><br><span class="line">        .executableTarget(</span><br><span class="line">            name: <span class="string">"CBufferTests"</span>,</span><br><span class="line">            dependencies: [</span><br><span class="line">                <span class="string">"CmmulMEQT"</span></span><br><span class="line">            ],</span><br><span class="line">            cSettings: [ .unsafeFlags([<span class="string">"-O3"</span>]) ]</span><br><span class="line">        ),</span><br><span class="line">    ],</span><br><span class="line">    cLanguageStandard: .c17,</span><br><span class="line">    cxxLanguageStandard: .cxx20</span><br><span class="line">)</span><br></pre></td></tr></table></figure></div><br>and you have import syntax</p>
+<div class="highlight-container" data-rel="Swift"><figure class="iseeu highlight swift"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">import</span> Foundation</span><br></pre></td></tr></table></figure></div>
+
+<h3 id="Rust"><a href="#Rust" class="headerlink" title="Rust"></a>Rust</h3><p>In rust, your have crago for Packages, crates and modules. You write cargo.toml for manifest.</p>
+<p>and  have syntax like</p>
+<div class="highlight-container" data-rel="Rust"><figure class="iseeu highlight rust"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">use</span> std::collections::HashMpa;</span><br></pre></td></tr></table></figure></div>
+<h3 id="C"><a href="#C" class="headerlink" title="C++"></a>C++</h3><p>it’s like somewhat in c++</p>
+<div class="highlight-container" data-rel="C++"><figure class="iseeu highlight c++"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">using</span> <span class="keyword">namespace</span> std;</span><br></pre></td></tr></table></figure></div>
+<p>and </p>
+<div class="highlight-container" data-rel="C++"><figure class="iseeu highlight c++"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">#<span class="keyword">include</span> <span class="string">&lt;vector&gt;</span></span></span><br><span class="line"><span class="keyword">using</span> std::vector;</span><br></pre></td></tr></table></figure></div>
+
+<p>in c/c++, get files into multiple files is something I don’t like, your need header and something iterative and replicatant.</p>
+<h3 id="Interlude"><a href="#Interlude" class="headerlink" title="Interlude"></a>Interlude</h3><div class="highlight-container" data-rel="Rust"><figure class="iseeu highlight rust"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">let</span> <span class="variable">first</span> = &amp;v[<span class="number">0</span>];</span><br><span class="line"></span><br><span class="line"><span class="comment">//Error: v.push(6);</span></span><br><span class="line"></span><br><span class="line"><span class="built_in">println!</span>(<span class="string">"The first element is : {first}"</span>);</span><br></pre></td></tr></table></figure></div>
+<p>I didn’t releaize the problem with this code at first point, I’m far from being rusty. 🤕</p>
+<h2 id="Common-Collections"><a href="#Common-Collections" class="headerlink" title="Common Collections"></a>Common Collections</h2><h3 id="Strings"><a href="#Strings" class="headerlink" title="Strings"></a>Strings</h3><p>Both Swift and Rust String are complicated because of Unicode and UTF-8/UTF-16 encoding, so unlike when you are coping with ASCII in C/C++, string indexing may not be as simple, but more power and multi-language friendly. </p>
+<h3 id="Array"><a href="#Array" class="headerlink" title="Array"></a>Array</h3><h2 id="Error-Handling"><a href="#Error-Handling" class="headerlink" title="Error Handling"></a>Error Handling</h2><h3 id="Rust-1"><a href="#Rust-1" class="headerlink" title="Rust"></a>Rust</h3><p>In rust, you got </p>
+<div class="highlight-container" data-rel="Rust"><figure class="iseeu highlight rust"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">enum</span> <span class="title class_">Result</span>&lt;T, E&gt; {</span><br><span class="line">    <span class="title function_ invoke__">Ok</span>(T), </span><br><span class="line">    <span class="title function_ invoke__">Err</span>(E),</span><br><span class="line">}</span><br></pre></td></tr></table></figure></div>
+<p>it’s explicate enum, just like <code>Option</code>, with functions like: <code>.unwrap()</code>, <code>.</code>expect()<code>; Besides, you got </code>panic!<code>, and </code>?` for Error propagation.</p>
+<p>Let’s review some words in Rust and Swift</p>
+<table>
+<thead>
+<tr>
+<th>Rust</th>
+<th>Swift</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>Cargo</td>
+<td>Swift Package Manager</td>
+</tr>
+<tr>
+<td>crate</td>
+<td>Target</td>
+</tr>
+<tr>
+<td>panic</td>
+<td>fatalError</td>
+</tr>
+<tr>
+<td>trait</td>
+<td>Protocol</td>
+</tr>
+<tr>
+<td>it seems rustaceans really like kind of naming.</td>
+<td></td>
+</tr>
+</tbody></table>
+<h3 id="Swift-1"><a href="#Swift-1" class="headerlink" title="Swift"></a>Swift</h3><p>While in swift, you have got more some what jargon, keyword and syntax to know about. Optional is not really a part, but it’s something I found fit here.</p>
+<p>First you got </p>
+<div class="highlight-container" data-rel="Swift"><figure class="iseeu highlight swift"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">func</span> <span class="title function_">functionThatThrows</span>() -&gt; <span class="keyword">throws</span> <span class="type">Int</span> {</span><br><span class="line">    <span class="keyword">throw</span> <span class="type">Error</span>(<span class="string">"Some Erro"</span>)</span><br><span class="line">    <span class="keyword">return</span> <span class="number">0</span></span><br><span class="line">}</span><br><span class="line"><span class="comment">// and you call it with</span></span><br><span class="line"><span class="keyword">let</span> val <span class="operator">=</span> <span class="keyword">try?</span> functionThatThrows()</span><br><span class="line"><span class="keyword">let</span> nextVale <span class="operator">=</span> <span class="keyword">try!</span> functionThatThrows()</span><br></pre></td></tr></table></figure></div>
+<p>you have <code>try</code>, <code>throws</code>, <code>throw</code> and <code>rethrow</code>, combines with <code>?</code>, <code>!</code>, <code>??</code> or without this postfix, to make a great number of combinations of easy to remember, intuitive and handy things.</p>
+<div class="highlight-container" data-rel="Swift"><figure class="iseeu highlight swift"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">do</span> {</span><br><span class="line">    <span class="comment">// some operation that throws</span></span><br><span class="line">    <span class="keyword">let</span> val <span class="operator">=</span> <span class="keyword">try</span> functionThatThrows()</span><br><span class="line">}<span class="keyword">catch</span> someError {</span><br><span class="line">    <span class="comment">// some code to save or not</span></span><br><span class="line">}<span class="keyword">catch</span> anotherError <span class="keyword">where</span> <span class="operator">...</span> {</span><br><span class="line">    <span class="comment">// </span></span><br><span class="line">}</span><br></pre></td></tr></table></figure></div>
+
+<p>and some handy ones for optional, optional and error handling are something interconnection in swift.</p>
+<div class="highlight-container" data-rel="Swift"><figure class="iseeu highlight swift"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">let</span> val: <span class="type">Int</span>? <span class="operator">=</span> <span class="number">1</span> </span><br><span class="line"><span class="keyword">if</span> <span class="keyword">let</span> x <span class="operator">=</span> val {</span><br><span class="line">    <span class="comment">// some code</span></span><br><span class="line">}<span class="keyword">else</span>{</span><br><span class="line">    <span class="comment">// some other code</span></span><br><span class="line">}</span><br><span class="line"><span class="comment">//❌: print(x), x out of scope</span></span><br><span class="line"></span><br><span class="line"><span class="keyword">guard</span> <span class="keyword">let</span> y <span class="operator">=</span> val <span class="keyword">else</span>{</span><br><span class="line">    <span class="built_in">fatalError</span>(<span class="string">"..."</span>)</span><br><span class="line">    <span class="comment">// or return</span></span><br><span class="line">}</span><br><span class="line"><span class="built_in">print</span>(y) <span class="comment">// ✅</span></span><br></pre></td></tr></table></figure></div>
+
+<p>and another way to do error handling is just the programming crash.<br>for example some times you can write code let that but not recommanded.</p>
+<div class="highlight-container" data-rel="Swift"><figure class="iseeu highlight swift"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">let</span> val: <span class="type">Int</span>? <span class="operator">=</span> <span class="literal">nil</span></span><br><span class="line"><span class="keyword">let</span> y <span class="operator">=</span> val<span class="operator">!</span></span><br><span class="line"><span class="built_in">precondition</span>(<span class="number">1</span> <span class="operator">==</span> <span class="number">0</span>, <span class="string">"🧐"</span>)</span><br><span class="line"><span class="built_in">fatalError</span>(<span class="string">"Let's crash"</span>)</span><br></pre></td></tr></table></figure></div>
+
+<p>and code run only for debug</p>
+<div class="highlight-container" data-rel="Swift"><figure class="iseeu highlight swift"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="built_in">assert</span>(<span class="number">1</span> <span class="operator">==</span> <span class="number">0</span>, <span class="string">"Only prints when debuging"</span>)</span><br></pre></td></tr></table></figure></div>
+
+<p>you can see both <code>Result</code> and <code>Option</code> have mapping one to swift, but instead of explicitly using enum, swift introduces keywords to make it handy. </p>
+<h3 id="C-1"><a href="#C-1" class="headerlink" title="C++"></a>C++</h3><p>C++ also have try, catch blocks and assert, static_assert. But not Optional, nullptr instead.</p>
+<h2 id="Generic-amp-Trait-Generic-amp-Protocols-Generic-amp-Concept"><a href="#Generic-amp-Trait-Generic-amp-Protocols-Generic-amp-Concept" class="headerlink" title="Generic & Trait, Generic & Protocols, Generic & Concept"></a>Generic &amp; Trait, Generic &amp; Protocols, Generic &amp; Concept</h2><p>Trait, Protocol are like interface in other languages, for example Java. </p>
+<p>Core Difference of Rust and Swift Generics vs. C++ Generrics<br>let’s have a look at the code:</p>
+<div class="highlight-container" data-rel="Rust"><figure class="iseeu highlight rust"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">// ❌</span></span><br><span class="line"><span class="keyword">fn</span> <span class="title function_">largest</span>&lt;T&gt;(list: &amp;[T]) <span class="punctuation">-&gt;</span> &amp;T {</span><br><span class="line">    <span class="keyword">let</span> <span class="keyword">mut </span><span class="variable">largest</span> = &amp;list[<span class="number">0</span>];</span><br><span class="line">    <span class="keyword">for</span> <span class="variable">item</span> <span class="keyword">in</span> list {</span><br><span class="line">        <span class="keyword">if</span> item &gt; largest {</span><br><span class="line">            largest = item;</span><br><span class="line">        }</span><br><span class="line">    }</span><br><span class="line">    largest</span><br><span class="line">}</span><br></pre></td></tr></table></figure></div>
+<div class="highlight-container" data-rel="Swift"><figure class="iseeu highlight swift"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">// ❌</span></span><br><span class="line"><span class="keyword">func</span> <span class="title function_">largest</span>&lt;<span class="type">T</span>&gt;(<span class="params">among</span> <span class="params">arr</span>: [<span class="type">T</span>]) -&gt; <span class="type">T</span> {</span><br><span class="line">    <span class="keyword">var</span> maximum <span class="operator">=</span> arr[<span class="number">0</span>]</span><br><span class="line">    <span class="keyword">for</span> val <span class="keyword">in</span> arr {</span><br><span class="line">        <span class="keyword">if</span> val <span class="operator">&gt;</span> maximum {</span><br><span class="line">            maximum <span class="operator">=</span> val</span><br><span class="line">        }</span><br><span class="line">    }</span><br><span class="line">    <span class="keyword">return</span> maximum</span><br><span class="line">}</span><br></pre></td></tr></table></figure></div>
+<p>If you try to compile these two functions, you would get an error.<br>but in c++</p>
+<div class="highlight-container" data-rel="Cxx"><figure class="iseeu highlight cxx"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">// ✅🧐</span></span><br><span class="line"><span class="function"><span class="keyword">template</span>&lt;<span class="keyword">typename</span> T&gt;</span></span><br><span class="line"><span class="function"><span class="type">const</span> T&amp; <span class="title">largest</span><span class="params">(<span class="type">const</span> std::vector&lt;T&gt;&amp; list)</span> </span>{</span><br><span class="line">    <span class="type">const</span> T* largest = &amp;list[<span class="number">0</span>];</span><br><span class="line"></span><br><span class="line">    <span class="keyword">for</span> (<span class="type">const</span> T&amp; item : list) {</span><br><span class="line">        <span class="keyword">if</span> (item &gt; *largest) {</span><br><span class="line">            largest = &amp;item;</span><br><span class="line">        }</span><br><span class="line">    }</span><br><span class="line"></span><br><span class="line">    <span class="keyword">return</span> *largest;</span><br><span class="line">}</span><br></pre></td></tr></table></figure></div>
+<p>but in C++, it works.</p>
+<p>The reason it doesn’t work is that in Rust, and Swift, <code>&gt;</code> is not garuranted to work on <code>T</code>, the same is true for c++, but c++’s generic have maybe something like lazy evluation, so it’s not checkout until you write code that fill in some real concreate type in <code>T</code>. It won’t cause error, but make troubles in developing. These we have </p>
+<h3 id="Concept-in-C-23"><a href="#Concept-in-C-23" class="headerlink" title="Concept in C++23"></a>Concept in C++23</h3><div class="highlight-container" data-rel="Cxx"><figure class="iseeu highlight cxx"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">#<span class="keyword">include</span> <span class="string">&lt;iostream&gt;</span></span></span><br><span class="line"><span class="meta">#<span class="keyword">include</span> <span class="string">&lt;vector&gt;</span></span></span><br><span class="line"><span class="meta">#<span class="keyword">include</span> <span class="string">&lt;concepts&gt;</span></span></span><br><span class="line"></span><br><span class="line"><span class="keyword">template</span>&lt;<span class="keyword">typename</span> T&gt;</span><br><span class="line"><span class="keyword">concept</span> Comparable = <span class="built_in">requires</span>(T a, T b) {</span><br><span class="line">    { a &gt; b } -&gt; std::convertible_to&lt;<span class="type">bool</span>&gt;;</span><br><span class="line">};</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">template</span>&lt;Comparable T&gt;</span></span><br><span class="line"><span class="function"><span class="type">const</span> T&amp; <span class="title">largest</span><span class="params">(<span class="type">const</span> std::vector&lt;T&gt;&amp; list)</span> </span>{</span><br><span class="line">    <span class="type">const</span> T* largest = &amp;list[<span class="number">0</span>];</span><br><span class="line"></span><br><span class="line">    <span class="keyword">for</span> (<span class="type">const</span> T&amp; item : list) {</span><br><span class="line">        <span class="keyword">if</span> (item &gt; *largest) {</span><br><span class="line">            largest = &amp;item;</span><br><span class="line">        }</span><br><span class="line">    }</span><br><span class="line"></span><br><span class="line">    <span class="keyword">return</span> *largest;</span><br><span class="line">}</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="type">int</span> <span class="title">main</span><span class="params">()</span> </span>{</span><br><span class="line">    std::vector&lt;<span class="type">int</span>&gt; nums = { <span class="number">1</span>, <span class="number">5</span>, <span class="number">2</span>, <span class="number">8</span>, <span class="number">3</span> };</span><br><span class="line">    <span class="type">int</span> largestNum = <span class="built_in">largest</span>(nums);</span><br><span class="line">    std::cout &lt;&lt; <span class="string">"Largest number: "</span> &lt;&lt; largestNum &lt;&lt; std::endl;</span><br><span class="line"></span><br><span class="line">    std::vector&lt;<span class="type">double</span>&gt; doubles = { <span class="number">1.2</span>, <span class="number">3.5</span>, <span class="number">2.8</span>, <span class="number">0.5</span>, <span class="number">4.7</span> };</span><br><span class="line">    <span class="type">double</span> largestDouble = <span class="built_in">largest</span>(doubles);</span><br><span class="line">    std::cout &lt;&lt; <span class="string">"Largest double: "</span> &lt;&lt; largestDouble &lt;&lt; std::endl;</span><br><span class="line"></span><br><span class="line">    <span class="keyword">return</span> <span class="number">0</span>;</span><br><span class="line">}</span><br></pre></td></tr></table></figure></div>
+
+<h4 id="interlude"><a href="#interlude" class="headerlink" title="interlude"></a>interlude</h4><p>but I think it’s too late to add this feature, as long as it compiles without writing Concept, most programming won’t do the kind of stuff, and there are great bunch of legacy code in cxx. Besides, Rust and Swift comes with native <code>Trait</code> and <code>Protocol</code> and it doesn’t works only for <code>Generic</code> but prevasive in language, thus, there’s no overhead for understanding. <code>Concept</code> in cxx is like a bug fix or entending, that just bring more and more things to this language. </p>
+<p>Now let’s refer to Python and type hinting, </p>
+<div class="highlight-container" data-rel="Python"><figure class="iseeu highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">from</span> typing <span class="keyword">import</span> <span class="type">Dict</span></span><br><span class="line"></span><br><span class="line"><span class="keyword">def</span> <span class="title function_">process_data</span>(<span class="params">data: <span class="type">Dict</span>[<span class="built_in">str</span>, <span class="built_in">int</span>]</span>) -&gt; <span class="literal">None</span>:</span><br><span class="line">    <span class="keyword">for</span> key, value <span class="keyword">in</span> data.items():</span><br><span class="line">        <span class="built_in">print</span>(key, value)</span><br></pre></td></tr></table></figure></div>
+<p>but how many programers are using this feature? Just like for JavaScript and TypeScript, some times you must get off the legacy bundle and start somes from scratch.</p>
+<h3 id="Trait-amp-Protocol"><a href="#Trait-amp-Protocol" class="headerlink" title="Trait & Protocol"></a>Trait &amp; Protocol</h3><p>I will just list some usages of Trait Rust, as there’s a great deal of contents. And for swift, even more, as swift can be called as a <code>Protocol Oriented Language</code></p>
+<h4 id="Define-a-trait-Define-Protocol"><a href="#Define-a-trait-Define-Protocol" class="headerlink" title="Define a trait, Define Protocol"></a>Define a trait, Define Protocol</h4><div class="highlight-container" data-rel="Rust"><figure class="iseeu highlight rust"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">pub</span> <span class="keyword">trait</span> <span class="title class_">Summary</span> {</span><br><span class="line">    <span class="keyword">fn</span> <span class="title function_">summarize</span>(&amp;<span class="keyword">self</span>) <span class="punctuation">-&gt;</span> <span class="type">String</span>;</span><br><span class="line">}</span><br></pre></td></tr></table></figure></div>
+<p>swift protocol and also define protocol access requirements. Remember properity with <code>{get}</code> or <code>{get set}</code> aren’t necessarily computed properity.</p>
+<div class="highlight-container" data-rel="Swift"><figure class="iseeu highlight swift"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">protocol</span> <span class="title class_">SomeProtocol</span> {</span><br><span class="line">    <span class="keyword">var</span> mustBeSettable: <span class="type">Int</span> { <span class="keyword">get</span> <span class="keyword">set</span> }</span><br><span class="line">    <span class="keyword">var</span> doesNotNeedToBeSettable: <span class="type">Int</span> { <span class="keyword">get</span> }</span><br><span class="line">    <span class="keyword">static</span> <span class="keyword">func</span> <span class="title function_">someTypeMethod</span>()</span><br><span class="line">    <span class="keyword">func</span> <span class="title function_">random</span>() -&gt; <span class="type">Double</span></span><br><span class="line">    <span class="keyword">mutating</span> <span class="keyword">func</span> <span class="title function_">toggle</span>()</span><br><span class="line">}</span><br></pre></td></tr></table></figure></div>
+
+<h4 id="implementation-and-default-implementation-conditional-implementation"><a href="#implementation-and-default-implementation-conditional-implementation" class="headerlink" title="implementation and default implementation, conditional implementation"></a>implementation and default implementation, conditional implementation</h4><div class="highlight-container" data-rel="Rust"><figure class="iseeu highlight rust"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">impl</span> <span class="title class_">Summary</span> <span class="keyword">for</span> <span class="title class_">NewsArticle</span> {</span><br><span class="line">    <span class="keyword">fn</span> <span class="title function_">summarize</span>(&amp;<span class="keyword">self</span>) <span class="punctuation">-&gt;</span> <span class="type">String</span> {</span><br><span class="line">        <span class="comment">// ...</span></span><br><span class="line">    }</span><br><span class="line">}</span><br></pre></td></tr></table></figure></div>
+<p>swift methods are normally defined inside struct, but can also be extended outside with extension</p>
+<div class="highlight-container" data-rel="Swift"><figure class="iseeu highlight swift"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">struct</span> <span class="title class_">someStrust</span>: <span class="title class_">SomeProtocol</span>, <span class="title class_">AnotherProtocol</span> {</span><br><span class="line">    <span class="comment">// confroms must be explicate, except for default implementation and conditional implementaton</span></span><br><span class="line">}</span><br></pre></td></tr></table></figure></div>
+<p>it’s not inheritance, as still need to explicatedly <strong>implement</strong> for each struct rather than have methods and properity inherted from it’s parent.</p>
+<h4 id="with-generics"><a href="#with-generics" class="headerlink" title="with generics"></a>with generics</h4><p>as for code before, <code>&lt;</code> operate must be explicatly available, thus you write code like this:</p>
+<div class="highlight-container" data-rel="Rust"><figure class="iseeu highlight rust"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">pub</span> <span class="keyword">fn</span> <span class="title function_">notify</span>(item: &amp;<span class="keyword">impl</span> <span class="title class_">Summary</span>) {</span><br><span class="line">    <span class="built_in">println!</span>(<span class="string">"Breaking news! {}"</span>, item.<span class="title function_ invoke__">summarize</span>());</span><br><span class="line">}</span><br><span class="line"><span class="keyword">pub</span> <span class="keyword">fn</span> <span class="title function_">notify</span>&lt;T: Summary&gt;(item: &amp;T) {</span><br><span class="line">    <span class="built_in">println!</span>(<span class="string">"Breaking news! {}"</span>, item.<span class="title function_ invoke__">summarize</span>());</span><br><span class="line">}</span><br><span class="line"><span class="keyword">pub</span> <span class="keyword">fn</span> <span class="title function_">notify</span>&lt;T&gt;(item: &amp;T) <span class="keyword">where</span> T: Summary {</span><br><span class="line">    <span class="built_in">println!</span>(<span class="string">"Breaking news! {}"</span>, item.<span class="title function_ invoke__">summarize</span>());</span><br><span class="line">}</span><br></pre></td></tr></table></figure></div>
+
+<div class="highlight-container" data-rel="Swift"><figure class="iseeu highlight swift"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">protocol</span> <span class="title class_">Comparable</span> {</span><br><span class="line">    <span class="keyword">static</span> <span class="keyword">func</span> <span class="title function_">&lt;</span> (<span class="keyword">_</span> <span class="params">lhs</span>: <span class="keyword">Self</span>, <span class="keyword">_</span> <span class="params">rhs</span>: <span class="keyword">Self</span>) -&gt; <span class="type">Bool</span> </span><br><span class="line">}</span><br><span class="line"><span class="keyword">public</span> <span class="keyword">func</span> <span class="title function_">largest</span>&lt;<span class="type">T</span>&gt;(<span class="params">items</span>: [<span class="type">T</span>]) <span class="keyword">where</span> <span class="type">T</span>: <span class="type">Comparable</span> {</span><br><span class="line">    <span class="comment">/// implemenation</span></span><br><span class="line">}</span><br></pre></td></tr></table></figure></div>
+
+<h4 id="use-as-return-type"><a href="#use-as-return-type" class="headerlink" title="use as return type"></a>use as return type</h4><div class="highlight-container" data-rel="Rust"><figure class="iseeu highlight rust"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">fn</span> <span class="title function_">returns_summarizable</span>(switch: <span class="type">bool</span>) <span class="punctuation">-&gt;</span> <span class="keyword">impl</span> <span class="title class_">Summary</span> {</span><br><span class="line">    <span class="comment">// implementation</span></span><br><span class="line">}</span><br></pre></td></tr></table></figure></div>
+<div class="highlight-container" data-rel="Swift"><figure class="iseeu highlight swift"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">func</span> <span class="title function_">getLargest</span>&lt;<span class="type">T</span>&gt;(<span class="params">from</span> <span class="params">items</span>: [<span class="type">T</span>] ) -&gt; <span class="keyword">some</span> <span class="type">T</span> <span class="keyword">where</span> <span class="type">T</span>: <span class="type">Comparable</span> {</span><br><span class="line">    <span class="comment">// implementation</span></span><br><span class="line">}</span><br></pre></td></tr></table></figure></div>
+
+<h4 id="combination"><a href="#combination" class="headerlink" title="combination"></a>combination</h4><div class="highlight-container" data-rel="Rust"><figure class="iseeu highlight rust"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">impl</span>&lt;T: Display + <span class="built_in">PartialOrd</span>&gt; Pair&lt;T&gt; {</span><br><span class="line">    <span class="comment">// implementation</span></span><br><span class="line">}</span><br></pre></td></tr></table></figure></div>
+
+<div class="highlight-container" data-rel="Swift"><figure class="iseeu highlight swift"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">protocol</span> <span class="title class_">combinedProtocol</span>: <span class="title class_">SomeProtocol</span>, <span class="title class_">AnotherProtocol</span>  {</span><br><span class="line">    <span class="comment">// and you can add some additional requirement</span></span><br><span class="line">}</span><br></pre></td></tr></table></figure></div>
+<p>Protocols can be inherated, which is infact combine and addition, but be carefully, as there can be problems like implementation conflictions. Anyway, compiler would get you notified.</p>
+<p>and combines</p>
+<div class="highlight-container" data-rel="Swift"><figure class="iseeu highlight swift"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">func</span> <span class="title function_">wishHappyBirthday</span>(<span class="params">to</span> <span class="params">celebrator</span>: <span class="type">Named</span> &amp; <span class="type">Aged</span>)</span><br><span class="line"><span class="comment">// Named and Aged are two Protocols </span></span><br></pre></td></tr></table></figure></div>
+<h3 id="Generic-and-Lifetime-in-Rust"><a href="#Generic-and-Lifetime-in-Rust" class="headerlink" title="Generic and Lifetime in Rust"></a>Generic and Lifetime in Rust</h3><p>I haven’t got an soild understanding on this part.</p>
+<h2 id="Tests"><a href="#Tests" class="headerlink" title="Tests"></a>Tests</h2><p>I don’t know the most common way of doing test in cxx, make with cmake ctest.</p>
+<p>In Rust, you test with and module marked #[cfg(test)], and in swift, you test with XCTest framework. XCTest I believe stands for Xcode Test, it does work without Xcode but got really terrible output sometimes. </p>
+<h2 id="Funtional-Programming"><a href="#Funtional-Programming" class="headerlink" title="Funtional Programming"></a>Funtional Programming</h2><p>I didn’t tell Procedural Programming and Functional Programming for a long time. 😣.</p>
+<p>I first learn about Function Programming when learning python from <a class="link" target="_blank" rel="noopener" href="https://cs61a.org/">CS61A<i class="fa-solid fa-up-right-from-square"></i></a> with .map and .reduce. </p>
+<h3 id="Closures"><a href="#Closures" class="headerlink" title="Closures"></a>Closures</h3><h4 id="Rust-2"><a href="#Rust-2" class="headerlink" title="Rust"></a>Rust</h4><div class="highlight-container" data-rel="Rust"><figure class="iseeu highlight rust"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">fn</span>  <span class="title function_">add_one_v1</span>   (x: <span class="type">u32</span>) <span class="punctuation">-&gt;</span> <span class="type">u32</span> { x + <span class="number">1</span> }</span><br><span class="line"><span class="keyword">let</span> <span class="variable">add_one_v2</span> = |x: <span class="type">u32</span>| <span class="punctuation">-&gt;</span> <span class="type">u32</span> { x + <span class="number">1</span> };</span><br><span class="line"><span class="keyword">let</span> <span class="variable">add_one_v3</span> = |x|             { x + <span class="number">1</span> };</span><br><span class="line"><span class="keyword">let</span> <span class="variable">add_one_v4</span> = |x|               x + <span class="number">1</span>  ;</span><br></pre></td></tr></table></figure></div>
+
+
+<h4 id="Swift-2"><a href="#Swift-2" class="headerlink" title="Swift"></a>Swift</h4><div class="highlight-container" data-rel="Swift"><figure class="iseeu highlight swift"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br></pre></td><td class="code"><pre><span class="line">{ (<span class="operator">&lt;</span>#parameters#<span class="operator">&gt;</span>) -&gt; <span class="operator">&lt;</span>#return type#<span class="operator">&gt;</span> <span class="keyword">in</span></span><br><span class="line">   <span class="operator">&lt;</span>#statements#<span class="operator">&gt;</span></span><br><span class="line">}</span><br><span class="line">reversedNames <span class="operator">=</span> names.sorted(by: { (s1: <span class="type">String</span>, s2: <span class="type">String</span>) -&gt; <span class="type">Bool</span> <span class="keyword">in</span></span><br><span class="line">    <span class="keyword">return</span> s1 <span class="operator">&gt;</span> s2</span><br><span class="line">})</span><br><span class="line"></span><br><span class="line">reversedNames <span class="operator">=</span> names.sorted(by: { (s1: <span class="type">String</span>, s2: <span class="type">String</span>) -&gt; <span class="type">Bool</span> <span class="keyword">in</span> <span class="keyword">return</span> s1 <span class="operator">&gt;</span> s2 } )</span><br><span class="line"></span><br><span class="line">reversedNames <span class="operator">=</span> names.sorted(by: { s1, s2 <span class="keyword">in</span> <span class="keyword">return</span> s1 <span class="operator">&gt;</span> s2 } )</span><br><span class="line"></span><br><span class="line">reversedNames <span class="operator">=</span> names.sorted(by: { s1, s2 <span class="keyword">in</span> s1 <span class="operator">&gt;</span> s2 } )</span><br><span class="line"></span><br><span class="line">reversedNames <span class="operator">=</span> names.sorted(by: { <span class="variable">$0</span> <span class="operator">&gt;</span> <span class="variable">$1</span> } )</span><br><span class="line"></span><br><span class="line">reversedNames <span class="operator">=</span> names.sorted(by: <span class="operator">&gt;</span>)</span><br><span class="line"></span><br><span class="line">reversedNames <span class="operator">=</span> names.sorted() { <span class="variable">$0</span> <span class="operator">&gt;</span> <span class="variable">$1</span> }</span><br></pre></td></tr></table></figure></div>
+<p>the last one is <strong>Trailing closures</strong> which is really handy, espically with <code>@resultBuilder</code>, in swift, you can explictly capture value by syntax.</p>
+<div class="highlight-container" data-rel="Swift"><figure class="iseeu highlight swift"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">someFunctionWithEscapingClosure { [<span class="keyword">self</span>] <span class="keyword">in</span> x <span class="operator">=</span> <span class="number">100</span> }</span><br></pre></td></tr></table></figure></div>
+
+<p>and the type of closure is clear</p>
+<div class="highlight-container" data-rel="Swift"><figure class="iseeu highlight swift"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">let</span> x: (<span class="type">Int</span>, <span class="type">Int</span>) -&gt; <span class="type">Bool</span> <span class="operator">=</span> {<span class="variable">$0</span> <span class="operator">&gt;</span> <span class="variable">$1</span>}</span><br></pre></td></tr></table></figure></div>
+<p>it’s handy to write type for a function as input and pass in a closure.</p>
+<h4 id="lambda-in-c"><a href="#lambda-in-c" class="headerlink" title="lambda in c++"></a>lambda in c++</h4><div class="highlight-container" data-rel="Cxx"><figure class="iseeu highlight cxx"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">[capture-list](parameters) -&gt; <span class="keyword">return</span>-type {</span><br><span class="line">    <span class="comment">// Function body</span></span><br><span class="line">}</span><br></pre></td></tr></table></figure></div>
+<p>it also get closure like in c++, what not as easy to write and use.</p>
+<h4 id="Capture-value"><a href="#Capture-value" class="headerlink" title="Capture value"></a>Capture value</h4><p>In rust, you need to worry about ownership and reference. In swift, closure it self is reference type, we haven’t yet talked about class and ARC in swift, but closure can cause problems with ARC. </p>
+<p>both in swift and rust, functional programming codes looks simlar, while one comes with deep and shallow copy, anothor with fine grained control on reference. Funtional programming makes code concise and clear, and as swift and rust are both static typed, compiling programming, thanks to the developement of compiler in these years, the performance is guaranteed.</p>
+<h2 id="Smart-Pointer-and-ARC-RAII"><a href="#Smart-Pointer-and-ARC-RAII" class="headerlink" title="Smart Pointer, and ARC, RAII"></a>Smart Pointer, and ARC, RAII</h2><h3 id="class-in-swift"><a href="#class-in-swift" class="headerlink" title="class in swift"></a>class in swift</h3><p>We haven’t introduced class in swift. There are languages that have struct only, and langauage have class only. In C++, you get both struct and class, but the only difference is the access level, I think it’s primarly for working with c and is infact some kind’s reduantly. </p>
+<p>In swift, class has some core difference with struct, struct is value type in swift, class is reference type, and class have deinit, inhertance. </p>
+<h4 id="swift-5-9"><a href="#swift-5-9" class="headerlink" title="swift 5.9"></a>swift 5.9</h4><p>swift 5.9 introduced c++ interoprablity, this changed that struct can’t have deinit.</p>
+<p>you can now give a struct deinit by let comform to :<code>~Copyable</code> this maybe be familar to c++ writters. </p>
+<h3 id="smart-pointer"><a href="#smart-pointer" class="headerlink" title="smart pointer"></a>smart pointer</h3><p>Both in rust and c++, you got smart pointers, and weak for reference cycle and break reference cycles.</p>
+<h3 id="RAII-and-ARC"><a href="#RAII-and-ARC" class="headerlink" title="RAII and ARC"></a>RAII and ARC</h3><p>In swift, you rarely use pointer directly as it’s unsafe, reference works with class and is implicate, but the class keyword should make you aware of it. I think it’s a gate that one start to understand swift. But ARC sometimes comes to problems with reference cycle as well and such program is easily created when using closure that captures class’s self. </p>
+<h2 id="Concurrency-Support"><a href="#Concurrency-Support" class="headerlink" title="Concurrency Support"></a>Concurrency Support</h2><p>Rust’s features on ownership and it’s integration with compiler’s check system.<br>And when it’s talking about Concurrency, Go is famous for it, I personally haven’t learn that language, but hear of it for it’s support for concurrency. </p>
+<p>Rust’s Ownership module is the fundation of it’s concurrency support, and the left part to of the support isn’t in the language it self but in crates.</p>
+<p>Swift on the other side bring’s some keyword for it.</p>
+<p>C++ is a powerfully language that allows you to do many fine-grained control, I don’t if there’s language syntax level control on this, but I know many work you that you do with concurrency in C++ is using some specific libraries.</p>
+<h2 id="Object-Oriented-Programming"><a href="#Object-Oriented-Programming" class="headerlink" title="Object Oriented Programming"></a>Object Oriented Programming</h2><p><em>If a language must have inheritance to be an object-oriented language, then Rust is not one.</em> The Rust programming langugage.</p>
+<p>In swift, struct don’t directly have Inheritance by defination.</p>
+<p>But wait, when we are talking about inheritance, as I remember learn Java, inheritance is something not easy to gasp and prone to make mistake, and do we really need them.</p>
+<h3 id="Protocol-Oriented-Programming"><a href="#Protocol-Oriented-Programming" class="headerlink" title="Protocol-Oriented Programming"></a>Protocol-Oriented Programming</h3><p>Protocol-Oriented is as some level similar to Oriented Programming. </p>
+
+            </div>
+
+            
+                <div class="post-copyright-info">
+                    <div class="article-copyright-info-container">
+    <ul>
+        <li>Post title：Rust, Swift and C++</li>
+        <li>Post author：Meqt</li>
+        <li>Create time：2023-06-07 13:49:42</li>
+        <li>
+            Post link：https://meqtmac.github.io/2023/06/07/RustVsSwift/
+        </li>
+        <li>
+            Copyright Notice：All articles in this blog are licensed under <a class="license" target="_blank" rel="noopener" href="https://creativecommons.org/licenses/by-nc-sa/4.0/deed.zh">BY-NC-SA</a> unless stating additionally.
+        </li>
+    </ul>
+</div>
+
+                </div>
+            
+
+            
+
+            
+                <div class="article-nav">
+                    
+                        <div class="article-prev">
+                            <a class="prev"
+                            rel="prev"
+                            href="/2023/06/13/ProgrammingLanguages-md/"
+                            >
+                                <span class="left arrow-icon flex-center">
+                                    <i class="fa-solid fa-chevron-left"></i>
+                                </span>
+                                <span class="title flex-center">
+                                    <span class="post-nav-title-item">ProgrammingLanguages.md</span>
+                                    <span class="post-nav-item">Prev posts</span>
+                                </span>
+                            </a>
+                        </div>
+                    
+                    
+                        <div class="article-next">
+                            <a class="next"
+                            rel="next"
+                            href="/2023/02/09/swift-Server/"
+                            >
+                                <span class="title flex-center">
+                                    <span class="post-nav-title-item">Swift Server Practice</span>
+                                    <span class="post-nav-item">Next posts</span>
+                                </span>
+                                <span class="right arrow-icon flex-center">
+                                    <i class="fa-solid fa-chevron-right"></i>
+                                </span>
+                            </a>
+                        </div>
+                    
+                </div>
+            
+
+            
+        </div>
+
+        
+            <div class="toc-content-container">
+                <div class="post-toc-wrap">
+    <div class="post-toc">
+        <div style="font-size: 1.3rem;margin-top: 0; margin-bottom: 0.8rem; transition-duration: 0.1s;"><i class="fa-solid fa-list"></i> <strong>Contents</strong></div>
+        <ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#Value-and-Types"><span class="nav-number">1.</span> <span class="nav-text">Value and Types</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#Swift-value-basics"><span class="nav-number">1.1.</span> <span class="nav-text">Swift value basics</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#Rust-with-owership"><span class="nav-number">1.2.</span> <span class="nav-text">Rust with owership</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#Swift-Memory-Operation"><span class="nav-number">1.3.</span> <span class="nav-text">Swift Memory Operation</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#stored-property-calculated-property-and-property-observer"><span class="nav-number">1.4.</span> <span class="nav-text">stored property, calculated property, and property observer.</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#I-think-swift-struct-and-class-should-also-be-talked-about-in-this-phase-for-accordance-and-better-understanding-with-let-and-val-and-let-var-for-compound-value-and-reference"><span class="nav-number">1.4.1.</span> <span class="nav-text">I think swift struct and class should also be talked about in this phase, for accordance, and better understanding with let and val, and let, var for compound value and reference.</span></a></li></ol></li><li class="nav-item nav-level-3"><a class="nav-link" href="#Type"><span class="nav-number">1.5.</span> <span class="nav-text">Type</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#Struct-Class"><span class="nav-number">1.6.</span> <span class="nav-text">Struct, Class</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#Expressions-Statement-and-semicolons"><span class="nav-number">2.</span> <span class="nav-text">Expressions, Statement, and semicolons</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#Functions-and-maybe-Closure"><span class="nav-number">3.</span> <span class="nav-text">Functions and maybe Closure</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#Enum"><span class="nav-number">4.</span> <span class="nav-text">Enum</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#Option"><span class="nav-number">4.1.</span> <span class="nav-text">Option</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#Pattern-Matching"><span class="nav-number">4.2.</span> <span class="nav-text">Pattern Matching</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#Packages-Crates-and-Modules"><span class="nav-number">5.</span> <span class="nav-text">Packages, Crates and Modules</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#Swift"><span class="nav-number">5.1.</span> <span class="nav-text">Swift</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#Rust"><span class="nav-number">5.2.</span> <span class="nav-text">Rust</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#C"><span class="nav-number">5.3.</span> <span class="nav-text">C++</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#Interlude"><span class="nav-number">5.4.</span> <span class="nav-text">Interlude</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#Common-Collections"><span class="nav-number">6.</span> <span class="nav-text">Common Collections</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#Strings"><span class="nav-number">6.1.</span> <span class="nav-text">Strings</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#Array"><span class="nav-number">6.2.</span> <span class="nav-text">Array</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#Error-Handling"><span class="nav-number">7.</span> <span class="nav-text">Error Handling</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#Rust-1"><span class="nav-number">7.1.</span> <span class="nav-text">Rust</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#Swift-1"><span class="nav-number">7.2.</span> <span class="nav-text">Swift</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#C-1"><span class="nav-number">7.3.</span> <span class="nav-text">C++</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#Generic-amp-Trait-Generic-amp-Protocols-Generic-amp-Concept"><span class="nav-number">8.</span> <span class="nav-text">Generic &amp; Trait, Generic &amp; Protocols, Generic &amp; Concept</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#Concept-in-C-23"><span class="nav-number">8.1.</span> <span class="nav-text">Concept in C++23</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#interlude"><span class="nav-number">8.1.1.</span> <span class="nav-text">interlude</span></a></li></ol></li><li class="nav-item nav-level-3"><a class="nav-link" href="#Trait-amp-Protocol"><span class="nav-number">8.2.</span> <span class="nav-text">Trait &amp; Protocol</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#Define-a-trait-Define-Protocol"><span class="nav-number">8.2.1.</span> <span class="nav-text">Define a trait, Define Protocol</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#implementation-and-default-implementation-conditional-implementation"><span class="nav-number">8.2.2.</span> <span class="nav-text">implementation and default implementation, conditional implementation</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#with-generics"><span class="nav-number">8.2.3.</span> <span class="nav-text">with generics</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#use-as-return-type"><span class="nav-number">8.2.4.</span> <span class="nav-text">use as return type</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#combination"><span class="nav-number">8.2.5.</span> <span class="nav-text">combination</span></a></li></ol></li><li class="nav-item nav-level-3"><a class="nav-link" href="#Generic-and-Lifetime-in-Rust"><span class="nav-number">8.3.</span> <span class="nav-text">Generic and Lifetime in Rust</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#Tests"><span class="nav-number">9.</span> <span class="nav-text">Tests</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#Funtional-Programming"><span class="nav-number">10.</span> <span class="nav-text">Funtional Programming</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#Closures"><span class="nav-number">10.1.</span> <span class="nav-text">Closures</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#Rust-2"><span class="nav-number">10.1.1.</span> <span class="nav-text">Rust</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#Swift-2"><span class="nav-number">10.1.2.</span> <span class="nav-text">Swift</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#lambda-in-c"><span class="nav-number">10.1.3.</span> <span class="nav-text">lambda in c++</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#Capture-value"><span class="nav-number">10.1.4.</span> <span class="nav-text">Capture value</span></a></li></ol></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#Smart-Pointer-and-ARC-RAII"><span class="nav-number">11.</span> <span class="nav-text">Smart Pointer, and ARC, RAII</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#class-in-swift"><span class="nav-number">11.1.</span> <span class="nav-text">class in swift</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#swift-5-9"><span class="nav-number">11.1.1.</span> <span class="nav-text">swift 5.9</span></a></li></ol></li><li class="nav-item nav-level-3"><a class="nav-link" href="#smart-pointer"><span class="nav-number">11.2.</span> <span class="nav-text">smart pointer</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#RAII-and-ARC"><span class="nav-number">11.3.</span> <span class="nav-text">RAII and ARC</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#Concurrency-Support"><span class="nav-number">12.</span> <span class="nav-text">Concurrency Support</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#Object-Oriented-Programming"><span class="nav-number">13.</span> <span class="nav-text">Object Oriented Programming</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#Protocol-Oriented-Programming"><span class="nav-number">13.1.</span> <span class="nav-text">Protocol-Oriented Programming</span></a></li></ol></li></ol>
+    </div>
+</div>
+            </div>
+        
+    </div>
+</div>
+
+
+                
+
+            </div>
+
+
+
+        </div>
+
+        <div class="page-main-content-bottom">
+            <footer class="footer">
+    <div class="info-container">
+        <div class="copyright-info info-item">
+            &copy;
+            
+              <span>2022</span>
+              -
+            
+            2023&nbsp;<i class="fa-solid fa-heart icon-animate"></i>&nbsp;<a href="/">Meqt. All Rights Reserved.</a>
+        </div>
+        
+            <script async data-pjax src="//busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js"></script>
+            <div class="website-count info-item">
+                
+                    <span id="busuanzi_container_site_uv">
+                        Visitor Count&nbsp;<span id="busuanzi_value_site_uv"></span>&ensp;
+                    </span>
+                
+                
+                    <span id="busuanzi_container_site_pv">
+                        Totalviews&nbsp;<span id="busuanzi_value_site_pv"></span>
+                    </span>
+                
+            </div>
+        
+        <div class="theme-info info-item">
+            Powered by <a target="_blank" href="https://hexo.io">Hexo</a>&nbsp;|&nbsp;Theme&nbsp;<a class="theme-version" target="_blank" href="https://github.com/EvanNotFound/hexo-theme-redefine">Redefine v0.3.5</a>
+        </div>
+        
+        
+        <script async data-pjax defer>
+            function odometer_init(){
+                    let el = document.getElementsByClassName('odometer');
+                    for (i = 0; i < el.length; i++) {
+                        od = new Odometer({
+                            el: el[i],
+                            format: '( ddd).dd',
+                            duration: 200
+                        });
+                    }
+            }
+            odometer_init();
+        </script>
+        <div id="start_time_div" style="display:none">
+            2022/12/17 15:05:00
+        </div>
+        
+            <div>
+                Blog up for <span class="odometer" id="runtime_days" ></span> days <span class="odometer" id="runtime_hours"></span> hrs <span class="odometer" id="runtime_minutes"></span> Min <span class="odometer" id="runtime_seconds"></span> Sec
+            </div>
+        
+        
+        
+    </div>
+    <link rel="stylesheet" href="//evan.beee.top/css/waline.css"/>
+    <script src="//evan.beee.top/js/waline.js"></script>
+    
+</footer>
+        </div>
+    </div>
+
+    
+        <div class="post-tools">
+            <div class="post-tools-container">
+    <ul class="tools-list">
+        <!-- TOC aside toggle -->
+        
+            <li class="tools-item page-aside-toggle">
+                <i class="fa-regular fa-outdent"></i>
+            </li>
+        
+
+        <!-- go comment -->
+        
+    </ul>
+</div>
+
+        </div>
+    
+
+    <div class="right-bottom-side-tools">
+        <div class="side-tools-container">
+    <ul class="side-tools-list">
+        <li class="tools-item tool-font-adjust-plus flex-center">
+            <i class="fa-solid fa-magnifying-glass-plus"></i>
+        </li>
+
+        <li class="tools-item tool-font-adjust-minus flex-center">
+            <i class="fa-solid fa-magnifying-glass-minus"></i>
+        </li>
+
+        <li class="tools-item tool-expand-width flex-center">
+            <i class="fa-solid fa-left-right"></i>
+        </li>
+
+        <li class="tools-item tool-dark-light-toggle flex-center">
+            <i class="fa-solid fa-moon"></i>
+        </li>
+
+        <!-- rss -->
+        
+
+        
+            <li class="tools-item tool-scroll-to-top flex-center">
+                <i class="fa-solid fa-arrow-up"></i>
+            </li>
+        
+
+        <li class="tools-item tool-scroll-to-bottom flex-center">
+            <i class="fa-solid fa-arrow-down"></i>
+        </li>
+    </ul>
+
+    <ul class="exposed-tools-list">
+        <li class="tools-item tool-toggle-show flex-center">
+            <i class="fa-solid fa-cog fa-spin"></i>
+        </li>
+        
+    </ul>
+</div>
+
+    </div>
+
+    <div class="image-viewer-container">
+    <img src="">
+</div>
+
+
+    
+        <div class="search-pop-overlay">
+    <div class="popup search-popup">
+        <div class="search-header">
+          <span class="search-input-field-pre">
+            <i class="fa-solid fa-keyboard"></i>
+          </span>
+            <div class="search-input-container">
+                <input autocomplete="off"
+                       autocorrect="off"
+                       autocapitalize="off"
+                       placeholder="Search..."
+                       spellcheck="false"
+                       type="search"
+                       class="search-input"
+                >
+            </div>
+            <span class="popup-btn-close">
+                <i class="fa-solid fa-times"></i>
+            </span>
+        </div>
+        <div id="search-result">
+            <div id="no-result">
+                <i class="fa-solid fa-spinner fa-spin-pulse fa-5x fa-fw"></i>
+            </div>
+        </div>
+    </div>
+</div>
+
+    
+
+</main>
+
+
+
+
+<script src="/js/utils.js"></script>
+
+<script src="/js/main.js"></script>
+
+<script src="/js/header-shrink.js"></script>
+
+<script src="/js/back2top.js"></script>
+
+<script src="/js/dark-light-toggle.js"></script>
+
+
+
+    
+<script src="/js/local-search.js"></script>
+
+
+
+
+    
+<script src="/js/code-copy.js"></script>
+
+
+
+
+    
+<script src="/js/lazyload.js"></script>
+
+
+
+
+    
+<script src="/js/runtime.js"></script>
+
+    
+<script src="/js/odometer.min.js"></script>
+
+    
+<link rel="stylesheet" href="/css/odometer-theme-minimal.css">
+
+
+
+<div class="post-scripts pjax">
+    
+        
+<script src="/js/toc-toggle.js"></script>
+
+<script src="/js/libs/anime.min.js"></script>
+
+<script src="/js/toc.js"></script>
+
+    
+</div>
+
+
+    
+<script src="/js/libs/pjax.min.js"></script>
+
+<script>
+    window.addEventListener('DOMContentLoaded', () => {
+        window.pjax = new Pjax({
+            selectors: [
+                'head title',
+                '.page-container',
+                '.pjax'
+            ],
+            history: true,
+            debug: false,
+            cacheBust: false,
+            timeout: 0,
+            analytics: false,
+            currentUrlFullReload: false,
+            scrollRestoration: false,
+            // scrollTo: true,
+        });
+
+        document.addEventListener('pjax:send', () => {
+            REDEFINE.utils.pjaxProgressBarStart();
+        });
+
+        document.addEventListener('pjax:complete', () => {
+            REDEFINE.utils.pjaxProgressBarEnd();
+            window.pjax.executeScripts(document.querySelectorAll('script[data-pjax], .pjax script'));
+            REDEFINE.refresh();
+        });
+    });
+</script>
+
+
+
+</body>
+</html>
